@@ -146,6 +146,11 @@ repository:
                 captures:
                   1: name: 'variable.language.condition.text.ck2'
               }
+              {
+                match: '(?xi)\\b(picture)\\s*(=)\\s*(?=\\w+)'
+                captures:
+                  1: name: 'variable.language.condition.picture.ck2'
+              }
             ]
           }
           {
