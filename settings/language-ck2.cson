@@ -1,0 +1,13 @@
+'.source.ck2':
+  'editor':
+    'autoIndentOnPaste': true
+    'softTabs': true
+    'tabLength': 4
+    'commentStart': '# '
+    'increaseIndentPattern': '(?x)
+       ^ .* \\{ [^}"\']* $
+      |^ \\s* \\{ \\} $
+      '
+    'decreaseIndentPattern': '(?x)
+       ^ \\s* (\\s* /[*] .* [*]/ \\s*)* \\}
+      '
