@@ -2187,6 +2187,17 @@ repository:
           \\b'
         name: 'support.function.effect.wars.ck2'
       }
+      {
+        match: '(?xi)
+          \\b
+          ([[:alnum:]_]+_effect)\\s*
+          (=)\\s*
+          (?=(yes|no))'
+        captures:
+          0: name: 'meta.scripted_effect-call.ck2'
+          1: name: 'support.function.scripted_effect.ck2'
+          2: name: 'punctuation.definition.operator.assignment.ck2'
+      }
     ]
   numbers:
     patterns: [
