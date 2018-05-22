@@ -1287,7 +1287,7 @@ repository:
           at_location|attribute_diff|can_hold_title|character|
           combat_rating(_diff)?|(uses_)?decadence|diploma(cy|tic_immunity)|
           dynasty|fertility|graphical_culture|
-          (has_(any_(opinion_modifier|quest))|assigned_minor_title|(living_)?children|minor_title|portrait_property)|
+          (has_((any_(opinion_modifier|quest))|(assigned_)?minor_title|(living_)?children|portrait_property))|
           imprisoned_days|in_command|intrigue|
           is_((ancestor|grand(child|parent)|parent|descendant|cousin|aunt_uncle|nibling)|could_be_parent)_of|
           (day|month|year)_of_birth|landed(_title_allowed)?|heir|lowborn|
