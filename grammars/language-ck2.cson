@@ -1028,6 +1028,7 @@ repository:
       { include: '#scopes' }
       { include: '#effects' }
       { include: '#control_flow' }
+      { include: '#effect_tooltips' }
       {
         name: 'meta.effect.clause.ck2'
         begin: '(?x)\\s*(=)\\s*(\\{)'
@@ -1656,6 +1657,38 @@ repository:
           { include: '#effects' }
           { include: '#clause_innards' }
           { include: '$self' }
+        ]
+      }
+    ]
+  effect_tooltips:
+    patterns: [
+      {
+        contentName: 'meta.effect.tooltip.ck2'
+        begin: '(?xi)
+          \\b
+          (
+            (?:(?:hidden|conditional|custom)_)tooltip
+          )\\s*
+          (=)\\s*
+          (\\{)
+          \\B'
+        beginCaptures:
+          0: name: 'entity.type.tooltip.ck2'
+          1: name: 'keyword.control.tooltip.ck2'
+          2: name: 'punctuation.definition.tooltip.assignment.ck2'
+          3: name: 'punctuation.definition.tooltip.begin.bracket.curly.ck2'
+        end: '\\B(\\})\\B'
+        endCaptures:
+          1: name: 'punctuation.definition.tooltip.end.bracket.curly'
+        patterns: [
+          {
+            match: '(?xi)\\b(text)\\s*(=)\\s*(?=\\w+)'
+            captures:
+              1: name: 'variable.language.condition.text.ck2'
+          }
+          { include: '#trigger_clause'}
+          { include: '#effect_clause'}
+          { include: '#lineComment'}
         ]
       }
     ]
