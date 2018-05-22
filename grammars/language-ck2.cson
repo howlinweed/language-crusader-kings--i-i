@@ -138,7 +138,6 @@ repository:
             endCaptures:
               1: name: 'punctuation.definition.desc.end.bracket.curly'
             patterns: [
-              { include: '#condition_clause'}
               { include: '#trigger_clause'}
               { include: '#unquoted_strings'}
               {
@@ -1652,7 +1651,7 @@ repository:
       {
         match: '#.*$'
         comment: 'A single line comment'
-        name: 'comment.line.ck2'
+        name: 'comment.line.number-sign.ck2'
       }
     ]
   clause:
@@ -2229,7 +2228,7 @@ repository:
   unquoted_strings:
     patterns: [
       {
-        # TODO: figure out whie the following regex seems to be failing when
+        # TODO: figure out why the following regex seems to be failing when
         # trying to match unquoted str with trailing comments
         # match:'(?x)\\B=\\s*([A-Z_])+\\b(?=\\s*(:#|$))'
         match:'\\b([A-Z0-9_]+([A-Z_.0-9])*)\\b'
