@@ -259,6 +259,7 @@ repository:
               { include: '#effect_clause'}
               { include: '#trigger_clause'}
               { include: '#unquoted_strings'}
+              { include: '#ai_chance'}
             ]
           }
           {
@@ -287,6 +288,31 @@ repository:
           { include: '$self' }
         ]
       }
+    ]
+  ai_chance:
+    patterns: [
+      {
+        contentName: 'meta.ai_chance.ck2'
+        begin: '(?xi)
+          \\b
+          (ai_chance)\\s*
+          (=)\\s*
+          (\\{)
+          \\B'
+        beginCaptures:
+          0: name: 'entity.type.ai_chance.ck2'
+          1: name: 'keyword.control.ai_chance.ck2'
+          2: name: 'punctuation.definition.ai_chance.assignment.ck2'
+          3: name: 'punctuation.definition.ai_chance.begin.bracket.curly.ck2'
+        end: '\\B(\\})\\B'
+        endCaptures:
+          1: name: 'punctuation.definition.ai_chance.end.bracket.curly'
+        patterns: [
+          { include: '#condition_clause' }
+          { include: '#modifier_clause' }
+        ]
+      }
+      { include: '#lineComment' }
     ]
   on_actions:
     patterns: [
@@ -1006,6 +1032,7 @@ repository:
       { include: '#scopes' }
       { include: '#conditions' }
       { include: '#condition_clause' }
+      { include: '#condition_tooltips' }
       {
         name: 'meta.condition.clause.ck2'
         begin: '(?x)\\s*(=)\\s*(\\{)'
