@@ -66,6 +66,46 @@ patterns: [
       1: name: 'storage.type.event_target.ck2'
       2: name: 'punctuation.definition.assignment.event_target.ck2'
   }
+  {
+    contentName: 'meta.scripted_effect.ck2'
+    begin: '(?xi)
+      \\b
+      (\\w+_effect)\\s*
+      (=)\\s*
+      (\\{)
+      \\B'
+    beginCaptures:
+      0: name: 'entity.name.scripted_effect.ck2'
+      1: name: 'keyword.control.scripted_effect.ck2'
+      2: name: 'punctuation.definition.scripted_effect.assignment.ck2'
+      3: name: 'punctuation.definition.scripted_effect.begin.bracket.curly.ck2'
+    end: '\\B(\\})\\B'
+    endCaptures:
+      1: name: 'punctuation.definition.scripted_effect.end.bracket.curly'
+    patterns: [
+      { include: '#effect_clause' }
+    ]
+  }
+  {
+    contentName: 'meta.scripted_trigger.ck2'
+    begin: '(?xi)
+      \\b
+      (\\w+_trigger)\\s*
+      (=)\\s*
+      (\\{)
+      \\B'
+    beginCaptures:
+      0: name: 'entity.name.scripted_trigger.ck2'
+      1: name: 'keyword.control.scripted_trigger.ck2'
+      2: name: 'punctuation.definition.scripted_trigger.assignment.ck2'
+      3: name: 'punctuation.definition.scripted_trigger.begin.bracket.curly.ck2'
+    end: '\\B(\\})\\B'
+    endCaptures:
+      1: name: 'punctuation.definition.scripted_trigger.end.bracket.curly'
+    patterns: [
+      { include: '#condition_clause' }
+    ]
+  }
 ]
 repository:
   events:
