@@ -276,6 +276,11 @@ repository:
                   1: name: 'variable.language.condition.name.ck2'
               }
               {
+                match: '(?xi)\\b(tooltip_info)\\s*(=)\\s*(\\w+)\\b'
+                captures:
+                  1: name: 'variable.language.condition.name.ck2'
+              }
+              {
                 contentName: 'meta.name.ck2'
                 begin: '(?xi)
                   \\b
@@ -1107,7 +1112,7 @@ repository:
         beginCaptures:
           1: name: 'punctuation.section.clause.assignment.ck2'
           2: name: 'punctuation.section.clause.begin.bracket.curly.ck2'
-        end: '\\B(\\})'
+        end: '\\s*(\\})'
         endCaptures:
           1:
             name: 'punctuation.section.clause.end.bracket.curly.ck2'
