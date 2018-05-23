@@ -1108,6 +1108,7 @@ repository:
               { include: '#effect_clause'}
             ]
           }
+          { include: '#lineComment'}
         ]
       }
       {
