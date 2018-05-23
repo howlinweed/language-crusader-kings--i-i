@@ -174,6 +174,71 @@ patterns: [
         patterns: [
           { include: '#lineComment'}
           {
+            captures:
+              0: name: 'meta.decision.flag.ck2'
+              1: name: 'keyword.control.decision.flag.high_prio.ck2'
+              2: name: 'keyword.control.decision.flag.filter.ck2'
+              3: name: 'keyword.control.decision.flag.ai_t_filter.ck2'
+              4: name: 'keyword.control.decision.flag.third_p_filter.ck2'
+              5: name: 'keyword.control.decision.flag.ai_p_filter.ck2'
+              6: name: 'keyword.control.decision.flag.third_party.ck2'
+              7: name: 'keyword.operator.assignment.ck2'
+              8: name: 'variable.language.decision.flag.ck2'
+            match: '(?xi)
+              \\b
+              (?:
+                (is_high_prio)
+                |(filter)
+                |(ai_target_filter)
+                |(third_party_filter)
+                |(ai_third_party_filter)
+                |(third_party)
+              )
+              \\s*
+              (=)
+              \\s*
+              ([[:word:]]*)
+              '
+          }
+          {
+            captures:
+              0: name: 'meta.decision.flag.ck2'
+              1: name: 'keyword.control.decision.flag.only_playable.ck2'
+              2: name: 'keyword.control.decision.flag.ai_only.ck2'
+              3: name: 'keyword.control.decision.flag.show_t.ck2'
+              4: name: 'keyword.operator.assignment.ck2'
+              5: name: 'constant.language.bool.ck2'
+            match: '(?xi)
+              \\b
+              (?:
+                (only_playable)
+                |(ai)
+                |(show_third_party_potential)
+              )
+              \\s*
+              (=)
+              \\s*
+              (yes|no)
+              '
+          }
+          {
+            captures:
+              0: name: 'meta.decision.flag.ck2'
+              1: name: 'keyword.control.decision.flag.ai_check_interval.ck2'
+              2: name: 'keyword.operator.assignment.ck2'
+              3: name: 'constant.numeric.int.ck2'
+            match: '(?xi)
+              \\b
+              (
+                ai_check_interval
+              )
+              \\s*
+              (=)
+              \\s*
+              (\\d*)
+              '
+          }
+          {
             contentName: 'meta.decision.condition_block.ck2'
             beginCaptures:
               1: name: 'function.support.decision.definition.ck2'
