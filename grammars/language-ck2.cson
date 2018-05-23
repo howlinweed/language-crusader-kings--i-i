@@ -106,6 +106,147 @@ patterns: [
       { include: '#condition_clause' }
     ]
   }
+  {
+    contentName: 'meta.decisions.block.ck2'
+    begin: '(?xi)
+      \\b
+        (
+          (
+            (plot)
+            |(targetted)
+            |(settlement)
+            |(title)
+          )
+        _)
+        ?(
+          decisions
+        )
+      \\s*
+        (
+          =
+        )
+      \\s*
+        (
+          \\{
+        )
+      \\s*
+      '
+    beginCaptures:
+      0: name: 'meta.decision.ck2'
+      1: name: 'entity.name.decisions.ck2'
+      2: name: 'storage.modifier.decisions.ck2'
+      3: name: 'entity.type.plot.decisions.ck2'
+      4: name: 'entity.type.targetted.decisions.ck2'
+      5: name: 'entity.type.settlement.decisions.ck2'
+      6: name: 'entity.type.title.decisions.ck2'
+      7: name: 'storage.type.decisions.ck2'
+      8: name: 'keyword.operator.assignment.ck2'
+      9: name: 'punctuation.definition.decisions.begin.bracket.curly.ck2'
+    end: '\\B(\\})\\B'
+    endCaptures:
+      1: name: 'punctuation.definition.decisions.end.bracket.curly.ck2'
+    patterns: [
+      { include: '#lineComment' }
+      {
+        contentName: 'meta.decision.definition.block.ck2'
+        beginCaptures:
+          0: name: 'meta.decision.definition.ck2'
+          1: name: 'storage.name.decision.definition.ck2'
+          2: name: 'keyword.operator.assignment.ck2'
+          3: name: 'punctuation.definition.decision.begin.bracket.curly.ck2'
+        begin: '(?xi)
+          \\b
+            (
+              [[:word:]]+
+            )
+          \\s*
+            (
+              =
+            )
+          \\s*
+            (
+              \\{
+            )
+          '
+        endCaptures:
+          0: name: 'punctuation.definition.decision.end.bracket.curly.ck2'
+        end: '\\}'
+        patterns: [
+          { include: '#lineComment'}
+          {
+            contentName: 'meta.decision.condition_block.ck2'
+            beginCaptures:
+              1: name: 'function.support.decision.definition.ck2'
+              2: name: 'entity.name.decision.condition_block.from_potential.ck2'
+              3: name: 'entity.name.decision.condition_block.potential.ck2'
+              4: name: 'entity.name.decision.condition_block.allow.ck2'
+              5: name: 'entity.name.decision.condition_block.revoke_allowed.ck2'
+              6: name: 'entity.name.decision.condition_block.ai_will_do.ck2'
+              7: name: 'entity.name.decision.condition_block.third_party_allow.ck2'
+              8: name: 'keyword.operator.assignment.ck2'
+              9: name: 'punctuation.definition.decision.condition_block.begin.bracket.curly.ck2'
+            begin: '(?xi)
+              \\b
+                (
+                  (from_potential)
+                  |(potential)
+                  |(revoke_allowed)
+                  |(ai_will_do)
+                  |(third_party_allow)
+                  |(allow)
+                )
+              \\s*
+                (
+                  =
+                )
+              \\s*
+                (
+                  \\{
+                )
+              \\s*
+              '
+            endCaptures:
+              0: name: 'punctuation.definition.decision.condition_block.end.bracket.curly.ck2'
+            end: '\\}'
+            patterns: [
+              { include: '#lineComment'}
+              { include: '#condition_clause'}
+            ]
+          }
+          {
+            contentName: 'meta.decision.effect_block.ck2'
+            beginCaptures:
+              1: name: 'function.support.decision.definition.ck2'
+              2: name: 'entity.name.decision.effect.ck2'
+              3: name: 'keyword.operator.assignment.ck2'
+              4: name: 'punctuation.definition.decision.effect_block.begin.bracket.curly.ck2'
+            begin: '(?xi)
+              \\b
+                (
+                  effect
+                )
+              \\s*
+                (
+                  =
+                )
+              \\s*
+                (
+                  \\{
+                )
+              \\s*
+              '
+            endCaptures:
+              0: name: 'punctuation.definition.decision.effect_block.end.bracket.curly.ck2'
+            end: '\\}'
+            patterns: [
+              { include: '#lineComment'}
+              { include: '#effect_clause'}
+            ]
+          }
+        ]
+      }
+    ]
+  }
 ]
 repository:
   events:
