@@ -2247,6 +2247,12 @@ repository:
           1: name: 'support.function.scripted_effect.ck2'
           2: name: 'punctuation.definition.operator.assignment.ck2'
       }
+      {
+        match: '(?xi)\\b(show_portrait)\\s*(=)\\s*(?=[\\[\\"\'a-z]+)'
+        captures:
+            1: name: 'support.function.show_portrait.ck2'
+            2: name: 'punctuation.definition.operator.assignment.ck2'
+      }
     ]
   numbers:
     patterns: [
