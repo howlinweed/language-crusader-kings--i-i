@@ -106,6 +106,212 @@ patterns: [
       { include: '#condition_clause' }
     ]
   }
+  {
+    contentName: 'meta.decisions.block.ck2'
+    begin: '(?xi)
+      \\b
+        (
+          (
+            (plot)
+            |(targetted)
+            |(settlement)
+            |(title)
+          )
+        _)
+        ?(
+          decisions
+        )
+      \\s*
+        (
+          =
+        )
+      \\s*
+        (
+          \\{
+        )
+      \\s*
+      '
+    beginCaptures:
+      0: name: 'meta.decision.ck2'
+      1: name: 'entity.name.decisions.ck2'
+      2: name: 'storage.modifier.decisions.ck2'
+      3: name: 'entity.type.plot.decisions.ck2'
+      4: name: 'entity.type.targetted.decisions.ck2'
+      5: name: 'entity.type.settlement.decisions.ck2'
+      6: name: 'entity.type.title.decisions.ck2'
+      7: name: 'storage.type.decisions.ck2'
+      8: name: 'keyword.operator.assignment.ck2'
+      9: name: 'punctuation.definition.decisions.begin.bracket.curly.ck2'
+    end: '\\B(\\})\\B'
+    endCaptures:
+      1: name: 'punctuation.definition.decisions.end.bracket.curly.ck2'
+    patterns: [
+      { include: '#lineComment' }
+      {
+        contentName: 'meta.decision.definition.block.ck2'
+        beginCaptures:
+          0: name: 'meta.decision.definition.ck2'
+          1: name: 'storage.name.decision.definition.ck2'
+          2: name: 'keyword.operator.assignment.ck2'
+          3: name: 'punctuation.definition.decision.begin.bracket.curly.ck2'
+        begin: '(?xi)
+          \\b
+            (
+              [[:word:]]+
+            )
+          \\s*
+            (
+              =
+            )
+          \\s*
+            (
+              \\{
+            )
+          '
+        endCaptures:
+          0: name: 'punctuation.definition.decision.end.bracket.curly.ck2'
+        end: '\\}'
+        patterns: [
+          { include: '#lineComment'}
+          {
+            captures:
+              0: name: 'meta.decision.flag.ck2'
+              1: name: 'keyword.control.decision.flag.high_prio.ck2'
+              2: name: 'keyword.control.decision.flag.filter.ck2'
+              3: name: 'keyword.control.decision.flag.ai_t_filter.ck2'
+              4: name: 'keyword.control.decision.flag.third_p_filter.ck2'
+              5: name: 'keyword.control.decision.flag.ai_p_filter.ck2'
+              6: name: 'keyword.control.decision.flag.third_party.ck2'
+              7: name: 'keyword.operator.assignment.ck2'
+              8: name: 'variable.language.decision.flag.ck2'
+            match: '(?xi)
+              \\b
+              (?:
+                (is_high_prio)
+                |(filter)
+                |(ai_target_filter)
+                |(third_party_filter)
+                |(ai_third_party_filter)
+                |(third_party)
+              )
+              \\s*
+              (=)
+              \\s*
+              ([[:word:]]*)
+              '
+          }
+          {
+            captures:
+              0: name: 'meta.decision.flag.ck2'
+              1: name: 'keyword.control.decision.flag.only_playable.ck2'
+              2: name: 'keyword.control.decision.flag.ai_only.ck2'
+              3: name: 'keyword.control.decision.flag.show_t.ck2'
+              4: name: 'keyword.operator.assignment.ck2'
+              5: name: 'constant.language.bool.ck2'
+            match: '(?xi)
+              \\b
+              (?:
+                (only_playable)
+                |(ai)
+                |(show_third_party_potential)
+              )
+              \\s*
+              (=)
+              \\s*
+              (yes|no)
+              '
+          }
+          {
+            captures:
+              0: name: 'meta.decision.flag.ck2'
+              1: name: 'keyword.control.decision.flag.ai_check_interval.ck2'
+              2: name: 'keyword.operator.assignment.ck2'
+              3: name: 'constant.numeric.int.ck2'
+            match: '(?xi)
+              \\b
+              (
+                ai_check_interval
+              )
+              \\s*
+              (=)
+              \\s*
+              (\\d*)
+              '
+          }
+          {
+            contentName: 'meta.decision.condition_block.ck2'
+            beginCaptures:
+              1: name: 'function.support.decision.definition.ck2'
+              2: name: 'entity.name.decision.condition_block.from_potential.ck2'
+              3: name: 'entity.name.decision.condition_block.potential.ck2'
+              4: name: 'entity.name.decision.condition_block.allow.ck2'
+              5: name: 'entity.name.decision.condition_block.revoke_allowed.ck2'
+              6: name: 'entity.name.decision.condition_block.ai_will_do.ck2'
+              7: name: 'entity.name.decision.condition_block.third_party_allow.ck2'
+              8: name: 'keyword.operator.assignment.ck2'
+              9: name: 'punctuation.definition.decision.condition_block.begin.bracket.curly.ck2'
+            begin: '(?xi)
+              \\b
+                (
+                  (from_potential)
+                  |(potential)
+                  |(revoke_allowed)
+                  |(ai_will_do)
+                  |(third_party_allow)
+                  |(allow)
+                )
+              \\s*
+                (
+                  =
+                )
+              \\s*
+                (
+                  \\{
+                )
+              \\s*
+              '
+            endCaptures:
+              0: name: 'punctuation.definition.decision.condition_block.end.bracket.curly.ck2'
+            end: '\\}'
+            patterns: [
+              { include: '#lineComment'}
+              { include: '#condition_clause'}
+            ]
+          }
+          {
+            contentName: 'meta.decision.effect_block.ck2'
+            beginCaptures:
+              1: name: 'function.support.decision.definition.ck2'
+              2: name: 'entity.name.decision.effect.ck2'
+              3: name: 'keyword.operator.assignment.ck2'
+              4: name: 'punctuation.definition.decision.effect_block.begin.bracket.curly.ck2'
+            begin: '(?xi)
+              \\b
+                (
+                  effect
+                )
+              \\s*
+                (
+                  =
+                )
+              \\s*
+                (
+                  \\{
+                )
+              \\s*
+              '
+            endCaptures:
+              0: name: 'punctuation.definition.decision.effect_block.end.bracket.curly.ck2'
+            end: '\\}'
+            patterns: [
+              { include: '#lineComment'}
+              { include: '#effect_clause'}
+            ]
+          }
+        ]
+      }
+    ]
+  }
 ]
 repository:
   events:
@@ -272,6 +478,11 @@ repository:
             patterns: [
               {
                 match: '(?xi)\\b(name)\\s*(=)\\s*(?=\\w+)'
+                captures:
+                  1: name: 'variable.language.condition.name.ck2'
+              }
+              {
+                match: '(?xi)\\b(tooltip_info)\\s*(=)\\s*(\\w+)\\b'
                 captures:
                   1: name: 'variable.language.condition.name.ck2'
               }
@@ -962,6 +1173,7 @@ repository:
               { include: '#effect_clause'}
             ]
           }
+          { include: '#lineComment'}
         ]
       }
       {
@@ -1107,7 +1319,7 @@ repository:
         beginCaptures:
           1: name: 'punctuation.section.clause.assignment.ck2'
           2: name: 'punctuation.section.clause.begin.bracket.curly.ck2'
-        end: '\\B(\\})'
+        end: '\\s*(\\})'
         endCaptures:
           1:
             name: 'punctuation.section.clause.end.bracket.curly.ck2'
@@ -2241,6 +2453,12 @@ repository:
           0: name: 'meta.scripted_effect-call.ck2'
           1: name: 'support.function.scripted_effect.ck2'
           2: name: 'punctuation.definition.operator.assignment.ck2'
+      }
+      {
+        match: '(?xi)\\b(show_portrait)\\s*(=)\\s*(?=[\\[\\"\'a-z]+)'
+        captures:
+            1: name: 'support.function.show_portrait.ck2'
+            2: name: 'punctuation.definition.operator.assignment.ck2'
       }
     ]
   numbers:
