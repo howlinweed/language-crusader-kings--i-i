@@ -712,6 +712,8 @@ repository:
           '
         patterns: [
           {
+            captures:
+              1: name: 'keyword.control.event.flags.ck2'
             match: '(?xi)
               \\b
               (
@@ -724,19 +726,33 @@ repository:
                 |notification
               )
               \\b'
-            captures:
-              1: name: 'keyword.control.event.flags.ck2'
           }
           {
+            captures:
+              1: name: 'keyword.control.event.flags.ck2'
             match: '(?xi)
               \\b
               (
-                (?:picture(?=\\s*=\\s*["\\[\\w]["\\]\\[\\w]))
-                |(?:desc(?=\\s*=\\s*["\\[\\w]["\\]\\[\\w]))
+                (?:picture
+                (?=
+                \\s*
+                    =
+                \\s*
+                    ["\\[\\w]
+                    ["\\]\\[\\w]
+                )
+                )
+                |(?:desc
+                (?=
+                \\s*
+                  =
+                \\s*
+                  ["\\[\\w]
+                  ["\\]\\[\\w]
+                )
+                )
               )
               \\b'
-            captures:
-              1: name: 'keyword.control.event.flags.ck2'
           }
           {
             match: '(?xi)
