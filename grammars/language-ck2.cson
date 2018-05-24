@@ -716,14 +716,23 @@ repository:
               \\b
               (
                 id
-                |(?:picture(?=\\s*=\\s*["\'[:alnum:]]\\w+))
-                |(?:desc(?=\\s*=\\s*["\'[:alnum:]]\\w+))
                 |border
                 |major
                 |is_(?:friendly|hostile|triggered_only)
                 |triggered_from_code|hide_(?:from|window|new)|show(?:_root|_from{1,3})
                 |sound
                 |notification
+              )
+              \\b'
+            captures:
+              1: name: 'keyword.control.event.flags.ck2'
+          }
+          {
+            match: '(?xi)
+              \\b
+              (
+                (?:picture(?=\\s*=\\s*["\\[\\w]["\\]\\[\\w]))
+                |(?:desc(?=\\s*=\\s*["\\[\\w]["\\]\\[\\w]))
               )
               \\b'
             captures:
