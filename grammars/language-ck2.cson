@@ -603,47 +603,66 @@ repository:
     patterns: [
       {
         name: 'string.quoted.double.ck2'
-        begin: '"'
         beginCaptures:
-          0: name: 'punctuation.definition.string.begin.ck2'
-        end: '"'
+          0: name: 'punctuation.definition.string.begin.double.quote.ck2'
+        begin: '"'
         endCaptures:
-          0: name: 'punctuation.definition.string.end.ck2'
-        patterns: [ { include: '#loc_keys' } ]
+          0: name: 'punctuation.definition.string.end.double.quote.ck2'
+        end: '"'
+        patterns: [
+          { include: '#loc_keys' }
+          { include: '#lineComment'}
+        ]
       }
       {
         name: 'string.quoted.single.ck2'
-        begin: '\''
         beginCaptures:
-          0: name: 'punctuation.definition.string.begin.ck2'
-        end: '\''
+          0: name: 'punctuation.definition.string.begin.single.quote.ck2'
+        begin: '\''
         endCaptures:
-          0: name: 'punctuation.definition.string.end.ck2'
-        patterns: [ { include: '#loc_keys' } ]
+          0: name: 'punctuation.definition.string.end.single.quote.ck2'
+        end: '\''
+        patterns: [
+          { include: '#loc_keys' }
+          { include: '#lineComment'}
+        ]
       }
     ]
   loc_keys:
     patterns: [
       {
         contentName: 'string.interpolated.loc_key.ck2'
-        begin: '\\['
         beginCaptures:
-          0: name: 'punctuation.definition.loc_key.begin.bracket.square.ck2'
-        end: '\\]'
+          1: name: 'punctuation.definition.loc_key.begin.bracket.square.ck2'
+        begin: '(?xi)
+          \\B
+            (\\[)
+          (?=\\s*[[:alnum:]])
+          '
         endCaptures:
-          0: name: 'punctuation.definition.loc_key.end.bracket.square.ck2'
+          1: name: 'punctuation.definition.loc_key.end.bracket.square.ck2'
+        end: '(?xi)
+          \\b
+            (\\])
+          '
         patterns: [
           {
-            match: '((?<!\\w)\\.|\\.(?!\\w))'
             name: 'invalid.illegal.stray_period.ck2'
+            match: '(?xi)
+              (
+              (?<!\\w)
+                \\.
+                |\\.
+              (?!\\w))
+              '
           }
           {
-            match: '\\w+'
             name: 'entity.name.tag.loc_key.ck2'
+            match: '\\w+'
           }
           {
-            match: '\\s+'
             name: 'illegal.invalid.stray-whitespace.ck2'
+            match: '\\s+'
           }
         ]
       }
