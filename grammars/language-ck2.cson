@@ -1572,26 +1572,34 @@ repository:
   on_action_clause:
     patterns: [
       {
-        contentName: 'meta.on_action_event.ck2'
+        contentName: 'meta.on_action_events.block.ck2'
+        beginCaptures:
+          1: name: 'keyword.control.on_action_events.ck2'
+          2: name: 'entity.type.on_action.events.ck2'
+          3: name: 'entity.type.on_action.random_events.ck2'
+          4: name: 'punctuation.definition.on_action_events.assignment.ck2'
+          5: name: 'punctuation.definition.on_action_events.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
-          ((?:random_)?events)\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action_event.ck2'
-          1: name: 'keyword.control.on_action_event.ck2'
-          2: name: 'punctuation.definition.on_action_event.assignment.ck2'
-          3: name: 'punctuation.definition.on_action_event.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            (
+              (random_events)
+              |(events)
+            )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
-          1: name: 'punctuation.definition.on_action_event.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action_events.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
-          { include: '#numbers'}
-          { include: '#lineComment'}
+          { include: '#global_includes' }
         ]
       }
+      { include: '#global_includes' }
     ]
   trigger_clause:
     patterns: [
