@@ -297,19 +297,44 @@ repository:
       { include: '#quoted_strings' }
       {
         name: 'keyword.control.namespace.ck2'
-        match: '(?i)\\bnamespace\\b'
+        match: '(?xi)
+          \\b
+            namespace
+          \\b
+          '
       }
       {
         name: 'keyword.operator.assignment.equals.ck2'
-        match: '(?<=\\s*)=(?=\\s*)'
+        match: '(?xi)
+          (?:\\s*)
+            =
+          (?:\\s*)
+          '
       }
       {
         name: 'keyword.operator.negation.ck2'
-        match: '(?<=\\s*)\\-(?=\\s*\\d)'
+        match: '(?xi)
+          (?:\\s*)
+            \\-
+          (?:\\s*)
+          '
       }
       {
-        name: 'constant.language.bool.ck2'
-        match: '(?i)\\b(yes|no|always|none)\\b'
+        captures:
+          1: name: 'constant.language.bool.true.yes.ck2'
+          2: name: 'constant.language.bool.false.no.ck2'
+          3: name: 'constant.language.bool.true.always.ck2'
+          4: name: 'constant.language.bool.false.none.ck2'
+        match: '(?xi)
+          \\b
+          (?:
+            (yes)
+            |(no)
+            |(always)
+            |(none)
+          )
+          \\b
+          '
       }
       {
         captures:
@@ -319,134 +344,197 @@ repository:
           4: name: 'keyword.operator.comparison.equals.ck2'
           5: name: 'keyword.operator.comparison.lt.ck2'
           6: name: 'keyword.operator.comparison.gt.ck2'
-        match: '(?x)
-            (?<=\\s*)
+        match: '(?xi)
+          (?:\\s*)
+          (?:
             (!=)
-            |(<=)
-            |(>=)
-            |(==)
-            |(<)
-            |(>)
-            (?=\\s*)
+            |(\\<=)
+            |(\\>=)
+            |(\\==)
+            |(\\<)
+            |(\\>)
+          )
+          (?:\\s*)
           '
       }
     ]
+  # TODO: Add matches for Audax Validator to comment pattenrs
   lineComment:
     patterns: [
       {
-        match: '#.*$'
-        comment: 'A single line comment'
         name: 'comment.line.number-sign.ck2'
+        match: '#.*$'
       }
     ]
   control_flow:
     patterns: [
       {
-        match: '(?xi)\\bbreak\\b'
         name: 'keyword.control.flow.ck2'
+        match: '(?xi)
+        \\b
+          break
+        \\b
+        '
       }
       {
         contentName: 'meta.block.control.if.ck2'
+        beginCaptures:
+          1: name: 'keyword.control.if.ck2'
+          2: name: 'entity.type.if.ck2'
+          3: name: 'entity.type.else_if.ck2'
+          4: name: 'punctuation.definition.if.assignment.equals.ck2'
+          5: name: 'punctuation.definition.if.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
-          ((?:else_)?if)\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          1: name: 'keyword.control.flow.ck2'
-          2: name: 'punctuation.definition.flow.assignment.ck2'
-          3: name: 'punctuation.definition.flow.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+          (
+            (else_if)
+            |(if)
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          \\B
+          '
         endCaptures:
-          1: name: 'punctuation.definition.flow.end.bracket.curly.ck2'
+          1: name: 'punctuation.definition.if.end.bracket.curly.ck2'
+        end: '(?xi)
+          \\B
+            (\\})
+          \\B
+          '
         patterns: [
-          { include: '#limit_clause'}
-          { include: '#effect_clause'}
+          { include: '#limit_clause' }
+          { include: '#effect_clause' }
+          { include: '#global_includes' }
         ]
       }
       {
         contentName: 'meta.block.control.else.ck2'
-        begin: '(?xi)
-          \\b
-          (else)\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
         beginCaptures:
           1: name: 'keyword.control.else.ck2'
-          2: name: 'punctuation.definition.else.assignment.ck2'
+          2: name: 'punctuation.definition.else.assignment.equals.ck2'
           3: name: 'punctuation.definition.else.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+        begin: '(?xi)
+          \\b
+            (else)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          \\B
+          '
         endCaptures:
           1: name: 'punctuation.definition.else.end.bracket.curly.ck2'
+        end: '(?xi)
+          \\B
+            (\\})
+          \\B
+          '
         patterns: [
-          { include: '#effect_clause'}
+          { include: '#effect_clause' }
+          { include: '#global_includes' }
         ]
       }
       {
         contentName: 'meta.block.control.trigger_switch.ck2'
-        begin: '(?xi)
-          \\b
-          (trigger_switch)\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
         beginCaptures:
           1: name: 'keyword.control.trigger_switch.ck2'
-          2: name: 'punctuation.definition.trigger_switch.assignment.ck2'
+          2: name: 'punctuation.definition.trigger_switch.assignment.equals.ck2'
           3: name: 'punctuation.definition.trigger_switch.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+        begin: '(?xi)
+          \\b
+            (trigger_switch)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          \\B
+          '
         endCaptures:
           1: name: 'punctuation.definition.trigger_switch.end.bracket.curly.ck2'
+        end: '
+          \\B
+            (\\})
+          \\B
+          '
         patterns: [
           {
-            match: '\\b(on_trigger)\\s*(=)\\s*([[:alnum:]_]+)'
-            captures:
+            beginCaptures:
               1: name: 'keyword.control.on_trigger.ck2'
-              2: name: 'punctuation.definition.on_trigger.assignment.ck2'
-              3: name: 'variable.parameter.on_trigger.condition.ck2'
-          }
-          {
-            contentName: 'meta.block.trigger_switch.branch.ck2'
+              2: name: 'punctuation.definition.on_trigger.assignment.equals.ck2'
             begin: '(?xi)
               \\b
-              ([[:alnum:]_]+)\\s*
-              (=)\\s*
-              (\\{)
-              \\B'
-            beginCaptures:
-              1: name: 'variable.parameter.on_trigger.branch.ck2'
-              2: name: 'punctuation.definition.on_trigger.branch.assignment.ck2'
-              3: name: 'punctuation.definition.on_trigger.branch.begin.bracket.curly.ck2'
-            end: '\\B(\\})\\B'
-            endCaptures:
-              1: name: 'punctuation.definition.on_trigger.branch.end.bracket.curly.ck2'
+                (on_trigger)
+              \\s*
+                (=)
+              (?=\\s*[[:alpha:]])
+              '
+            end: '(?xi)
+              (?<=[[:alnum:]])
+              (?:$)
+              '
             patterns: [
-              { include: '#effect_clause'}
+              { include: '#conditions' }
+              { include: '#global_includes' }
             ]
           }
-          { include: '#lineComment'}
+          {
+            contentName: 'meta.block.control.trigger_switch.branch.ck2'
+            beginCaptures:
+              1: name: 'variable.parameter.on_trigger.branch.ck2'
+              2: name: 'punctuation.definition.on_trigger.branch.assignment.equals.ck2'
+              3: name: 'punctuation.definition.on_trigger.branch.begin.bracket.curly.ck2'
+            begin: '(?xi)
+              \\b
+                ([[:alnum:]_]+)
+              \\s*
+                (=)
+              \\s*
+                (\\{)
+              \\B
+              '
+            endCaptures:
+              1: name: 'punctuation.definition.on_trigger.branch.end.bracket.curly.ck2'
+            end: '(?xi)
+              \\B
+                (\\})
+              \\B
+              '
+            patterns: [
+              { include: '#effect_clause' }
+              { include: '#global_includes' }
+            ]
+          }
+          { include: '#global_includes' }
         ]
       }
       {
         contentName: 'meta.block.control.while.ck2'
-        begin: '(?xi)
-          \\b
-          (while)\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
         beginCaptures:
           1: name: 'keyword.control.while.ck2'
-          2: name: 'punctuation.definition.while.assignment.ck2'
+          2: name: 'punctuation.definition.while.assignment.equals.ck2'
           3: name: 'punctuation.definition.while.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+        begin: '(?xi)
+          \\b
+            (while)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          \\B
+          '
         endCaptures:
           1: name: 'punctuation.definition.while.end.bracket.curly.ck2'
+        end: '(?xi)
+          \\B
+            (\\})
+          \\B
+          '
         patterns: [
-          { include: '#limit_clause'}
-          { include: '#effect_clause'}
+          { include: '#limit_clause' }
+          { include: '#effect_clause' }
+          { include: '#global_includes' }
         ]
       }
     ]
