@@ -1046,27 +1046,31 @@ repository:
   ai_chance:
     patterns: [
       {
-        contentName: 'meta.ai_chance.ck2'
-        begin: '(?xi)
-          \\b
-          (ai_chance)\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
+        contentName: 'meta.ai_chance.block.ck2'
         beginCaptures:
           0: name: 'entity.type.ai_chance.ck2'
           1: name: 'keyword.control.ai_chance.ck2'
           2: name: 'punctuation.definition.ai_chance.assignment.ck2'
           3: name: 'punctuation.definition.ai_chance.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+        begin: '(?xi)
+          \\b
+            (ai_chance)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.ai_chance.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#condition_clause' }
           { include: '#modifier_clause' }
+          { include: '#global_includes' }
         ]
       }
-      { include: '#lineComment' }
     ]
   on_actions:
     patterns: [
