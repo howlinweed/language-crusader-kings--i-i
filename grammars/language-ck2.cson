@@ -380,8 +380,8 @@ repository:
         contentName: 'meta.block.control.if.ck2'
         beginCaptures:
           1: name: 'keyword.control.if.ck2'
-          2: name: 'entity.type.if.ck2'
-          3: name: 'entity.type.else_if.ck2'
+          2: name: 'entity.type.else_if.ck2'
+          3: name: 'entity.type.if.ck2'
           4: name: 'punctuation.definition.if.assignment.equals.ck2'
           5: name: 'punctuation.definition.if.begin.bracket.curly.ck2'
         begin: '(?xi)
@@ -1536,10 +1536,10 @@ repository:
         patterns: [
           { include: '#effect_clause' }
           { include: '#limit_clause'}
-          { include: '#effects' }
         ]
       }
       { include: '$self' }
+      { include: '#global_includes' }
     ]
   scopes:
     patterns: [
