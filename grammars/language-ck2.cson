@@ -314,10 +314,11 @@ patterns: [
   }
 ]
 repository:
-  global_include: [
-    { include: '#lineComment' }
-    { include: '#numbers' }
-    { include: '#quoted_strings' }
+  global_includes:
+    patterns: [
+      { include: '#lineComment' }
+      { include: '#numbers' }
+      { include: '#quoted_strings' }
   ]
   lineComment:
     patterns: [
