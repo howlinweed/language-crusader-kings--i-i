@@ -34,30 +34,6 @@ patterns: [
         3: name: 'support.variable.condition.scope.ck2'
   }
   {
-    match: '(?i)\\b(yes|no|always|none)\\b'
-    name: 'constant.language.bool.ck2'
-  }
-  {
-    match: '!=|<=|>=|==|<|>'
-    name: 'keyword.operator.comparison.ck2'
-  }
-  {
-    match: '\\-'
-    name: 'keyword.operator.negation.ck2'
-  }
-  {
-    match: '='
-    name: 'keyword.operator.assignment.ck2'
-  }
-  {
-    match: '(?i)\\bnamespace\\b'
-    name: 'keyword.control.namespace.ck2'
-  }
-  {
-    match: '(?xi)\\bbreak\\b'
-    name: 'keyword.control.flow.ck2'
-  }
-  {
     match: '(?xi)
       \\b
       (event_target)(:)(\\w+)
@@ -319,7 +295,46 @@ repository:
       { include: '#lineComment' }
       { include: '#numbers' }
       { include: '#quoted_strings' }
-  ]
+      {
+        name: 'keyword.control.namespace.ck2'
+        match: '(?i)\\bnamespace\\b'
+      }
+      {
+        name: 'keyword.operator.assignment.equals.ck2'
+        match: '(?<=\\s*)=(?=\\s*)'
+      }
+      {
+        name: 'keyword.operator.negation.ck2'
+        match: '(?<=\\s*)\\-(?=\\s*\\d)'
+      }
+      {
+        name: 'constant.language.bool.ck2'
+        match: '(?i)\\b(yes|no|always|none)\\b'
+      }
+      {
+        captures:
+          1: name: 'keyword.operator.comparison.not.ck2'
+          2: name: 'keyword.operator.comparison.lte.ck2'
+          3: name: 'keyword.operator.comparison.gte.ck2'
+          4: name: 'keyword.operator.comparison.equals.ck2'
+          5: name: 'keyword.operator.comparison.lt.ck2'
+          6: name: 'keyword.operator.comparison.gt.ck2'
+        match: '(?x)
+            (?<=\\s*)
+            (!=)
+            |(<=)
+            |(>=)
+            |(==)
+            |(<)
+            |(>)
+            (?=\\s*)
+          '
+      }
+      {
+        name: 'keyword.operator.negation.ck2'
+        match: '\\-'
+      }
+    ]
   lineComment:
     patterns: [
       {
