@@ -314,6 +314,219 @@ patterns: [
   }
 ]
 repository:
+  global_include: [
+    { include: '#lineComment' }
+    { include: '#numbers' }
+    { include: '#quoted_strings' }
+  ]
+  lineComment:
+    patterns: [
+      {
+        match: '#.*$'
+        comment: 'A single line comment'
+        name: 'comment.line.number-sign.ck2'
+      }
+    ]
+  control_flow:
+    patterns: [
+      {
+        contentName: 'meta.block.control.if.ck2'
+        begin: '(?xi)
+          \\b
+          ((?:else_)?if)\\s*
+          (=)\\s*
+          (\\{)
+          \\B'
+        beginCaptures:
+          1: name: 'keyword.control.flow.ck2'
+          2: name: 'punctuation.definition.flow.assignment.ck2'
+          3: name: 'punctuation.definition.flow.begin.bracket.curly.ck2'
+        end: '\\B(\\})\\B'
+        endCaptures:
+          1: name: 'punctuation.definition.flow.end.bracket.curly.ck2'
+        patterns: [
+          { include: '#limit_clause'}
+          { include: '#effect_clause'}
+        ]
+      }
+      {
+        contentName: 'meta.block.control.else.ck2'
+        begin: '(?xi)
+          \\b
+          (else)\\s*
+          (=)\\s*
+          (\\{)
+          \\B'
+        beginCaptures:
+          1: name: 'keyword.control.else.ck2'
+          2: name: 'punctuation.definition.else.assignment.ck2'
+          3: name: 'punctuation.definition.else.begin.bracket.curly.ck2'
+        end: '\\B(\\})\\B'
+        endCaptures:
+          1: name: 'punctuation.definition.else.end.bracket.curly.ck2'
+        patterns: [
+          { include: '#effect_clause'}
+        ]
+      }
+      {
+        contentName: 'meta.block.control.trigger_switch.ck2'
+        begin: '(?xi)
+          \\b
+          (trigger_switch)\\s*
+          (=)\\s*
+          (\\{)
+          \\B'
+        beginCaptures:
+          1: name: 'keyword.control.trigger_switch.ck2'
+          2: name: 'punctuation.definition.trigger_switch.assignment.ck2'
+          3: name: 'punctuation.definition.trigger_switch.begin.bracket.curly.ck2'
+        end: '\\B(\\})\\B'
+        endCaptures:
+          1: name: 'punctuation.definition.trigger_switch.end.bracket.curly.ck2'
+        patterns: [
+          {
+            match: '\\b(on_trigger)\\s*(=)\\s*([[:alnum:]_]+)'
+            captures:
+              1: name: 'keyword.control.on_trigger.ck2'
+              2: name: 'punctuation.definition.on_trigger.assignment.ck2'
+              3: name: 'variable.parameter.on_trigger.condition.ck2'
+          }
+          {
+            contentName: 'meta.block.trigger_switch.branch.ck2'
+            begin: '(?xi)
+              \\b
+              ([[:alnum:]_]+)\\s*
+              (=)\\s*
+              (\\{)
+              \\B'
+            beginCaptures:
+              1: name: 'variable.parameter.on_trigger.branch.ck2'
+              2: name: 'punctuation.definition.on_trigger.branch.assignment.ck2'
+              3: name: 'punctuation.definition.on_trigger.branch.begin.bracket.curly.ck2'
+            end: '\\B(\\})\\B'
+            endCaptures:
+              1: name: 'punctuation.definition.on_trigger.branch.end.bracket.curly.ck2'
+            patterns: [
+              { include: '#effect_clause'}
+            ]
+          }
+          { include: '#lineComment'}
+        ]
+      }
+      {
+        contentName: 'meta.block.control.while.ck2'
+        begin: '(?xi)
+          \\b
+          (while)\\s*
+          (=)\\s*
+          (\\{)
+          \\B'
+        beginCaptures:
+          1: name: 'keyword.control.while.ck2'
+          2: name: 'punctuation.definition.while.assignment.ck2'
+          3: name: 'punctuation.definition.while.begin.bracket.curly.ck2'
+        end: '\\B(\\})\\B'
+        endCaptures:
+          1: name: 'punctuation.definition.while.end.bracket.curly.ck2'
+        patterns: [
+          { include: '#limit_clause'}
+          { include: '#effect_clause'}
+        ]
+      }
+    ]
+  numbers:
+    patterns: [
+      {
+        match: '\\b\\d+\\.\\d{,3}(\\d*)\\b'
+        captures:
+          0: name: 'constant.numeric.float.ck2'
+          1: name: 'invalid.illegal.outofbounds.ck2'
+      }
+      {
+        match: '\\b\\d+\\.\\d{1,3}\\b'
+        name: 'constant.numeric.float.ck2'
+      }
+      {
+        match: '\\b\\d+\\b'
+        name: 'constant.numeric.int.ck2'
+      }
+    ]
+  strings:
+    patterns: [
+      { include: '#unquoted_strings' }
+      { include: '#quoted_strings' }
+    ]
+  unquoted_strings:
+    patterns: [
+      {
+        # TODO: figure out why the following regex seems to be failing when
+        # trying to match unquoted str with trailing comments
+        # match:'(?x)\\B=\\s*([A-Z_])+\\b(?=\\s*(:#|$))'
+        match:'\\b([A-Z0-9_]+([A-Z_.0-9])*)\\b'
+        captures:
+          1: name: 'string.unquoted.loc_key.ck2'
+      }
+      {
+        match:'(?x)
+        \\b
+        (GFX_[A-Za-z_]+)
+        \\b'
+        captures:
+          1: name: 'string.unquoted.gfx_key.ck2'
+      }
+      {
+        include: '#loc_keys'
+      }
+    ]
+  quoted_strings:
+    patterns: [
+      {
+        name: 'string.quoted.double.ck2'
+        begin: '"'
+        beginCaptures:
+          0: name: 'punctuation.definition.string.begin.ck2'
+        end: '"'
+        endCaptures:
+          0: name: 'punctuation.definition.string.end.ck2'
+        patterns: [ { include: '#loc_keys' } ]
+      }
+      {
+        name: 'string.quoted.single.ck2'
+        begin: '\''
+        beginCaptures:
+          0: name: 'punctuation.definition.string.begin.ck2'
+        end: '\''
+        endCaptures:
+          0: name: 'punctuation.definition.string.end.ck2'
+        patterns: [ { include: '#loc_keys' } ]
+      }
+    ]
+  loc_keys:
+    patterns: [
+      {
+        contentName: 'string.interpolated.loc_key.ck2'
+        begin: '\\['
+        beginCaptures:
+          0: name: 'punctuation.definition.loc_key.begin.bracket.square.ck2'
+        end: '\\]'
+        endCaptures:
+          0: name: 'punctuation.definition.loc_key.end.bracket.square.ck2'
+        patterns: [
+          {
+            match: '((?<!\\w)\\.|\\.(?!\\w))'
+            name: 'invalid.illegal.stray_period.ck2'
+          }
+          {
+            match: '\\w+'
+            name: 'entity.name.tag.loc_key.ck2'
+          }
+          {
+            match: '\\s+'
+            name: 'illegal.invalid.stray-whitespace.ck2'
+          }
+        ]
+      }
+    ]
   events:
     patterns: [
       {
@@ -1090,113 +1303,6 @@ repository:
         ]
       }
     ]
-  control_flow:
-    patterns: [
-      {
-        contentName: 'meta.block.control.if.ck2'
-        begin: '(?xi)
-          \\b
-          ((?:else_)?if)\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          1: name: 'keyword.control.flow.ck2'
-          2: name: 'punctuation.definition.flow.assignment.ck2'
-          3: name: 'punctuation.definition.flow.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
-        endCaptures:
-          1: name: 'punctuation.definition.flow.end.bracket.curly.ck2'
-        patterns: [
-          { include: '#limit_clause'}
-          { include: '#effect_clause'}
-        ]
-      }
-      {
-        contentName: 'meta.block.control.else.ck2'
-        begin: '(?xi)
-          \\b
-          (else)\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          1: name: 'keyword.control.else.ck2'
-          2: name: 'punctuation.definition.else.assignment.ck2'
-          3: name: 'punctuation.definition.else.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
-        endCaptures:
-          1: name: 'punctuation.definition.else.end.bracket.curly.ck2'
-        patterns: [
-          { include: '#effect_clause'}
-        ]
-      }
-      {
-        contentName: 'meta.block.control.trigger_switch.ck2'
-        begin: '(?xi)
-          \\b
-          (trigger_switch)\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          1: name: 'keyword.control.trigger_switch.ck2'
-          2: name: 'punctuation.definition.trigger_switch.assignment.ck2'
-          3: name: 'punctuation.definition.trigger_switch.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
-        endCaptures:
-          1: name: 'punctuation.definition.trigger_switch.end.bracket.curly.ck2'
-        patterns: [
-          {
-            match: '\\b(on_trigger)\\s*(=)\\s*([[:alnum:]_]+)'
-            captures:
-              1: name: 'keyword.control.on_trigger.ck2'
-              2: name: 'punctuation.definition.on_trigger.assignment.ck2'
-              3: name: 'variable.parameter.on_trigger.condition.ck2'
-          }
-          {
-            contentName: 'meta.block.trigger_switch.branch.ck2'
-            begin: '(?xi)
-              \\b
-              ([[:alnum:]_]+)\\s*
-              (=)\\s*
-              (\\{)
-              \\B'
-            beginCaptures:
-              1: name: 'variable.parameter.on_trigger.branch.ck2'
-              2: name: 'punctuation.definition.on_trigger.branch.assignment.ck2'
-              3: name: 'punctuation.definition.on_trigger.branch.begin.bracket.curly.ck2'
-            end: '\\B(\\})\\B'
-            endCaptures:
-              1: name: 'punctuation.definition.on_trigger.branch.end.bracket.curly.ck2'
-            patterns: [
-              { include: '#effect_clause'}
-            ]
-          }
-          { include: '#lineComment'}
-        ]
-      }
-      {
-        contentName: 'meta.block.control.while.ck2'
-        begin: '(?xi)
-          \\b
-          (while)\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          1: name: 'keyword.control.while.ck2'
-          2: name: 'punctuation.definition.while.assignment.ck2'
-          3: name: 'punctuation.definition.while.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
-        endCaptures:
-          1: name: 'punctuation.definition.while.end.bracket.curly.ck2'
-        patterns: [
-          { include: '#limit_clause'}
-          { include: '#effect_clause'}
-        ]
-      }
-    ]
   trigger_clause:
     patterns: [
       {
@@ -1898,14 +2004,6 @@ repository:
           2: name: 'keyword.operator.assignment.ck2'
       }
     ]
-  lineComment:
-    patterns: [
-      {
-        match: '#.*$'
-        comment: 'A single line comment'
-        name: 'comment.line.number-sign.ck2'
-      }
-    ]
   clause:
     patterns: [
       {
@@ -2459,98 +2557,5 @@ repository:
         captures:
             1: name: 'support.function.show_portrait.ck2'
             2: name: 'punctuation.definition.operator.assignment.ck2'
-      }
-    ]
-  numbers:
-    patterns: [
-      {
-        match: '\\b\\d+\\.\\d{,3}(\\d*)\\b'
-        captures:
-          0: name: 'constant.numeric.float.ck2'
-          1: name: 'invalid.illegal.outofbounds.ck2'
-      }
-      {
-        match: '\\b\\d+\\.\\d{1,3}\\b'
-        name: 'constant.numeric.float.ck2'
-      }
-      {
-        match: '\\b\\d+\\b'
-        name: 'constant.numeric.int.ck2'
-      }
-    ]
-  strings:
-    patterns: [
-      { include: '#unquoted_strings' }
-      { include: '#quoted_strings' }
-    ]
-  unquoted_strings:
-    patterns: [
-      {
-        # TODO: figure out why the following regex seems to be failing when
-        # trying to match unquoted str with trailing comments
-        # match:'(?x)\\B=\\s*([A-Z_])+\\b(?=\\s*(:#|$))'
-        match:'\\b([A-Z0-9_]+([A-Z_.0-9])*)\\b'
-        captures:
-          1: name: 'string.unquoted.loc_key.ck2'
-      }
-      {
-        match:'(?x)
-        \\b
-        (GFX_[A-Za-z_]+)
-        \\b'
-        captures:
-          1: name: 'string.unquoted.gfx_key.ck2'
-      }
-      {
-        include: '#loc_keys'
-      }
-    ]
-  quoted_strings:
-    patterns: [
-      {
-        name: 'string.quoted.double.ck2'
-        begin: '"'
-        beginCaptures:
-          0: name: 'punctuation.definition.string.begin.ck2'
-        end: '"'
-        endCaptures:
-          0: name: 'punctuation.definition.string.end.ck2'
-        patterns: [ { include: '#loc_keys' } ]
-      }
-      {
-        name: 'string.quoted.single.ck2'
-        begin: '\''
-        beginCaptures:
-          0: name: 'punctuation.definition.string.begin.ck2'
-        end: '\''
-        endCaptures:
-          0: name: 'punctuation.definition.string.end.ck2'
-        patterns: [ { include: '#loc_keys' } ]
-      }
-    ]
-  loc_keys:
-    patterns: [
-      {
-        contentName: 'string.interpolated.loc_key.ck2'
-        begin: '\\['
-        beginCaptures:
-          0: name: 'punctuation.definition.loc_key.begin.bracket.square.ck2'
-        end: '\\]'
-        endCaptures:
-          0: name: 'punctuation.definition.loc_key.end.bracket.square.ck2'
-        patterns: [
-          {
-            match: '((?<!\\w)\\.|\\.(?!\\w))'
-            name: 'invalid.illegal.stray_period.ck2'
-          }
-          {
-            match: '\\w+'
-            name: 'entity.name.tag.loc_key.ck2'
-          }
-          {
-            match: '\\s+'
-            name: 'illegal.invalid.stray-whitespace.ck2'
-          }
-        ]
       }
     ]
