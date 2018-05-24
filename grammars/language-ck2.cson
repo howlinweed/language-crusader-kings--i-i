@@ -755,193 +755,290 @@ repository:
               \\b'
           }
           {
+            captures:
+              1: name: 'keyword.control.event.pretriggers.ck2'
             match: '(?xi)
               \\b
               (
-              ai|prisoner|rivals|war|capable_only|friends|
-              (lacks|has)_dlc|(max|min)_age|
-              culture(_group)?|religion(_group)?|has_(character|global)_flag|
-              is_(female|married|pa(trician|rt_of_plot)|sick)|
-              only_(capable|independent|(wo)?men|playable|rulers)
+                ai
+                |prisoner
+                |rivals
+                |war
+                |capable_only
+                |friends
+                |(?:
+                  lacks
+                  |has
+                )_dlc
+                |(?:
+                  max
+                  |min
+                )_age
+                |culture(?:_group)?
+                |religion(?:_group)?
+                |has_(?:
+                  character
+                  |global
+                )_flag
+                |is_(?:
+                  female
+                  |married
+                  |pa(
+                    trician
+                    |rt_of_plot
+                  )
+                  |sick
+                )
+                |only_(?:
+                  capable|
+                  independent
+                  |(?:wo)?men
+                  |playable
+                  |rulers
+                )
               )
               \\b'
-            captures:
-              1: name: 'keyword.control.event.pretriggers.ck2'
           }
           {
-            contentName: 'meta.desc.ck2'
+            contentName: 'meta.desc.block.ck2'
+            beginCaptures:
+              0: name: 'entity.type.event.flags.desc.ck2'
+              1: name: 'keyword.control.event.flags.desc.ck2'
+              2: name: 'punctuation.definition.desc.assignment.equals.ck2'
+              3: name: 'punctuation.definition.desc.begin.bracket.curly.ck2'
             begin: '(?xi)
               \\b
-              (desc)\\s*
-              (=)\\s*
-              (\\{)
-              \\B'
-            beginCaptures:
-              0: name: 'entity.type.desc.ck2'
-              1: name: 'keyword.control.desc.ck2'
-              2: name: 'punctuation.definition.desc.assignment.ck2'
-              3: name: 'punctuation.definition.desc.begin.bracket.curly.ck2'
-            end: '\\B(\\})\\B'
+                (desc)
+              \\s*
+                (=)
+              \\s*
+                (\\{)
+              '
             endCaptures:
               1: name: 'punctuation.definition.desc.end.bracket.curly'
+            end: '(?xi)
+                (\\})
+              '
             patterns: [
-              { include: '#trigger_clause'}
-              { include: '#unquoted_strings'}
               {
-                match: '(?xi)\\b(text)\\s*(=)\\s*(?=\\w+)'
                 captures:
                   1: name: 'variable.language.condition.text.ck2'
+                match: '(?xi)
+                  \\b
+                    (text)
+                  (?=
+                  \\s*
+                    =
+                  \\s*
+                    ["\\[\\w]
+                    ["\\]\\[\\w]
+                  )
+                  '
               }
               {
-                match: '(?xi)\\b(picture)\\s*(=)\\s*(?=\\w+)'
                 captures:
                   1: name: 'variable.language.condition.picture.ck2'
+                match: '(?xi)
+                  \\b
+                    (picture)
+                  (?=
+                  \\s*
+                    =
+                  \\s*
+                    ["\\[\\w]
+                    ["\\]\\[\\w]
+                  )
+                  '
               }
+              { include: '#trigger_clause' }
+              { include: '#unquoted_strings' }
+              { include: '#global_includes' }
             ]
           }
           {
-            contentName: 'meta.weight_multiplier.ck2'
+            contentName: 'meta.event.timing.block.ck2'
+            beginCaptures:
+              1: name: 'keyword.control.event.timing.ck2'
+              2: name: 'entity.type.event.timing.weight_multiplier.ck2'
+              3: name: 'entity.type.event.timing.mean_time.ck2'
+              4: name: 'punctuation.definition.event.timing.assignment.equals.ck2'
+              5: name: 'punctuation.definition.event.timing.begin.bracket.curly.ck2'
             begin: '(?xi)
               \\b
-              (weight_multiplier)\\s*
-              (=)\\s*
-              (\\{)
-              \\B'
-            beginCaptures:
-              1: name: 'entity.type.weight_multiplier.ck2'
-              2: name: 'punctuation.definition.weight_multiplier.assignment.ck2'
-              3: name: 'punctuation.definition.weight_multiplier.begin.bracket.curly.ck2'
-            end: '\\B(\\})\\B'
+                (
+                  (weight_multiplier)
+                  |(mean_time_to_happen)
+                )
+              \\s*
+                (=)
+              \\s*
+                (\\{)
+              '
             endCaptures:
-              1: name: 'punctuation.definition.weight_multiplier.end.bracket.curly'
+              1: name: 'punctuation.definition.event.timing.end.bracket.curly'
+            end: '(?xi)
+                (\\})
+              '
             patterns: [
               { include: '#condition_clause' }
               { include: '#modifier_clause' }
+              { include: '#global_includes' }
             ]
           }
           {
-            contentName: 'meta.mean_time_to_happen.ck2'
-            begin: '(?xi)
-              \\b
-              (mean_time_to_happen)\\s*
-              (=)\\s*
-              (\\{)
-              \\B'
+            contentName: 'meta.immediate.block.ck2'
             beginCaptures:
-              1: name: 'entity.type.mean_time_to_happen.ck2'
-              2: name: 'punctuation.definition.mean_time_to_happen.assignment.ck2'
-              3: name: 'punctuation.definition.mean_time_to_happen.begin.bracket.curly.ck2'
-            end: '\\B(\\})\\B'
-            endCaptures:
-              1: name: 'punctuation.definition.mean_time_to_happen.end.bracket.curly'
-            patterns: [
-              { include: '#condition_clause' }
-              { include: '#modifier_clause' }
-            ]
-          }
-          {
-            contentName: 'meta.immediate.ck2'
-            begin: '(?xi)
-              \\b
-              (immediate)\\s*
-              (=)\\s*
-              (\\{)
-              \\B'
-            beginCaptures:
-              0: name: 'entity.type.immediate.ck2'
+              0: name: 'entity.type.event.command.immediate.ck2'
               1: name: 'keyword.control.immediate.ck2'
-              2: name: 'punctuation.definition.immediate.assignment.ck2'
+              2: name: 'punctuation.definition.immediate.assignment.equals.ck2'
               3: name: 'punctuation.definition.immediate.begin.bracket.curly.ck2'
-            end: '\\B(\\})\\B'
+            begin: '(?xi)
+              \\b
+                (immediate)
+              \\s*
+                (=)
+              \\s*
+                (\\{)
+              '
             endCaptures:
               1: name: 'punctuation.definition.immediate.end.bracket.curly'
+            end: '(?xi)
+              (\\})
+              '
             patterns: [
-              { include: '#effect_clause'}
-              { include: '#unquoted_strings'}
+              { include: '#effect_clause' }
+              { include: '#unquoted_strings' }
+              { include: '#global_includes' }
             ]
           }
           {
-            contentName: 'meta.option.ck2'
+            contentName: 'meta.option.block.ck2'
+            beginCaptures:
+              0: name: 'entity.type.event.command.option.ck2'
+              1: name: 'keyword.control.option.ck2'
+              2: name: 'punctuation.definition.option.assignment.equals.ck2'
+              3: name: 'punctuation.definition.option.begin.bracket.curly.ck2'
             begin: '(?xi)
               \\b
-              (option)\\s*
-              (=)\\s*
-              (\\{)
-              \\B'
-            beginCaptures:
-              0: name: 'entity.type.option.ck2'
-              1: name: 'keyword.control.option.ck2'
-              2: name: 'punctuation.definition.option.assignment.ck2'
-              3: name: 'punctuation.definition.option.begin.bracket.curly.ck2'
-            end: '\\B(\\})\\B'
+                (option)
+              \\s*
+                (=)
+              \\s*
+                (\\{)
+              '
             endCaptures:
               1: name: 'punctuation.definition.option.end.bracket.curly'
+            end: '(?xi)
+                (\\})
+              '
             patterns: [
               {
-                match: '(?xi)\\b(name)\\s*(=)\\s*(?=\\w+)'
                 captures:
                   1: name: 'variable.language.condition.name.ck2'
+                match: '(?xi)
+                  \\b
+                    (name)
+                  (?=
+                  \\s*
+                    =
+                  \\s*
+                    ["\\[\\w]
+                    ["\\]\\[\\w]
+                  )
+                  '
               }
               {
-                match: '(?xi)\\b(tooltip_info)\\s*(=)\\s*(\\w+)\\b'
                 captures:
-                  1: name: 'variable.language.condition.name.ck2'
+                  1: name: 'variable.language.condition.tooltip_info.ck2'
+                match: '(?xi)
+                  \\b
+                    (tooltip_info)
+                  (?=
+                  \\s*
+                    =
+                  \\s*
+                    ["\\[\\w]
+                    ["\\]\\[\\w]
+                  )
+                  '
               }
               {
-                contentName: 'meta.name.ck2'
+                contentName: 'meta.name.block.ck2'
+                beginCaptures:
+                  0: name: 'entity.type.event.option.name_block.ck2'
+                  1: name: 'keyword.control.name.ck2'
+                  2: name: 'punctuation.definition.name.assignment.equals.ck2'
+                  3: name: 'punctuation.definition.name.begin.bracket.curly.ck2'
                 begin: '(?xi)
                   \\b
-                  (name)\\s*
-                  (=)\\s*
-                  (\\{)
-                  \\B'
-                beginCaptures:
-                  1: name: 'keyword.control.name.ck2'
-                  2: name: 'punctuation.definition.name.assignment.ck2'
-                  3: name: 'punctuation.definition.name.begin.bracket.curly.ck2'
-                end: '\\B(\\})\\B'
+                    (name)
+                  \\s*
+                    (=)
+                  \\s*
+                    (\\{)
+                  '
                 endCaptures:
                   1: name: 'punctuation.definition.name.end.bracket.curly'
+                end: '(?xi)
+                    (\\})
+                  '
                 patterns: [
-                  { include: '#trigger_clause'}
-                  { include: '#unquoted_strings'}
                   {
-                    match: '(?xi)\\b(text)\\s*(=)\\s*(?=["\'[:alpha:]._]+)'
                     captures:
                       1: name: 'variable.language.condition.text.ck2'
+                    match: '(?xi)
+                    \\b
+                      (text)
+                    (?=
+                    \\s*
+                      =
+                    \\s*
+                      ["\\[\\w]
+                      ["\\]\\[\\w]
+                    )
+                    '
                   }
+                  { include: '#trigger_clause' }
+                  { include: '#unquoted_strings' }
+                  { include: '#global_includes' }
                 ]
               }
               { include: '#effect_clause'}
               { include: '#trigger_clause'}
               { include: '#unquoted_strings'}
               { include: '#ai_chance'}
+              { include: '#global_includes' }
             ]
           }
           {
-            contentName: 'meta.after.ck2'
+            contentName: 'meta.after.block.ck2'
+            beginCaptures:
+              0: name: 'entity.type.event.command.after.ck2'
+              1: name: 'keyword.control.after.ck2'
+              2: name: 'punctuation.definition.after.assignment.equals.ck2'
+              3: name: 'punctuation.definition.after.begin.bracket.curly.ck2'
             begin: '(?xi)
               \\b
-              (after)\\s*
-              (=)\\s*
-              (\\{)
-              \\B'
-            beginCaptures:
-              0: name: 'entity.type.after.ck2'
-              1: name: 'keyword.control.after.ck2'
-              2: name: 'punctuation.definition.after.assignment.ck2'
-              3: name: 'punctuation.definition.after.begin.bracket.curly.ck2'
-            end: '\\B(\\})\\B'
+                (after)
+              \\s*
+                (=)
+              \\s*
+                (\\{)
+              '
             endCaptures:
               1: name: 'punctuation.definition.after.end.bracket.curly'
+            end: '(?xi)
+                (\\})
+              '
             patterns: [
-              { include: '#effect_clause'}
-              { include: '#unquoted_strings'}
+              { include: '#effect_clause' }
+              { include: '#unquoted_strings' }
+              { include: '#global_includes' }
             ]
           }
           { include: '#trigger_clause' }
           { include: '#quoted_strings' }
-          { include: '#global_includes'}
+          { include: '#global_includes' }
           # { include: '$self' }
         ]
       }
