@@ -541,18 +541,35 @@ repository:
   numbers:
     patterns: [
       {
-        match: '\\b\\d+\\.\\d{,3}(\\d*)\\b'
         captures:
           0: name: 'constant.numeric.float.ck2'
           1: name: 'invalid.illegal.outofbounds.ck2'
+        match: '(?xi)
+          \\b
+            \\d+
+            \\.
+            \\d{,3}
+            (\\d*)
+          \\b
+          '
       }
       {
-        match: '\\b\\d+\\.\\d{1,3}\\b'
         name: 'constant.numeric.float.ck2'
+        match: '(?xi)
+          \\b
+            \\d+
+            \\.
+            \\d{1,3}
+          \\b
+          '
       }
       {
-        match: '\\b\\d+\\b'
         name: 'constant.numeric.int.ck2'
+        match: '(?xi)
+          \\b
+            \\d+
+          \\b
+          '
       }
     ]
   strings:
