@@ -331,6 +331,10 @@ repository:
   control_flow:
     patterns: [
       {
+        match: '(?xi)\\bbreak\\b'
+        name: 'keyword.control.flow.ck2'
+      }
+      {
         contentName: 'meta.block.control.if.ck2'
         begin: '(?xi)
           \\b
