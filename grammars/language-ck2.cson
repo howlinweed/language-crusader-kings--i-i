@@ -1905,22 +1905,28 @@ repository:
   trigger_clause:
     patterns: [
       {
-        contentName: 'meta.trigger.ck2'
+        contentName: 'meta.trigger.block.ck2'
         begin: '(?xi)
           \\b
-          (trigger)\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
+            (trigger)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         beginCaptures:
-          1: name: 'entity.type.trigger.ck2'
-          2: name: 'punctuation.definition.trigger.assignment.ck2'
+          0: name: 'entity.type.trigger.ck2'
+          1: name: 'keyword.control.trigger.ck2'
+          2: name: 'punctuation.definition.trigger.assignment.equals.ck2'
           3: name: 'punctuation.definition.trigger.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+        end: '(?xi)
+        (\\})
+        '
         endCaptures:
           1: name: 'punctuation.definition.trigger.end.bracket.curly'
         patterns: [
           { include: '#condition_clause' }
+          { include: '#global_includes' }
         ]
       }
     ]
