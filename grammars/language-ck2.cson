@@ -2037,33 +2037,38 @@ repository:
         endCaptures:
           1: name: 'punctuation.definition.logical.end.bracket.curly.ck2'
         end: '(?xi)
-          (\\})
+            (\\})
           '
         patterns: [
           { include: '#condition_clause' }
+          { include: '#global_includes' }
         ]
       }
-      { include: '#quoted_strings' }
+      {
+        beginCaptures:
+          1: name: 'punctuation.definition.clause.assignment.equals.ck2'
+          2: name: 'punctuation.definition.clause.begin.bracket.curly.ck2'
+        name: 'meta.condition.block.ck2'
+        begin: '(?xi)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
+        endCaptures:
+          1: name: 'punctuation.definition.clause.end.bracket.curly.ck2'
+        end: '(?xi)
+            (\\})
+          '
+        patterns: [
+          {include: '#condition_clause' }
+        ]
+      }
+      { include: '#global_includes' }
       { include: '#scopes' }
       { include: '#conditions' }
       { include: '#condition_clause' }
       { include: '#condition_tooltips' }
-      {
-        name: 'meta.condition.clause.ck2'
-        begin: '(?x)\\s*(=)\\s*(\\{)'
-        beginCaptures:
-          1: name: 'punctuation.section.clause.assignment.ck2'
-          2: name: 'punctuation.section.clause.begin.bracket.curly.ck2'
-        end: '\\B(\\})'
-        endCaptures:
-          1:
-            name: 'punctuation.section.clause.end.bracket.curly.ck2'
-        patterns: [
-          {include: '#condition_clause' }
-          {include: '#conditions' }
-        ]
-      }
-      { include: '$self' }
     ]
   effect_clause: #includes all the repositories that go inside clauses that perform actions: immediate, option, after, effect, etc.
     patterns: [
