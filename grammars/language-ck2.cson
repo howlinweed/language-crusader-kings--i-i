@@ -790,8 +790,8 @@ repository:
                   |sick
                 )
                 |only_(?:
-                  capable|
-                  independent
+                  capable
+                  |independent
                   |(?:wo)?men
                   |playable
                   |rulers
@@ -2041,18 +2041,18 @@ repository:
       {
           match: '(?xi)
             \\b
-            (ANY_CLAIM|ANY_DE_JURE_VASSAL_TITLE|ANY_DEMESNE_TITLE|
-            ANY_DIRECT_DE_JURE_VASSAL_TITLE|ANY_HEIR_TITLE|ANY_LANDED_TITLE|
-            ANY_MERCENARY_BAND|ANY_POTENTIAL_TRIBAL_COUNTY|ANY_PRETENDER_TITLE|
-            ANY_PROVINCE_HOLDING|ANY_QUEST_TARGET|ANY_REALM_TITLE|ANY_TITLE|
-            BLOOD_BROTHER|CAPITAL_HOLDING|CLAN_TITLE|COUNTY|CROWNLAW_TITLE|
-            CRUSADE_TARGET|DEFACTO_LIEGE_TITLE|DEJURE_LIEGE_TITLE|DUCHY|EMPIRE|
-            FAMILY_PALACE|GOVERNOR_TITLE|INVASION_TARGET|KINGDOM|NEW_TITLE|
-            PLOT_TARGET_TITLE|PRIMARY_TITLE|QUEST_TARGET|RANDOM_CLAIM|
-            RANDOM_DEMESNE_TITLE|RANDOM_DIRECT_DE_JURE_VASSAL_TITLE|
-            RANDOM_LANDED_TITLE|RANDOM_POTENTIAL_TRIBAL_COUNTY|
-            RANDOM_PROVINCE_HOLDING|RANDOM_QUEST_TARGET|RANDOM_REALM_TITLE|REALM|
-            SUCC_LAW_TITLE|SUPPORTED_CLAIMANT_TITLE|THIRDPARTY_TITLE_SCOPE)
+            (ANY_CLAIM|ANY_DE_JURE_VASSAL_TITLE|ANY_DEMESNE_TITLE
+|ANY_DIRECT_DE_JURE_VASSAL_TITLE|ANY_HEIR_TITLE|ANY_LANDED_TITLE
+|ANY_MERCENARY_BAND|ANY_POTENTIAL_TRIBAL_COUNTY|ANY_PRETENDER_TITLE
+|ANY_PROVINCE_HOLDING|ANY_QUEST_TARGET|ANY_REALM_TITLE|ANY_TITLE
+|BLOOD_BROTHER|CAPITAL_HOLDING|CLAN_TITLE|COUNTY|CROWNLAW_TITLE
+|CRUSADE_TARGET|DEFACTO_LIEGE_TITLE|DEJURE_LIEGE_TITLE|DUCHY|EMPIRE
+|FAMILY_PALACE|GOVERNOR_TITLE|INVASION_TARGET|KINGDOM|NEW_TITLE
+|PLOT_TARGET_TITLE|PRIMARY_TITLE|QUEST_TARGET|RANDOM_CLAIM
+|RANDOM_DEMESNE_TITLE|RANDOM_DIRECT_DE_JURE_VASSAL_TITLE
+|RANDOM_LANDED_TITLE|RANDOM_POTENTIAL_TRIBAL_COUNTY
+|RANDOM_PROVINCE_HOLDING|RANDOM_QUEST_TARGET|RANDOM_REALM_TITLE|REALM
+|SUCC_LAW_TITLE|SUPPORTED_CLAIMANT_TITLE|THIRDPARTY_TITLE_SCOPE)
             \\b'
           captures:
             1:
@@ -2061,51 +2061,51 @@ repository:
       {
           match: '(?xi)
             \\b
-            (ANY_ALLIED_CHARACTER|ANY_ATTACKER|ANY_BACKED_CHARACTER|ANY_CHARACTER|
-            ANY_CHILD|ANY_CHILD_EVEN_IF_DEAD|ANY_CLAIMANT|ANY_CLOSE_RELATIVE|
-            ANY_COURTIER|ANY_COURTIER_OR_VASSAL|ANY_CURRENT_ENEMY|ANY_DE_JURE_VASSAL|
-            ANY_DEFENDER|ANY_DYNASTY_MEMBER|ANY_DYNASTY_MEMBER_EVEN_IF_DEAD|
-            ANY_ENEMY_PLOTTER|ANY_FACTION_BACKER|ANY_FAVOR_HOLDER|ANY_FAVOR_OWER|
-            ANY_FRIEND|ANY_HOST_COURTIER|ANY_INDEPENDENT_RULER|ANY_KNOWN_ENEMY_PLOTTER|
-            ANY_KNOWN_PLOTTER|ANY_LIEGE|ANY_LOVER|ANY_NEIGHBOR_INDEPENDENT_RULER|
-            ANY_NON_AGGRESSION_PACT_CHARACTER|ANY_OPINION_MODIFIER_TARGET|
-            ANY_PLAYABLE_RULER|ANY_PLAYER|ANY_PLOT_BACKER|ANY_PLOTTER|
-            ANY_PREVIOUS_HOLDER|ANY_PROVINCE_CHARACTER|ANY_PROVINCE_LORD|ANY_PUPIL|
-            ANY_QUESTER|ANY_QUESTER_TARGETING_THIS|ANY_QUESTER_TARGETTING_THIS|
-            ANY_QUEST_TARGET|ANY_REALM_CHARACTER|ANY_REALM_LORD|ANY_RIVAL|ANY_SIBLING|
-            ANY_SIBLING_EVEN_IF_DEAD|ANY_SOCIETY_MEMBER|ANY_SPOUSE|
-            ANY_SPOUSE_EVEN_IF_DEAD|ANY_CONSORT|ANY_SUZERAIN|ANY_TRIBUTARY|
-            ANY_UNIQUE_DYNASTY_VASSAL|ANY_UNKNOWN_ENEMY_PLOTTER|ANY_VASSAL|
-            ANY_VOTER|ANY_WARD|ARTIFACT_OWNER|ATTACKER|BAND_CREATOR|
-            BEST_CRUSADE_CLAIMANT|BIGGEST_REALM_SIZE_RELATIVE|CENTER_FLANK_LEADER|
-            LEFT_FLANK_LEADER|RIGHT_FLANK_LEADER|CONTROLLER|CURRENT_HEIR|DEFENDER|
-            DYNASTY_HEAD|EDUCATOR|EMPLOYER|ENEMY|FATHER|FATHER_EVEN_IF_DEAD|
-            FATHER_OF_UNBORN|GUARDIAN|GOVERNOR|HEIR_UNDER_SENIORITY_LAW|
-            HEIR_UNDER_PRIMOGENITURE_LAW|HIGHEST_RANKED_RELATIVE|HOLDER_SCOPE|
-            HOSPITAL_OWNER|HOST|JOB_CHANCELLOR|JOB_MARSHAL|JOB_TREASURER|
-            JOB_SPYMASTER|JOB_SPIRITUAL|KILLER|LEADER|LIEGE|LIEGE_BEFORE_WAR|LOVER|
-            MERCENARY_EMPLOYER|MOST_PARTICIPATING_ATTACKER|MOST_PARTICIPATING_CRUSADER|
-            MOST_PARTICIPATING_DEFENDER|MOST_POPULAR_VASSAL|
-            MOST_PRESTIGIOUS_CLAN_VASSAL|MOTHER|MOTHER_EVEN_IF_DEAD|NEW_CHARACTER|
-            OFFMAP_PREV_RULER|OFFMAP_RULER|ORIGINAL_ARTIFACT_OWNER|ORIGINAL_OWNER|OWNER|
-            PARENT_RELIGION_HEAD|PLAYER_HEIR|PLOT_TARGET_CHAR|PREFERRED_WAR_TARGET|
-            QUEST_TARGET|RANDOM_ALLIED_CHARACTER|RANDOM_BACKED_CHARACTER|
-            RANDOM_CHARACTER|RANDOM_CHILD|RANDOM_CHILD_EVEN_IF_DEAD|
-            RANDOM_CLOSE_RELATIVE|RANDOM_COURTIER|RANDOM_CURRENT_ENEMY|
-            RANDOM_DYNASTY_MEMBER|RANDOM_DYNASTY_MEMBER_EVEN_IF_DEAD|
-            RANDOM_ENEMY_PLOTTER|RANDOM_FRIEND|RANDOM_HOST_COURTIER|
-            RANDOM_INDEPENDENT_RULER|RANDOM_KNOWN_ENEMY_PLOTTER|RANDOM_LOVER|
-            RANDOM_NEIGHBOR_INDEPENDENT_RULER|RANDOM_NON_AGGRESSION_PACT_CHARACTER|
-            RANDOM_OPINION_MODIFIER_TARGET|RANDOM_PLAYABLE_RULER|RANDOM_PLAYER|
-            RANDOM_PROVINCE_CHARACTER|RANDOM_PROVINCE_LORD|RANDOM_PUPIL|RANDOM_QUESTER|
-            RANDOM_QUESTER_TARGETTING_THIS|RANDOM_QUEST_TARGET|RANDOM_REALM_CHARACTER|
-            RANDOM_REALM_LORD|RANDOM_RIVAL|RANDOM_SIBLING|RANDOM_SIBLING_EVEN_IF_DEAD|
-            RANDOM_SOCIETY_MEMBER|RANDOM_SPOUSE|RANDOM_SPOUSE_EVEN_IF_DEAD|
-            RANDOM_CONSORT|RANDOM_TRIBUTARY|RANDOM_UNKNOWN_ENEMY_PLOTTER|RANDOM_VASSAL|
-            RANDOM_VOTER|RANDOM_WARD|REAL_FATHER|REAL_FATHER_EVEN_IF_DEAD|
-            REINCARNATION_SCOPE|REGENT|RELIGION_HEAD|RIGHTFUL_RELIGIOUS_HEAD_SCOPE|
-            RULER|SPOUSE|SPOUSE_EVEN_IF_DEAD|STRONGEST_CLAN_VASSAL|SUPPORTED_CLAIMANT|
-            SUZERAIN|TITLE_TO_GET_RID_OF|TOP_LIEGE|TRADE_POST_OWNER)
+            (ANY_ALLIED_CHARACTER|ANY_ATTACKER|ANY_BACKED_CHARACTER|ANY_CHARACTER
+|ANY_CHILD|ANY_CHILD_EVEN_IF_DEAD|ANY_CLAIMANT|ANY_CLOSE_RELATIVE
+|ANY_COURTIER|ANY_COURTIER_OR_VASSAL|ANY_CURRENT_ENEMY|ANY_DE_JURE_VASSAL
+|ANY_DEFENDER|ANY_DYNASTY_MEMBER|ANY_DYNASTY_MEMBER_EVEN_IF_DEAD
+|ANY_ENEMY_PLOTTER|ANY_FACTION_BACKER|ANY_FAVOR_HOLDER|ANY_FAVOR_OWER
+|ANY_FRIEND|ANY_HOST_COURTIER|ANY_INDEPENDENT_RULER|ANY_KNOWN_ENEMY_PLOTTER
+|ANY_KNOWN_PLOTTER|ANY_LIEGE|ANY_LOVER|ANY_NEIGHBOR_INDEPENDENT_RULER
+|ANY_NON_AGGRESSION_PACT_CHARACTER|ANY_OPINION_MODIFIER_TARGET
+|ANY_PLAYABLE_RULER|ANY_PLAYER|ANY_PLOT_BACKER|ANY_PLOTTER
+|ANY_PREVIOUS_HOLDER|ANY_PROVINCE_CHARACTER|ANY_PROVINCE_LORD|ANY_PUPIL
+|ANY_QUESTER|ANY_QUESTER_TARGETING_THIS|ANY_QUESTER_TARGETTING_THIS
+|ANY_QUEST_TARGET|ANY_REALM_CHARACTER|ANY_REALM_LORD|ANY_RIVAL|ANY_SIBLING
+|ANY_SIBLING_EVEN_IF_DEAD|ANY_SOCIETY_MEMBER|ANY_SPOUSE
+|ANY_SPOUSE_EVEN_IF_DEAD|ANY_CONSORT|ANY_SUZERAIN|ANY_TRIBUTARY
+|ANY_UNIQUE_DYNASTY_VASSAL|ANY_UNKNOWN_ENEMY_PLOTTER|ANY_VASSAL
+|ANY_VOTER|ANY_WARD|ARTIFACT_OWNER|ATTACKER|BAND_CREATOR
+|BEST_CRUSADE_CLAIMANT|BIGGEST_REALM_SIZE_RELATIVE|CENTER_FLANK_LEADER
+|LEFT_FLANK_LEADER|RIGHT_FLANK_LEADER|CONTROLLER|CURRENT_HEIR|DEFENDER
+|DYNASTY_HEAD|EDUCATOR|EMPLOYER|ENEMY|FATHER|FATHER_EVEN_IF_DEAD
+|FATHER_OF_UNBORN|GUARDIAN|GOVERNOR|HEIR_UNDER_SENIORITY_LAW
+|HEIR_UNDER_PRIMOGENITURE_LAW|HIGHEST_RANKED_RELATIVE|HOLDER_SCOPE
+|HOSPITAL_OWNER|HOST|JOB_CHANCELLOR|JOB_MARSHAL|JOB_TREASURER
+|JOB_SPYMASTER|JOB_SPIRITUAL|KILLER|LEADER|LIEGE|LIEGE_BEFORE_WAR|LOVER
+|MERCENARY_EMPLOYER|MOST_PARTICIPATING_ATTACKER|MOST_PARTICIPATING_CRUSADER
+|MOST_PARTICIPATING_DEFENDER|MOST_POPULAR_VASSAL
+|MOST_PRESTIGIOUS_CLAN_VASSAL|MOTHER|MOTHER_EVEN_IF_DEAD|NEW_CHARACTER
+|OFFMAP_PREV_RULER|OFFMAP_RULER|ORIGINAL_ARTIFACT_OWNER|ORIGINAL_OWNER|OWNER
+|PARENT_RELIGION_HEAD|PLAYER_HEIR|PLOT_TARGET_CHAR|PREFERRED_WAR_TARGET
+|QUEST_TARGET|RANDOM_ALLIED_CHARACTER|RANDOM_BACKED_CHARACTER
+|RANDOM_CHARACTER|RANDOM_CHILD|RANDOM_CHILD_EVEN_IF_DEAD
+|RANDOM_CLOSE_RELATIVE|RANDOM_COURTIER|RANDOM_CURRENT_ENEMY
+|RANDOM_DYNASTY_MEMBER|RANDOM_DYNASTY_MEMBER_EVEN_IF_DEAD
+|RANDOM_ENEMY_PLOTTER|RANDOM_FRIEND|RANDOM_HOST_COURTIER
+|RANDOM_INDEPENDENT_RULER|RANDOM_KNOWN_ENEMY_PLOTTER|RANDOM_LOVER
+|RANDOM_NEIGHBOR_INDEPENDENT_RULER|RANDOM_NON_AGGRESSION_PACT_CHARACTER
+|RANDOM_OPINION_MODIFIER_TARGET|RANDOM_PLAYABLE_RULER|RANDOM_PLAYER
+|RANDOM_PROVINCE_CHARACTER|RANDOM_PROVINCE_LORD|RANDOM_PUPIL|RANDOM_QUESTER
+|RANDOM_QUESTER_TARGETTING_THIS|RANDOM_QUEST_TARGET|RANDOM_REALM_CHARACTER
+|RANDOM_REALM_LORD|RANDOM_RIVAL|RANDOM_SIBLING|RANDOM_SIBLING_EVEN_IF_DEAD
+|RANDOM_SOCIETY_MEMBER|RANDOM_SPOUSE|RANDOM_SPOUSE_EVEN_IF_DEAD
+|RANDOM_CONSORT|RANDOM_TRIBUTARY|RANDOM_UNKNOWN_ENEMY_PLOTTER|RANDOM_VASSAL
+|RANDOM_VOTER|RANDOM_WARD|REAL_FATHER|REAL_FATHER_EVEN_IF_DEAD
+|REINCARNATION_SCOPE|REGENT|RELIGION_HEAD|RIGHTFUL_RELIGIOUS_HEAD_SCOPE
+|RULER|SPOUSE|SPOUSE_EVEN_IF_DEAD|STRONGEST_CLAN_VASSAL|SUPPORTED_CLAIMANT
+|SUZERAIN|TITLE_TO_GET_RID_OF|TOP_LIEGE|TRADE_POST_OWNER)
             \\b'
           captures:
             1:
@@ -2114,12 +2114,12 @@ repository:
       {
           match: '(?xi)
             \\b
-            (ANY_DEMESNE_PROVINCE|ANY_NEIGHBOR_PROVINCE|ANY_PROVINCE|ANY_FORT|
-            ANY_HOSPITAL|ANY_QUEST_TARGET|ANY_REALM_PROVINCE|ANY_TRADE_POST|
-            ANY_TRADE_ROUTE_PROVINCE|CAPITAL_SCOPE|LOCATION|PLOT_TARGET_PROVINCE|
-            QUEST_TARGET|RANDOM_DEMESNE_PROVINCE|RANDOM_NEIGHBOR_PROVINCE|
-            RANDOM_PROVINCE|RANDOM_QUEST_TARGET|RANDOM_REALM_PROVINCE|
-            RANDOM_TRADE_POST|SEA_ZONE)
+            (ANY_DEMESNE_PROVINCE|ANY_NEIGHBOR_PROVINCE|ANY_PROVINCE|ANY_FORT
+|ANY_HOSPITAL|ANY_QUEST_TARGET|ANY_REALM_PROVINCE|ANY_TRADE_POST
+|ANY_TRADE_ROUTE_PROVINCE|CAPITAL_SCOPE|LOCATION|PLOT_TARGET_PROVINCE
+|QUEST_TARGET|RANDOM_DEMESNE_PROVINCE|RANDOM_NEIGHBOR_PROVINCE
+|RANDOM_PROVINCE|RANDOM_QUEST_TARGET|RANDOM_REALM_PROVINCE
+|RANDOM_TRADE_POST|SEA_ZONE)
             \\b'
           captures:
             1:
@@ -2155,8 +2155,8 @@ repository:
       {
           match: '(?xi)
             \\b
-            (ANY_ARMY|ANY_CONTROLLED_UNIT|ANY_FLEET|ANY_UNIT|RANDOM_ARMY|
-            RANDOM_CONTROLLED_UNIT|RANDOM_FLEET|RANDOM_UNIT)
+            (ANY_ARMY|ANY_CONTROLLED_UNIT|ANY_FLEET|ANY_UNIT|RANDOM_ARMY
+|RANDOM_CONTROLLED_UNIT|RANDOM_FLEET|RANDOM_UNIT)
             \\b'
           captures:
             1:
@@ -2216,10 +2216,10 @@ repository:
         match: '(?xi)
         \\b
         (
-          artifact_(age|can_be_gifted_to|type(_owned_by)?)|
-          has_(artifact(_flag)?|known_creation_date)|
-          is_(indestructible|artifact_(active|equipped|same_type_as))|
-          num_of_artifacts|quality
+          artifact_(age|can_be_gifted_to|type(_owned_by)?)
+|has_(artifact(_flag)?|known_creation_date)
+|is_(indestructible|artifact_(active|equipped|same_type_as))
+|num_of_artifacts|quality
         )
         \\b'
         name: 'variable.language.condition.artifacts.ck2'
@@ -2244,19 +2244,19 @@ repository:
         match: '(?xi)
         \\b
         (
-          age(_diff)?|ai(_ambition|_greed|_honor|_rationality|_zeal)?|
-          at_location|attribute_diff|can_hold_title|character|
-          combat_rating(_diff)?|(uses_)?decadence|diploma(cy|tic_immunity)|
-          dynasty|fertility|graphical_culture|
-          (has_((any_(opinion_modifier|quest))|(assigned_)?minor_title|(living_)?children|portrait_property))|
-          imprisoned_days|in_command|intrigue|
-          is_((ancestor|grand(child|parent)|parent|descendant|cousin|aunt_uncle|nibling)|could_be_parent)_of|
-          (day|month|year)_of_birth|landed(_title_allowed)?|heir|lowborn|
-          older_than|opposite_sex|or_was_offmap_power_ruler|pilgrim|playable|
-          pregnant|priest|save_game|seafarer|abroad|adult|at_sea|female|
-          learning|martial|monthly_(piety|prestige)|num_of_prisoners|
-          (pays_tribute|owes_favor)_to|pacifist|piety|prestige|prisoner|race|
-          rebel|same_(regnal_name|sex)|stewardship
+          age(_diff)?|ai(_ambition|_greed|_honor|_rationality|_zeal)?
+|at_location|attribute_diff|can_hold_title|character
+|combat_rating(_diff)?|(uses_)?decadence|diploma(cy|tic_immunity)
+|dynasty|fertility|graphical_culture
+|(has_((any_(opinion_modifier|quest))|(assigned_)?minor_title|(living_)?children|portrait_property))
+|imprisoned_days|in_command|intrigue
+|is_((ancestor|grand(child|parent)|parent|descendant|cousin|aunt_uncle|nibling)|could_be_parent)_of
+|(day|month|year)_of_birth|landed(_title_allowed)?|heir|lowborn
+|older_than|opposite_sex|or_was_offmap_power_ruler|pilgrim|playable
+|pregnant|priest|save_game|seafarer|abroad|adult|at_sea|female
+|learning|martial|monthly_(piety|prestige)|num_of_prisoners
+|(pays_tribute|owes_favor)_to|pacifist|piety|prestige|prisoner|race
+|rebel|same_(regnal_name|sex)|stewardship
         )
         \\b'
         name: 'variable.language.condition.characters.ck2'
@@ -2272,9 +2272,9 @@ repository:
         match: '(?xi)
         \\b
         (
-          clan|has_(blood_oath|feud)_with|(max|unused)_manpower|num_of_feuds|
-          population(_and_manpower|_factor)?|reverse_clan_opinion|
-          risks_minor_clan_rising
+          clan|has_(blood_oath|feud)_with|(max|unused)_manpower|num_of_feuds
+|population(_and_manpower|_factor)?|reverse_clan_opinion
+|risks_minor_clan_rising
         )
         \\b'
         name: 'variable.language.condition.clans.ck2'
@@ -2283,12 +2283,12 @@ repository:
         match: '(?xi)
         \\b
         (
-          always|(artifact|_age)|check_variable|count|difficulty|
-          ha(d|s)_(artifact|dynasty|province|title|character|global)_flag|
-          has_(dlc|earmarked_regiments(_not_raiding)?|game_(rule|started))|
-          is_(ironman|multiplayer_host_character|variable_equal)|month|
-          multiplayer|random|real_month_of_year|score|start_date|
-          supported_checksum|total_years_played|year|calc_true_if
+          always|(artifact|_age)|check_variable|count|difficulty
+|ha(d|s)_(artifact|dynasty|province|title|character|global)_flag
+|has_(dlc|earmarked_regiments(_not_raiding)?|game_(rule|started))
+|is_(ironman|multiplayer_host_character|variable_equal)|month
+|multiplayer|random|real_month_of_year|score|start_date
+|supported_checksum|total_years_played|year|calc_true_if
         )
         \\b'
         name: 'variable.language.condition.control.ck2'
@@ -2318,10 +2318,10 @@ repository:
         match: '(?xi)
         \\b
         (
-          dynast(ic_prestige|y_realm_power)|family|father_of_unborn_known|
-          from_ruler_dynasty|is_(child_of|close_relative|father(_real_father)?|
-          mother|reincarnated)|
-          num_of_(children|dynasty_members)|sibling|was_conceived_a_bastard
+          dynast(ic_prestige|y_realm_power)|family|father_of_unborn_known
+|from_ruler_dynasty|is_(child_of|close_relative|father(_real_father)?
+|mother|reincarnated)
+|num_of_(children|dynasty_members)|sibling|was_conceived_a_bastard
         )
         \\b'
         name: 'variable.language.condition.family.ck2'
@@ -2330,9 +2330,9 @@ repository:
         match: '(?xi)
         \\b
         (
-          government|has_(crown_law_title|law)|
-          is_(allowed_holding_type|feudal|government_potential|
-          (merchant_)?republic|nomadic|patrician|theocracy|tribal)
+          government|has_(crown_law_title|law)
+|is_(allowed_holding_type|feudal|government_potential
+|(merchant_)?republic|nomadic|patrician|theocracy|tribal)
           |num_of_government_vassals|would_be_heir_under_law
         )
         \\b'
@@ -2349,8 +2349,8 @@ repository:
         match: '(?xi)
         \\b
         (
-          (base_)?health|death_reason|has_(any_symptom|disease|epidemic)|
-          immortal|is_(alive|ill|incapable)|num_of_symptoms|symptom
+          (base_)?health|death_reason|has_(any_symptom|disease|epidemic)
+|immortal|is_(alive|ill|incapable)|num_of_symptoms|symptom
         )
         \\b'
         name: 'variable.language.condition.health.ck2'
@@ -2373,9 +2373,9 @@ repository:
         match: '(?xi)
         \\b
         (
-          can_marry|has_lover|is_(betrothed|consort|(former_)?lover|main_spouse|
-          marri(age_adult|ed(_matrilineally)?)|valid_(attraction|romance_target))|
-          num_of_(consorts|lovers|society_members|spouses)
+          can_marry|has_lover|is_(betrothed|consort|(former_)?lover|main_spouse
+|marri(age_adult|ed(_matrilineally)?)|valid_(attraction|romance_target))
+|num_of_(consorts|lovers|society_members|spouses)
         )
         \\b'
         name: 'variable.language.condition.marriage.ck2'
@@ -2384,8 +2384,8 @@ repository:
         match: '(?xi)
         \\b
         (
-          has_(nickname|(mercenary_maintenance|
-          (instances_of_)?(character|province|holding))_modifier)
+          has_(nickname|(mercenary_maintenance
+|(instances_of_)?(character|province|holding))_modifier)
         )
         \\b'
         name: 'variable.language.condition.modifiers.ck2'
@@ -2394,8 +2394,8 @@ repository:
         match: '(?xi)
         \\b
         (
-          gold|(yearly|monthly)_income|relative_income_to_liege|
-          (scaled_)?wealth|treasury
+          gold|(yearly|monthly)_income|relative_income_to_liege
+|(scaled_)?wealth|treasury
         )
         \\b'
         name: 'variable.language.condition.money.ck2'
@@ -2404,8 +2404,8 @@ repository:
         match: '(?xi)
         \\b
         (
-          has_(ambition|focus|objective|plot)|is_plot_(active|target_of)|
-          num_of_plot_backers|plot_(is_known_by|power(_contribution)?)
+          has_(ambition|focus|objective|plot)|is_plot_(active|target_of)
+|num_of_plot_backers|plot_(is_known_by|power(_contribution)?)
         )
         \\b'
         name: 'variable.language.condition.objectives.ck2'
@@ -2414,10 +2414,10 @@ repository:
         match: '(?xi)
         \\b
         (
-          likes_better_than|
-          (reverse_)?has_((?<!reverse_has_)non_aggression_pact_with|opinion_modifier)|
-          ((reverse_)?personal_|clan_|their_|reverse_)?opinion((?<!_opinion)_levy_raised_days)?|
-          ((reverse_)?personal_)?opinion_diff
+          likes_better_than
+|(reverse_)?has_((?<!reverse_has_)non_aggression_pact_with|opinion_modifier)
+|((reverse_)?personal_|clan_|their_|reverse_)?opinion((?<!_opinion)_levy_raised_days)?
+|((reverse_)?personal_)?opinion_diff
         )
         \\b'
         name: 'variable.language.condition.opinion.ck2'
@@ -2426,12 +2426,12 @@ repository:
         match: '(?xi)
         \\b
         (
-          borders_(lake|major_river)|climate|continent|disease(_defence)?|
-          distance(_from_realm)?|has_(capital|empty_holding|higher_tech_than|hospital|
-          trade_post)|hospital_level|is_(island|land|located_in|winter)|
-          num_of_(empty_holdings|(_max)?_settlements)|port|province|province(_id)?|
-          re(gion(al_percentage)?|volt_risk)|technology_can_spread|
-          terrain|trade_route(_control)?
+          borders_(lake|major_river)|climate|continent|disease(_defence)?
+|distance(_from_realm)?|has_(capital|empty_holding|higher_tech_than|hospital
+|trade_post)|hospital_level|is_(island|land|located_in|winter)
+|num_of_(empty_holdings|(_max)?_settlements)|port|province|province(_id)?
+|re(gion(al_percentage)?|volt_risk)|technology_can_spread
+|terrain|trade_route(_control)?
         )
         \\b'
         name: 'variable.language.condition.provinces.ck2'
@@ -2440,8 +2440,8 @@ repository:
         match: '(?xi)
         \\b
         (
-          (among_most(?=(\\w)+s\\b)|is(?!(\\w)+s\\b))_powerful_vassal(s)?|
-          (has(?=\\w+d_p)|will(?!\\w+d_p))_liege_enforce(_peace|d_peace)
+          (among_most(?=(\\w)+s\\b)|is(?!(\\w)+s\\b))_powerful_vassal(s)?
+|(has(?=\\w+d_p)|will(?!\\w+d_p))_liege_enforce(_peace|d_peace)
         )
         \\b'
         name: 'variable.language.condition.realm.ck2'
@@ -2457,16 +2457,16 @@ repository:
         match: '(?xi)
         \\b
         (
-          can_(call_crusade|change_religion|see_secret_religion)|
-          controls_religion|dislike_tribal_organization|excommunicated_for|
-          has_(autocephaly|called_crusade|concubinage|heresies|polygamy|
-            secret_religion)|
-          holy_order|
-          is_(hard_to_convert|here(sy_of|tic)|
-            holy_site|(parent|reformed)_religion)|
-          num_of_holy_sites|
-          religion_(allows_female_temple_holders|authority)|
-          rightful_religious_head|(secret_|true_)?religion(_group)?
+          can_(call_crusade|change_religion|see_secret_religion)
+|controls_religion|dislike_tribal_organization|excommunicated_for
+|has_(autocephaly|called_crusade|concubinage|heresies|polygamy
+|secret_religion)
+|holy_order
+|is_(hard_to_convert|here(sy_of|tic)
+|holy_site|(parent|reformed)_religion)
+|num_of_holy_sites
+|religion_(allows_female_temple_holders|authority)
+|rightful_religious_head|(secret_|true_)?religion(_group)?
         )
         \\b'
         name: 'variable.language.condition.religion.ck2'
@@ -2475,14 +2475,14 @@ repository:
         match: '(?xi)
         \\b
         (
-          completely_controls(_region)?|demesne_(efficiency|size(_compared_to_limit)?)|
-          has_(de_jure_pretension|overseas_holdings|owner)|holding_diff|independent|
-          is_(allowed_to_loot|preferred_holding_type|primary_holder_title|ruler)|
-          num_((of_(hospitals(_diff)?|trade_post(s|_diff)|realm_counties))|title_realm_provs)|
-          over(_max_demesne_size|_vassal_limit|lord_of)|owns|
-          realm_(character_percent|diplomacy|intrigue|learning|martial|size|stewardship)|
-          relative(_power(_including_allies_(attacker|defender))?|_realm_size)|
-          republic_total_num_of_trade_posts|ruled_years|same_realm
+          completely_controls(_region)?|demesne_(efficiency|size(_compared_to_limit)?)
+|has_(de_jure_pretension|overseas_holdings|owner)|holding_diff|independent
+|is_(allowed_to_loot|preferred_holding_type|primary_holder_title|ruler)
+|num_((of_(hospitals(_diff)?|trade_post(s|_diff)|realm_counties))|title_realm_provs)
+|over(_max_demesne_size|_vassal_limit|lord_of)|owns
+|realm_(character_percent|diplomacy|intrigue|learning|martial|size|stewardship)
+|relative(_power(_including_allies_(attacker|defender))?|_realm_size)
+|republic_total_num_of_trade_posts|ruled_years|same_realm
         )
         \\b'
         name: 'variable.language.condition.rulers.ck2'
@@ -2491,16 +2491,16 @@ repository:
         match: '(?xi)
         \\b
         (
-          (can_jo|is_|days_)in_society|
-          (days_at_current_(?!society_rank_full)|is_(?=society_rank_full))?
-            society_rank((?<=_society_rank)_full)?|
-          (has(?!_quest_)|is(?=_quest_))_quest(_target(_of)?)?|
-          interested_in_society(_of_character)?|
-          is_(interested_in_any_society|quest_target(_of)?|society_discovered(_real)?|
-            society_grandmaster)|
-          same_society_as|society_(can_rank_(down|up)|currency|influence|
-            is_(criminal|devil_worshiper)|member_of)|
-          shares_realm_border_with
+          (can_jo|is_|days_)in_society
+|(days_at_current_(?!society_rank_full)|is_(?=society_rank_full))?
+            society_rank((?<=_society_rank)_full)?
+|(has(?!_quest_)|is(?=_quest_))_quest(_target(_of)?)?
+|interested_in_society(_of_character)?
+|is_(interested_in_any_society|quest_target(_of)?|society_discovered(_real)?
+|society_grandmaster)
+|same_society_as|society_(can_rank_(down|up)|currency|influence
+|is_(criminal|devil_worshiper)|member_of)
+|shares_realm_border_with
         )
         \\b'
         name: 'variable.language.condition.societies.ck2'
@@ -2509,8 +2509,8 @@ repository:
         match: '(?xi)
         \\b
         (
-          (higher|lower)_(real_)?tier_than|
-          (real_|is_primary_holder_title_)?tier
+          (higher|lower)_(real_)?tier_than
+|(real_|is_primary_holder_title_)?tier
         )
         \\b'
         name: 'variable.language.condition.tier.ck2'
@@ -2519,13 +2519,13 @@ repository:
         match: '(?xi)
         \\b
         (
-          adventurer|can_be_given_away|(has_landed_)?title|
-          has_(holder|mercenary_band|newly_acquired_titles|regent)|temporary|
-          held_title_rating|in_revolt|mercenary(_siphon_factor)?|owns_mercenary_units|
-          is_(capital|con(quered|tested)|(crown_law|
-            (primary|landless|tribal)_type)_title|pr(etender|imary_heir)|
-            recent_grant|tit(ular|le_active)|vice_royalty)|
-          num_(fitting_characters_for_title|(of_(count_titles_in_realm|(baron|count|duke|emperor|king|extra_landed)_titles)))
+          adventurer|can_be_given_away|(has_landed_)?title
+|has_(holder|mercenary_band|newly_acquired_titles|regent)|temporary
+|held_title_rating|in_revolt|mercenary(_siphon_factor)?|owns_mercenary_units
+|is_(capital|con(quered|tested)|(crown_law
+|(primary|landless|tribal)_type)_title|pr(etender|imary_heir)
+|recent_grant|tit(ular|le_active)|vice_royalty)
+|num_(fitting_characters_for_title|(of_(count_titles_in_realm|(baron|count|duke|emperor|king|extra_landed)_titles)))
         )
         \\b'
         name: 'variable.language.condition.titles.ck2'
@@ -2534,9 +2534,9 @@ repository:
         match: '(?xi)
         \\b
         (
-          can_(copy_personality_trait_from|have_more_leadership_traits)|
-          has_(inheritance_blocker|terrain_specialization)|
-          (health|leader|lifestyle|num(_of)?|personality)_traits|trait
+          can_(copy_personality_trait_from|have_more_leadership_traits)
+|has_(inheritance_blocker|terrain_specialization)
+|(health|leader|lifestyle|num(_of)?|personality)_traits|trait
         )
         \\b'
         name: 'variable.language.condition.traits.ck2'
@@ -2545,13 +2545,13 @@ repository:
         match: '(?xi)
         \\b
         (
-          adventurer|can_be_given_away|(has_landed_)?title|
-          has_(holder|mercenary_band|newly_acquired_titles|regent)|temporary|
-          held_title_rating|in_revolt|mercenary(_siphon_factor)?|owns_mercenary_units|
-          is_(capital|con(quered|tested)|(crown_law|
-            (primary|landless|tribal)_type)_title|pr(etender|imary_heir)|
-            recent_grant|tit(ular|le_active)|vice_royalty)|
-          num_(fitting_characters_for_title|(of_(count_titles_in_realm|(baron|count|duke|emperor|king|extra_landed))?titles))
+          adventurer|can_be_given_away|(has_landed_)?title
+|has_(holder|mercenary_band|newly_acquired_titles|regent)|temporary
+|held_title_rating|in_revolt|mercenary(_siphon_factor)?|owns_mercenary_units
+|is_(capital|con(quered|tested)|(crown_law
+|(primary|landless|tribal)_type)_title|pr(etender|imary_heir)
+|recent_grant|tit(ular|le_active)|vice_royalty)
+|num_(fitting_characters_for_title|(of_(count_titles_in_realm|(baron|count|duke|emperor|king|extra_landed))?titles))
         )
         \\b'
         name: 'variable.language.condition.titles.ck2'
@@ -2567,12 +2567,12 @@ repository:
         match: '(?xi)
         \\b
         (
-          de_(facto_liege(_title)?|jure_liege(_or_above)?)|
-          (is|de_jure)_vassal_or_below|
-          is_(tributary|vassal_or_below|liege_o(f|r_above))|
-          num_of_(unique_dynasty_)?vassals|
-          (same|relative_power_to)_liege|
-          vassal_of
+          de_(facto_liege(_title)?|jure_liege(_or_above)?)
+|(is|de_jure)_vassal_or_below
+|is_(tributary|vassal_or_below|liege_o(f|r_above))
+|num_of_(unique_dynasty_)?vassals
+|(same|relative_power_to)_liege
+|vassal_of
         )
         \\b'
         name: 'variable.language.condition.vassalage.ck2'
@@ -2581,13 +2581,13 @@ repository:
         match: '(?xi)
         \\b
         (
-          can_use_cb|controlled_by|loot|preparing_invasion|defending_against_claimant|
-          demesne_garrison_size|reverse_has_truce|troops|using_cb|
-          is_(allied_with|attacker|looting(_in)?|occupied|
-            primary_war_(attacker|defender)|valid_viking_invasion_target)|
-          has_(embargo|raised_(standing_troops|levies)|regiments|siege|truce)|
-          war(_participation|_score|_title|_with)?|flank_has_(leader|tactic)|
-          in(_(battle|siege)|famy)|realm_(levies|levy_diff)
+          can_use_cb|controlled_by|loot|preparing_invasion|defending_against_claimant
+|demesne_garrison_size|reverse_has_truce|troops|using_cb
+|is_(allied_with|attacker|looting(_in)?|occupied
+|primary_war_(attacker|defender)|valid_viking_invasion_target)
+|has_(embargo|raised_(standing_troops|levies)|regiments|siege|truce)
+|war(_participation|_score|_title|_with)?|flank_has_(leader|tactic)
+|in(_(battle|siege)|famy)|realm_(levies|levy_diff)
         )
         \\b'
         name: 'variable.language.condition.wars.ck2'
@@ -2749,8 +2749,8 @@ repository:
         match: '(?xi)
           \\b
           (
-          ((unsafe_)?destroy|add|transfer)_artifact|
-          set(_artifact)?_original_owner|transfer_artifact
+          ((unsafe_)?destroy|add|transfer)_artifact
+|set(_artifact)?_original_owner|transfer_artifact
           )
           \\b'
         name: 'support.function.effect.artifacts.ck2'
@@ -2759,13 +2759,13 @@ repository:
         match: '(?xi)
           \\b
           (
-          banish|decadence|fertility|force_host|imprison|move_character|remove_nickname|
-          diplomatic_immunity|add_random_education_trait|(set|clear)_focus|
-          give_(minor_title|nickname)|reverse_(banish|imprison)|
-          (scaled_)?(prestige|piety)|set_(graphical_culture|name)|
-          (set|remove)_special_character_title|occupy_minors_of_occupied_settlements|
-          change_(diplomacy|intrigue|learning|martial|stewardship)|
-          create_(character|random_(diplomat|intriguer|priest|soldier|steward))
+          banish|decadence|fertility|force_host|imprison|move_character|remove_nickname
+|diplomatic_immunity|add_random_education_trait|(set|clear)_focus
+|give_(minor_title|nickname)|reverse_(banish|imprison)
+|(scaled_)?(prestige|piety)|set_(graphical_culture|name)
+|(set|remove)_special_character_title|occupy_minors_of_occupied_settlements
+|change_(diplomacy|intrigue|learning|martial|stewardship)
+|create_(character|random_(diplomat|intriguer|priest|soldier|steward))
           )
           \\b'
         name: 'support.function.effect.characters.ck2'
@@ -2792,11 +2792,11 @@ repository:
         match: '(?xi)
           \\b
           (
-          (character|province|repeat|letter|narrative|clear_delayed)_event|
-          clear((_global)?_event_target((?<=global[A-Z_]{13})s)?|_flags_with_prefix)|
-          save(_global)?_event_target_as|log|
-          (clr|set)_(artifact|dynasty|global|province|title|character)_flag|
-          (set|subtract|change|divide|export_to|multiply)_variable
+          (character|province|repeat|letter|narrative|clear_delayed)_event
+|clear((_global)?_event_target((?<=global[A-Z_]{13})s)?|_flags_with_prefix)
+|save(_global)?_event_target_as|log
+|(clr|set)_(artifact|dynasty|global|province|title|character)_flag
+|(set|subtract|change|divide|export_to|multiply)_variable
           )
           \\b'
         name: 'support.function.effect.control.ck2'
@@ -2911,17 +2911,17 @@ repository:
         match: '(?xi)
           \\b
           (
-          copy_title_laws|gender_succ|hold_election|(approve|revoke)_law|
-          abdicate(_to_most_liked_by)?|add_law(_w_cooldown)?|
-          (recalc_(?!\\w+_))?succession(_w_cooldown)?|
-          set_(
+          copy_title_laws|gender_succ|hold_election|(approve|revoke)_law
+|abdicate(_to_most_liked_by)?|add_law(_w_cooldown)?
+|(recalc_(?!\\w+_))?succession(_w_cooldown)?
+|set_(
             allow(
-              _feminism|
-              _(free(
-                _(duchy|infidel|vice_royalty))?|title)_revokation|
-              _gender_laws|_vice_royalties|s_matrilineal_marriage)|
-            appoint_(generals|regents)|government_type|investiture|
-            pr(eferred_capital|otected_inheritance)|the_kings(_full)?_peace)
+              _feminism
+|_(free(
+                _(duchy|infidel|vice_royalty))?|title)_revokation
+|_gender_laws|_vice_royalties|s_matrilineal_marriage)
+|appoint_(generals|regents)|government_type|investiture
+|pr(eferred_capital|otected_inheritance)|the_kings(_full)?_peace)
           )
           \\b'
         name: 'support.function.effect.government.ck2'
@@ -2939,8 +2939,8 @@ repository:
         match: '(?xi)
           \\b
           (
-          death|start_outbreak|start_outbreak|health|cure_illness|
-          (activate|reduce|spawn)_disease
+          death|start_outbreak|start_outbreak|health|cure_illness
+|(activate|reduce|spawn)_disease
           )
           \\b'
         name: 'support.function.effect.health.ck2'
@@ -2949,10 +2949,10 @@ repository:
         match: '(?xi)
           \\b
           (
-          (make|revoke)(_capital|build(_add_to_extra)?)?_holding|
-          create_(family_palace|hospital|tradepost)|
-          (add|remove|destroy_random)_building|
-          convert_to|add_holding_slot|destroy_settlement|refill_holding_levy
+          (make|revoke)(_capital|build(_add_to_extra)?)?_holding
+|create_(family_palace|hospital|tradepost)
+|(add|remove|destroy_random)_building
+|convert_to|add_holding_slot|destroy_settlement|refill_holding_levy
           )
           \\b'
         name: 'support.function.effect.holdings.ck2'
@@ -2961,8 +2961,8 @@ repository:
         match: '(?xi)
           \\b
           (
-          cancel_job_action|(remove|give_job)_title|
-          steal_(random_tech|population_scaled)
+          cancel_job_action|(remove|give_job)_title
+|steal_(random_tech|population_scaled)
           )
           \\b'
         name: 'support.function.effect.jobs.ck2'
@@ -2980,8 +2980,8 @@ repository:
         match: '(?xi)
           \\b
           (
-          add_(betrothal|consort|spouse(_matrilineal)?)|remove_(consort|spouse)|
-          break_betrothal|make_primary_spouse|impregnate(_cuckoo)?
+          add_(betrothal|consort|spouse(_matrilineal)?)|remove_(consort|spouse)
+|break_betrothal|make_primary_spouse|impregnate(_cuckoo)?
           )
           \\b'
         name: 'support.function.effect.marriage.ck2'
@@ -3008,8 +3008,8 @@ repository:
         match: '(?xi)
           \\b
           (
-          set_opinion_levy_raised_days|((reverse_)?(add|remove))_favor|
-          ((clan|(clan_)?reverse|(reverse_)?remove)_)?opinion
+          set_opinion_levy_raised_days|((reverse_)?(add|remove))_favor
+|((clan|(clan_)?reverse|(reverse_)?remove)_)?opinion
           )
           \\b'
         name: 'support.function.effect.opinions.ck2'
@@ -3018,9 +3018,9 @@ repository:
         match: '(?xi)
           \\b
           (
-          (activate|back|cancel|leave|reveal)_plot((?<=eal\\w{5})_w_message)?|
-          (cancel|add)_(ambition|objective)|
-          (plot|ambition)_succeeds|change_plot_power|send_assassin
+          (activate|back|cancel|leave|reveal)_plot((?<=eal\\w{5})_w_message)?
+|(cancel|add)_(ambition|objective)
+|(plot|ambition)_succeeds|change_plot_power|send_assassin
           )
           \\b'
         name: 'support.function.effect.plots.ck2'
@@ -3029,9 +3029,9 @@ repository:
         match: '(?xi)
           \\b
           (
-          destroy_(fort|hospital|tradepost|in_extra_holding)|
-          change(_random_(eco|mil|civ))?_tech|
-          clear_revolt|province_capital|rebel_defection
+          destroy_(fort|hospital|tradepost|in_extra_holding)
+|change(_random_(eco|mil|civ))?_tech
+|clear_revolt|province_capital|rebel_defection
           )
           \\b'
         name: 'support.function.effect.provinces.ck2'
@@ -3049,8 +3049,8 @@ repository:
         match: '(?xi)
           \\b
           (
-          ((reverse|banish|unsafe|(clear|set|convert_to)_secret|set_parent)_)?religion((?<!_religion)_authority)?|
-          abandon_heresy|become_heretic|disable_prepared_invasion|excommunicate|set_pentarch_title
+          ((reverse|banish|unsafe|(clear|set|convert_to)_secret|set_parent)_)?religion((?<!_religion)_authority)?
+|abandon_heresy|become_heretic|disable_prepared_invasion|excommunicate|set_pentarch_title
           )
           \\b'
         name: 'support.function.effect.religion.ck2'
@@ -3059,9 +3059,9 @@ repository:
         match: '(?xi)
           \\b
           (
-          (culture|military|economy)_techpoints|set_mercenary_maintenance_modifier|
-          change_mercenary_composition|cut_mercenary_creator_relation|
-          adjust_siphon_factor|make_primary_title|seize_trade_post|capital
+          (culture|military|economy)_techpoints|set_mercenary_maintenance_modifier
+|change_mercenary_composition|cut_mercenary_creator_relation
+|adjust_siphon_factor|make_primary_title|seize_trade_post|capital
           )
           \\b'
         name: 'support.function.effect.rulers.ck2'
@@ -3070,9 +3070,9 @@ repository:
         match: '(?xi)
           \\b
           (
-          set_(society_grandmaster|(interested|discovered)_society|quest(_target)?)|
-          add_society_modifier|change_society_currency|society_rank_(down|up)|
-          clr_(quest(_target)?|discovered_society)|(join|leave)_society
+          set_(society_grandmaster|(interested|discovered)_society|quest(_target)?)
+|add_society_modifier|change_society_currency|society_rank_(down|up)
+|clr_(quest(_target)?|discovered_society)|(join|leave)_society
           )
           \\b'
         name: 'support.function.effect.societies.ck2'
@@ -3085,15 +3085,15 @@ repository:
         match: '(?xi)
           \\b
           (
-          inherit|adjective|(set|reset)_coa|
-          copy_title_history|change_title_army_size|
-          set_title_(nomad|landless|adventurer)|
-          usurp_title(_(plus_barony_if_unlanded|only))?|
-          grant_(kingdom_w_adjudication|title_no_opinion)|
-          gain_(title_plus_barony_if_unlanded|all_occupied_titles|
-            settlements_under_title)|
-          ((unsafe_)?destroy_landed|activate|create|gain|grant|
-            best_fit_character_for)_title
+          inherit|adjective|(set|reset)_coa
+|copy_title_history|change_title_army_size
+|set_title_(nomad|landless|adventurer)
+|usurp_title(_(plus_barony_if_unlanded|only))?
+|grant_(kingdom_w_adjudication|title_no_opinion)
+|gain_(title_plus_barony_if_unlanded|all_occupied_titles
+|settlements_under_title)
+|((unsafe_)?destroy_landed|activate|create|gain|grant
+|best_fit_character_for)_title
           )
           \\b'
         name: 'support.function.effect.titles.ck2'
@@ -3111,8 +3111,8 @@ repository:
         match: '(?xi)
           \\b
           (
-          damage_unit(_morale)?|spawn_(unit|fleet)|
-          set_(flank_tactic|(can_toggle_)?looting)
+          damage_unit(_morale)?|spawn_(unit|fleet)
+|set_(flank_tactic|(can_toggle_)?looting)
           )
           \\b'
         name: 'support.function.effect.units.ck2'
@@ -3121,8 +3121,8 @@ repository:
         match: '(?xi)
           \\b
           (
-          (make|remove)_tributary|de_jure_liege|vassalize_or_take_under_title|
-          set_de(scription|facto_(liege|vassal))
+          (make|remove)_tributary|de_jure_liege|vassalize_or_take_under_title
+|set_de(scription|facto_(liege|vassal))
           )
           \\b'
         name: 'support.function.effect.vassalage.ck2'
@@ -3131,11 +3131,11 @@ repository:
         match: '(?xi)
           \\b
           (
-          subjugate_or_take_under_title|
-          join_(attacker|defender)_wars|
-          ((end|(reverse_)?unsafe|reverse)_)?war|
-          participation_scaled_(decadence|piety|prestige)|
-          set_truce|embargo|change_infamy|disband_event_forces|enable_prepared_invasion
+          subjugate_or_take_under_title
+|join_(attacker|defender)_wars
+|((end|(reverse_)?unsafe|reverse)_)?war
+|participation_scaled_(decadence|piety|prestige)
+|set_truce|embargo|change_infamy|disband_event_forces|enable_prepared_invasion
           )
           \\b'
         name: 'support.function.effect.wars.ck2'
