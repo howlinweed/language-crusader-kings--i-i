@@ -6,6 +6,7 @@ fileTypes: [ # An array of file extensions.
 ]
 limitLineLength: false
 patterns: [
+  { include: '#global_includes' }
   { include: '#lineComment' }
   { include: '#quoted_strings' }
   { include: '#numbers' }
