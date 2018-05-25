@@ -1074,498 +1074,799 @@ repository:
     ]
   on_actions:
     patterns: [
-      { include: '#lineComment'}
       {
-        contentName: 'meta.on_action.character.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.character.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            on_(acquire_nickname|ad(ulthood|olescence)|artifact_inheritance|
-            avoided_imprison_fled_country|become_imprisoned_any_reason|
-            became_imprisoned|character_convert_(culture|(secret_)?religion)|divorce|
-            ex(ecuted|iled)|forced_consort|marriage|player_mercenary_income|
-            (post_)?birth|pregnancy|released_from_prison|focus_selected)
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            on_(?:
+              acquire_nickname
+              |ad(?:
+                  ulthood
+                  |olescence
+                )
+              |artifact_inheritance
+              |avoided_imprison_fled_country
+              |become_imprisoned_any_reason
+              |became_imprisoned
+              |character_convert_(?:
+                culture
+                |(?:secret_)?religion
+              )
+              |divorce
+              |ex(?:
+                ecuted
+                |iled
+              )
+              |forced_consort
+              |marriage
+              |player_mercenary_income
+              |(?:post_)?birth
+              |pregnancy
+              |released_from_prison
+              |focus_selected
+            )
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+            (\\})
+          '
+        patterns: [
+          { include: '#on_action_clause'}
+        ]
+      }
+      {
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.control.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
+        begin: '(?xi)
+          \\b
+          (
+            on_(?:
+              chronicle_(?:
+                owner_change
+                |start
+              )
+              |create_chronicle_if_empty
+              |startup
+            )
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
+        endCaptures:
+          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
+        patterns: [
+          { include: '#on_action_clause'}
+        ]
+      }
+      {
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.holding.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
+        begin: '(?xi)
+          \\b
+          (
+            on_(?:
+              (?:
+                fort|settlement
+                |hospital
+                |trade_post
+              )_construction_(?:
+                completed
+                |start
+              )
+              |holding_building_start
+              |loot_settlement
+              |settlement_looted
+            )
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
+        endCaptures:
+          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
           { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.control.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.plot.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            on_(chronicle_(owner_change|start)|create_chronicle_if_empty|startup)
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            on_(?:failed_)?assassination(?:_disc)?
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.holding.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.province.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            on_((fort|settlement|hospital|trade_post)_construction_(completed|start)|
-            holding_building_start|loot_settlement|settlement_looted)
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            on_(?:
+              loot_province
+              |province_major_modifier
+              |outbreak
+            )
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.plot.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.pulse.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            on_(failed_)?assassination(_disc)?
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            on_(?:
+              adolescence
+              |decade
+              |five_year
+              |focus
+              |(?:yearly_)?childhood
+              |(?:bi_)?yearly
+            )_pulse
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.province.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.realm.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            on_(loot_province|province_major_modifier|outbreak)
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            councilor_on_approve_law
+            |on_(?:
+              approve(_de_jure)?_law
+              |law_vote_(?:
+                failed
+                |passed
+              )
+              |enforce_peace
+              |enforce_peace_(?:
+                six_vassals
+                |start
+              )
+            )
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.pulse.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.relations.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            on_(adolescence|decade|five_year|focus|((yearly_)?childhood)|
-            (bi_)?yearly)_pulse
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            on_(?:
+              ai_end_raid
+              |blood_brother_death
+              |feud_(?:
+                started
+                |ended
+              )
+            )
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+        (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.realm.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.religion.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            (councilor_(?=on_approve_law))?on_(approve(_de_jure)?_law|
-            law_vote_(failed|passed)|
-            enforce_peace(_(six_vassals|start))?)
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            on_(?:
+              county_religion_change
+              |heresy_takeover
+              |reform_religion
+              |rel_(?:
+                  elector
+                  |head
+              )_chosen
+              |vassal_accepts_religious_conversion
+              |crusade_(?:
+                creation
+                |failure
+                |invalid
+                |success
+              )
+            )
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.relations.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.succession.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            on_(ai_end_raid|blood_brother_death|feud_(started|ended))
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            on_(?:
+              become_doge
+              |create_title
+              |death
+              |elective_gavelkind_succession
+              |new_holder(?:
+                _(?:
+                  inheritance
+                  |usurpation
+                )
+              )?
+              |over_vassal_limit_succession
+              |unlanded
+            )
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.religion.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.units.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            on_(county_religion_change|heresy_takeover|reform_religion|
-            rel_(elector|head)_chosen|
-            vassal_accepts_religious_conversion|
-            crusade_(creation|failure|invalid|success))
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            on_(?:
+              entering_port
+              |navy_returns_with_loot
+            )
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.succession.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.war.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            on_(become_doge|create_title|death|elective_gavelkind_succession|
-            new_holder(_(inheritance|usurpation))?|
-            over_vassal_limit_succession|
-            unlanded)
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            on_(?:
+              rebel_revolt
+              |holy_order_leave
+              |(?:
+                combat
+                |siege
+              )_pulse
+              |avoided_imprison_started_war
+              |defect_(?:
+                from
+                |to
+              )_rebels
+              |battle_(?:
+                lost
+                |won
+              )
+              (?:
+                _(?:
+                  leader
+                  |owner
+                )
+              )?
+              |major_battle_(?:
+                lost
+                |won
+              )(?:
+                _leader
+              )?
+              |merc_(?:
+                turn_coat_(?:
+                  from
+                  |to
+                )
+                |leave
+                |rampage
+              )
+              |mercenary_(?:
+                captain_replacement
+                |dismissed
+                |hired
+              )
+              |prepared_invasion_(?:
+                aborts
+                |expires
+                |monthly
+              )
+              |siege_(?:
+                (?:
+                  won
+                  |lost
+                )_leader
+                |over_(?:
+                  loc_chars
+                  |winner
+                )
+              )
+              |war(?:
+                _ended_(?:
+                  whitepeace
+                  |victory
+                  |invalid
+                  |defeat
+                )
+                |_started
+                |leader_death
+              )
+            )
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.units.ck2'
-        begin: '(?xi)
-          \\b
-          (
-            on_(entering_port|navy_returns_with_loot)
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
+        contentName: 'meta.on_action.block.ck2'
         beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
+          0: name: 'entity.type.on_action.interaction.ck2'
           1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
           3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
-        endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
-        patterns: [
-          { include: '#on_action_clause'}
-          { include: '#lineComment'}
-        ]
-      }
-      {
-        contentName: 'meta.on_action.war.ck2'
-        begin: '(?xi)
-          \\b
-          (
-            on_(rebel_revolt|holy_order_leave|(combat|siege)_pulse|
-            avoided_imprison_started_war|defect_(from|to)_rebels|
-            battle_(lost|won)(_(leader|owner))?|
-            major_battle_(lost|won)(_leader)?|
-            merc_(turn_coat_(from|to)|leave|rampage)|
-            mercenary_(captain_replacement|dismissed|hired)|
-            prepared_invasion_(aborts|expires|monthly)|
-            siege_((won|lost)_leader|over_(loc_chars|winner))|
-            war(_(ended_(whitepeace|victory|invalid|defeat)|started)|leader_death))
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
-        endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
-        patterns: [
-          { include: '#on_action_clause'}
-          { include: '#lineComment'}
-        ]
-      }
-      {
-        contentName: 'meta.on_action.interaction.ck2'
         begin: '(?xi)
           \\b
           (
             (?:
-              demand_religious_conversion|
-              revoke_title|
-              send_gift|
-              nominate_bishop_to_pope|
-              arrange(_succ)?_betrothal|
-              offer_(peace|vassalization|(succession_)?marrige|consort)|
-              (educate|ransom)_character|
-              (stop_backing|abandon|join)_ambition|
-              (grant_landed|revoke)_title|
-              appoint_to_office|
-              call_ally|
-              declare_war|
-              retract_vassal|
-              invite_to_court|
-              ask_(for_((money|claim)|(excommunication|invasion|divorce)|
-                vassalization)|to_(lift_excommunication|ransom_character|
-                join_(ambition|war)|embargo)|council_position|realm_peace)|
-              settle_(adventurer|feud)|
-              make_consort|
-              (absorb|split)_clan|
-              form_(non_aggression_pact|blood_oath)|
-              (form|dissolve)_alliance|
-              buy_favor|
-              request_support|
-              force_join_faction|
-              give_artifact
+              demand_religious_conversion
+              |revoke_title
+              |send_gift
+              |nominate_bishop_to_pope
+              |arrange(?:_succ)?_betrothal
+              |offer_(?:
+                peace
+                |vassalization
+                |(?:succession_)?marrige
+                |consort
+              )
+              |(?:
+                educate
+                |ransom
+              )_character
+              |(?:
+                stop_backing
+                |abandon
+                |join
+              )_ambition
+              |(?:
+                grant_landed
+                |revoke
+              )_title
+              |appoint_to_office
+              |call_ally
+              |declare_war
+              |retract_vassal
+              |invite_to_court
+              |ask_(?:
+                for_(?:
+                  money
+                  |claim
+                  |excommunication
+                  |invasion
+                  |divorce
+                  |vassalization
+                )
+                |to_(?:
+                  lift_excommunication
+                  |ransom_character
+                  |join_(?:
+                    ambition
+                    |war
+                  )
+                  |embargo
+                )
+                |council_position
+                |realm_peace
+                )
+              |settle_(?:
+                  adventurer
+                  |feud
+              )
+              |make_consort
+              |(?:
+                absorb
+                |split
+              )_clan
+              |form_(?:
+                non_aggression_pact
+                |blood_oath
+              )
+              |(?:
+                form
+                |dissolve
+              )_alliance
+              |buy_favor
+              |request_support
+              |force_join_faction
+              |give_artifact
             )
-            _interaction_(accept|decline)_event
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            _interaction_(?:
+              accept
+              |decline
+            )_event
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.event_message.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.event_message.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            on_(letter|character)_event_message
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            on_(?:
+              letter
+              |character
+            )_event_message
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.societies.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.societies.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            on_(?:(?:character_(?:(?:society_rank_(?:down|up))|
-              (?:(?:(?:ask_to_)?join|kicked_from|leave)_society)|
-              (?:(?:stop_showing|switch_society)_interest)))|
-            (?:society_(?:created|destroyed|failed_to_find_new_leader|
-              bi_yearly_pulse))|
-            (?:quest_(?:success|failure)))
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            on_(?:
+              character_(?:
+                society_rank_(?:
+                  down
+                  |up
+                )
+                |(?:
+                  (?:ask_to_)?join
+                  |kicked_from
+                  |leave
+                )_society
+                |(?:
+                  stop_showing
+                  |switch_society
+                )_interest
+              )
+              |society_(?:
+                created
+                |destroyed
+                |failed_to_find_new_leader
+                |bi_yearly_pulse
+              )
+              |quest_(?:
+                success
+                |failure
+              )
+            )
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.offmap_power.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.offmap_power.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            on_offmap_((policy|status|governor|ruler)_changed|
-            (monthly|yearly)_pulse)
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            on_offmap_(?:
+              (?:
+                policy
+                |status
+                |governor
+                |ruler
+              )_changed
+              |(?:
+                monthly
+                |yearly
+              )_pulse
+            )
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.eu4_conversion.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.eu4_conversion.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            on_eu4_conversion_(start|done)
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            on_eu4_conversion_(?:
+              start
+              |done
+            )
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.tyranny_gain.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.tyranny_gain.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
             on_tyranny_gained(_tyrant_only)?
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
       {
-        contentName: 'meta.on_action.revolting.ck2'
+        contentName: 'meta.on_action.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.on_action.revolting.ck2'
+          1: name: 'keyword.control.on_action.ck2'
+          2: name: 'punctuation.definition.on_action.assignment.equals.ck2'
+          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            on_(?:re(?:tract_vassal|voke)|(?:absorb|split)_clan)_attempted_started_war
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.on_action.ck2'
-          1: name: 'keyword.control.on_action.ck2'
-          2: name: 'punctuation.definition.on_action.assignment.ck2'
-          3: name: 'punctuation.definition.on_action.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            on_(?:
+                re(?:
+                  tract_vassal
+                  |voke
+                )
+                |(?:
+                  absorb
+                  |split
+                )_clan
+              )_attempted_started_war
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.on_action.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#on_action_clause'}
-          { include: '#lineComment'}
         ]
       }
     ]
