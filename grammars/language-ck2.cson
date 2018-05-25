@@ -1931,6 +1931,11 @@ repository:
     patterns: [
       {
         contentName: 'meta.trigger.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.trigger.ck2'
+          1: name: 'keyword.control.trigger.ck2'
+          2: name: 'punctuation.definition.trigger.assignment.equals.ck2'
+          3: name: 'punctuation.definition.trigger.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
             (trigger)
@@ -1939,16 +1944,11 @@ repository:
           \\s*
             (\\{)
           '
-        beginCaptures:
-          0: name: 'entity.type.trigger.ck2'
-          1: name: 'keyword.control.trigger.ck2'
-          2: name: 'punctuation.definition.trigger.assignment.equals.ck2'
-          3: name: 'punctuation.definition.trigger.begin.bracket.curly.ck2'
+        endCaptures:
+          1: name: 'punctuation.definition.trigger.end.bracket.curly'
         end: '(?xi)
           (\\})
         '
-        endCaptures:
-          1: name: 'punctuation.definition.trigger.end.bracket.curly'
         patterns: [
           { include: '#condition_clause' }
           { include: '#global_includes' }
@@ -1959,6 +1959,11 @@ repository:
     patterns: [
       {
         contentName: 'meta.limit.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.limit.ck2'
+          1: name: 'keyword.control.limit.ck2'
+          2: name: 'punctuation.definition.limit.assignment.equals.ck2'
+          3: name: 'punctuation.definition.limit.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
             (limit)
@@ -1967,15 +1972,11 @@ repository:
           \\s*
             (\\{)
           '
-        beginCaptures:
-          1: name: 'entity.type.limit.ck2'
-          2: name: 'punctuation.definition.limit.assignment.equals.ck2'
-          3: name: 'punctuation.definition.limit.begin.bracket.curly.ck2'
+        endCaptures:
+          1: name: 'punctuation.definition.limit.end.bracket.curly'
         end: '(?xi)
           (\\})
         '
-        endCaptures:
-          1: name: 'punctuation.definition.limit.end.bracket.curly'
         patterns: [
           { include: '#condition_clause' }
           { include: '#global_includes' }
@@ -1986,41 +1987,58 @@ repository:
     patterns: [
       {
         contentName: 'meta.modifier.ck2'
+        beginCaptures:
+          0: name: 'entity.type.modifier.ck2'
+          1: name: 'control.keyword.modifier.ck2'
+          2: name: 'punctuation.definition.modifier.assignment.equals.ck2'
+          3: name: 'punctuation.definition.modifier.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
-          (modifier)\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          1: name: 'entity.type.modifier.ck2'
-          2: name: 'punctuation.definition.modifier.assignment.ck2'
-          3: name: 'punctuation.definition.modifier.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            (modifier)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.modifier.end.bracket.curly'
+        end: '(?xi)
+          (\\})
+        '
         patterns: [
           { include: '#condition_clause' }
+          { include: '#global_includes' }
         ]
       }
     ]
   condition_clause: #includes all the repositories that go inside triggers and limits
     patterns: [
       {
-        contentName: 'meta.block.operator.logical.ck2'
+        contentName: 'meta.logic.block.ck2'
+        beginCaptures:
+          1: name: 'constant.language.logical.ck2'
+          2: name: 'entity.type.logical.not.ck2'
+          3: name: 'entity.type.logical.and.ck2'
+          4: name: 'entity.type.logical.or.ck2'
+          5: name: 'punctuation.definition.logical.assignment.equals.ck2'
+          6: name: 'punctuation.definition.logical.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
-          (NOT|AND|OR)\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          1: name: 'keyword.operator.logical.ck2'
-          2: name: 'punctuation.definition.logical.assignment.ck2'
-          3: name: 'punctuation.definition.logical.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+          (
+            (NOT)
+            |(AND)
+            |(OR)
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.logical.end.bracket.curly.ck2'
+        end: '(?xi)
+          (\\})
+          '
         patterns: [
           { include: '#condition_clause' }
         ]
