@@ -10,7 +10,7 @@ patterns: [
   { include: '#quoted_strings' }
   { include: '#numbers' }
   { include: '#events' }
-  { include: '#on_actions'}
+  { include: '#on_actions' }
   # { include: '#clause' }
   { # Used for mactching scopes as conditions
       match: '(?xi)
@@ -148,7 +148,7 @@ patterns: [
           0: name: 'punctuation.definition.decision.end.bracket.curly.ck2'
         end: '\\}'
         patterns: [
-          { include: '#lineComment'}
+          { include: '#lineComment' }
           {
             captures:
               0: name: 'meta.decision.flag.ck2'
@@ -250,8 +250,8 @@ patterns: [
               0: name: 'punctuation.definition.decision.condition_block.end.bracket.curly.ck2'
             end: '\\}'
             patterns: [
-              { include: '#lineComment'}
-              { include: '#condition_clause'}
+              { include: '#lineComment' }
+              { include: '#condition_clause' }
             ]
           }
           {
@@ -280,8 +280,8 @@ patterns: [
               0: name: 'punctuation.definition.decision.effect_block.end.bracket.curly.ck2'
             end: '\\}'
             patterns: [
-              { include: '#lineComment'}
-              { include: '#effect_clause'}
+              { include: '#lineComment' }
+              { include: '#effect_clause' }
             ]
           }
         ]
@@ -611,7 +611,7 @@ repository:
         end: '"'
         patterns: [
           { include: '#loc_keys' }
-          { include: '#lineComment'}
+          { include: '#lineComment' }
         ]
       }
       {
@@ -624,7 +624,7 @@ repository:
         end: '\''
         patterns: [
           { include: '#loc_keys' }
-          { include: '#lineComment'}
+          { include: '#lineComment' }
         ]
       }
     ]
@@ -1003,10 +1003,10 @@ repository:
                   { include: '#global_includes' }
                 ]
               }
-              { include: '#effect_clause'}
-              { include: '#trigger_clause'}
-              { include: '#unquoted_strings'}
-              { include: '#ai_chance'}
+              { include: '#effect_clause' }
+              { include: '#trigger_clause' }
+              { include: '#unquoted_strings' }
+              { include: '#ai_chance' }
               { include: '#global_includes' }
             ]
           }
@@ -1123,7 +1123,7 @@ repository:
             (\\})
           '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1156,7 +1156,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1194,8 +1194,8 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
-          { include: '#lineComment'}
+          { include: '#on_action_clause' }
+          { include: '#lineComment' }
         ]
       }
       {
@@ -1221,7 +1221,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1251,7 +1251,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1284,7 +1284,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1322,7 +1322,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1355,7 +1355,7 @@ repository:
         (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1396,7 +1396,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1435,7 +1435,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1464,7 +1464,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1556,7 +1556,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1658,7 +1658,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1687,7 +1687,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1739,7 +1739,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1776,7 +1776,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1805,7 +1805,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1831,7 +1831,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
       {
@@ -1866,7 +1866,7 @@ repository:
           (\\})
         '
         patterns: [
-          { include: '#on_action_clause'}
+          { include: '#on_action_clause' }
         ]
       }
     ]
@@ -1992,7 +1992,7 @@ repository:
         endCaptures:
           1: name: 'punctuation.definition.logical.end.bracket.curly.ck2'
         patterns: [
-          { include: '#condition_clause'}
+          { include: '#condition_clause' }
         ]
       }
       { include: '#quoted_strings' }
@@ -2011,8 +2011,8 @@ repository:
           1:
             name: 'punctuation.section.clause.end.bracket.curly.ck2'
         patterns: [
-          {include: '#condition_clause'}
-          {include: '#conditions'}
+          {include: '#condition_clause' }
+          {include: '#conditions' }
         ]
       }
       { include: '$self' }
@@ -2036,7 +2036,7 @@ repository:
             name: 'punctuation.section.clause.end.bracket.curly.ck2'
         patterns: [
           { include: '#effect_clause' }
-          { include: '#limit_clause'}
+          { include: '#limit_clause' }
         ]
       }
       { include: '$self' }
@@ -2622,9 +2622,9 @@ repository:
           1:
             name: 'punctuation.section.clause.end.bracket.curly.ck2'
         patterns: [
-          {include: '#clause_innards'}
-          {include: '#effects'}
-          {include: '#conditions'}
+          {include: '#clause_innards' }
+          {include: '#effects' }
+          {include: '#conditions' }
         ]
       }
       { include: '#lineComment' }
@@ -2673,9 +2673,9 @@ repository:
             captures:
               1: name: 'variable.language.condition.text.ck2'
           }
-          { include: '#trigger_clause'}
-          { include: '#effect_clause'}
-          { include: '#lineComment'}
+          { include: '#trigger_clause' }
+          { include: '#effect_clause' }
+          { include: '#lineComment' }
         ]
       }
     ]
@@ -2705,9 +2705,9 @@ repository:
             captures:
               1: name: 'variable.language.condition.text.ck2'
           }
-          { include: '#trigger_clause'}
-          { include: '#condition_clause'}
-          { include: '#lineComment'}
+          { include: '#trigger_clause' }
+          { include: '#condition_clause' }
+          { include: '#lineComment' }
         ]
       }
     ]
@@ -2871,7 +2871,7 @@ repository:
               }
               { include: '#modifier_clause' }
               { include: '#effect_clause' }
-              { include: '#trigger_clause'}
+              { include: '#trigger_clause' }
             ]
           }
           { include: '#lineComment' }
