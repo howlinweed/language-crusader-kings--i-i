@@ -297,10 +297,34 @@ repository:
       { include: '#numbers' }
       { include: '#quoted_strings' }
       {
-        name: 'keyword.control.namespace.ck2'
+        captures:
+          1: name: 'keyword.control.namespace.ck2'
+          2: name: 'punctuation.definition.namespace.assignment.equals.ck2'
+          3: name: 'constant.character.namespace.ck2'
         match: '(?xi)
           \\b
-            namespace
+            (namespace)
+          \\s*
+            (=)
+          \\s*
+            ([[:word:]]+)
+          \\b
+          '
+      }
+      {
+        captures:
+          1: name: 'constant.character.namespace.ck2'
+          2: name: 'punctuation.definition.namespace.period.ck2'
+        match: '(?xi)
+          (?<=
+            id
+            \\s
+            =
+            \\s
+          )
+            ([[:word:]]+)
+            (.)
+            (?=\\d+)
           \\b
           '
       }
