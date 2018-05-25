@@ -299,7 +299,7 @@ repository:
       {
         captures:
           1: name: 'keyword.control.namespace.ck2'
-          2: name: 'punctuation.definition.namespace.assignment.equals.ck2'
+          2: name: 'punctuation.definition.assignment.equals.ck2'
           3: name: 'constant.character.namespace.ck2'
         match: '(?xi)
           \\b
@@ -1945,7 +1945,7 @@ repository:
           2: name: 'punctuation.definition.trigger.assignment.equals.ck2'
           3: name: 'punctuation.definition.trigger.begin.bracket.curly.ck2'
         end: '(?xi)
-        (\\})
+          (\\})
         '
         endCaptures:
           1: name: 'punctuation.definition.trigger.end.bracket.curly'
@@ -1958,22 +1958,27 @@ repository:
   limit_clause:
     patterns: [
       {
-        contentName: 'meta.limit.ck2'
+        contentName: 'meta.limit.block.ck2'
         begin: '(?xi)
           \\b
-          (limit)\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
+            (limit)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         beginCaptures:
           1: name: 'entity.type.limit.ck2'
-          2: name: 'punctuation.definition.limit.assignment.ck2'
+          2: name: 'punctuation.definition.limit.assignment.equals.ck2'
           3: name: 'punctuation.definition.limit.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+        end: '(?xi)
+          (\\})
+        '
         endCaptures:
           1: name: 'punctuation.definition.limit.end.bracket.curly'
         patterns: [
           { include: '#condition_clause' }
+          { include: '#global_includes' }
         ]
       }
     ]
