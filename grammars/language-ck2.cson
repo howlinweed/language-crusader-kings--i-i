@@ -3346,44 +3346,44 @@ repository:
           '
       }
     ]
-  clause:
-    patterns: [
-      {
-        name: 'meta.clause.ck2'
-        begin: '(?x)\\s*(=)\\s*(\\{)'
-        beginCaptures:
-          1: name: 'punctuation.section.clause.assignment.ck2'
-          2: name: 'punctuation.section.clause.begin.bracket.curly.ck2'
-        end: '\\B(\\})'
-        endCaptures:
-          1:
-            name: 'punctuation.section.clause.end.bracket.curly.ck2'
-        patterns: [
-          {include: '#clause_innards' }
-          {include: '#effects' }
-          {include: '#conditions' }
-        ]
-      }
-      { include: '#lineComment' }
-    ]
-  clause_innards:
-    patterns: [
-      {
-        begin: '(?x)\\s*(=)\\s*(\\{)'
-        beginCaptures:
-          1: name: 'punctuation.section.clause.assignment.ck2'
-          2: name: 'punctuation.section.clause.begin.bracket.curly.ck2'
-        end: '\\B(\\})'
-        endCaptures:
-          1: name: 'punctuation.section.clause.end.bracket.curly.ck2'
-        patterns: [
-          { include: '#conditions' }
-          { include: '#effects' }
-          { include: '#clause_innards' }
-          { include: '$self' }
-        ]
-      }
-    ]
+  # clause:
+  #   patterns: [
+  #     {
+  #       name: 'meta.clause.ck2'
+  #       begin: '(?x)\\s*(=)\\s*(\\{)'
+  #       beginCaptures:
+  #         1: name: 'punctuation.section.clause.assignment.ck2'
+  #         2: name: 'punctuation.section.clause.begin.bracket.curly.ck2'
+  #       end: '\\B(\\})'
+  #       endCaptures:
+  #         1:
+  #           name: 'punctuation.section.clause.end.bracket.curly.ck2'
+  #       patterns: [
+  #         {include: '#clause_innards' }
+  #         {include: '#effects' }
+  #         {include: '#conditions' }
+  #       ]
+  #     }
+  #     { include: '#lineComment' }
+  #   ]
+  # clause_innards:
+  #   patterns: [
+  #     {
+  #       begin: '(?x)\\s*(=)\\s*(\\{)'
+  #       beginCaptures:
+  #         1: name: 'punctuation.section.clause.assignment.ck2'
+  #         2: name: 'punctuation.section.clause.begin.bracket.curly.ck2'
+  #       end: '\\B(\\})'
+  #       endCaptures:
+  #         1: name: 'punctuation.section.clause.end.bracket.curly.ck2'
+  #       patterns: [
+  #         { include: '#conditions' }
+  #         { include: '#effects' }
+  #         { include: '#clause_innards' }
+  #         { include: '$self' }
+  #       ]
+  #     }
+  #   ]
   effect_tooltips:
     patterns: [
       {
