@@ -3384,108 +3384,151 @@ repository:
   #       ]
   #     }
   #   ]
+  text_condition:
+    patterns: [
+      {
+        captures:
+          1: name: 'variable.language.condition.text.ck2'
+        match: '(?xi)
+          \\b
+            (text)
+          (?=
+            \\s*
+              =
+            \\s*
+              [\\w\'"\\[]
+          )
+          '
+      }
+    ]
   effect_tooltips:
     patterns: [
       {
         contentName: 'meta.effect.tooltip.ck2'
+        beginCaptures:
+          1: name: 'keyword.control.tooltip.ck2'
+          2: name: 'entity.type.tooltip.hidden.ck2'
+          3: name: 'entity.type.tooltip.conditional.ck2'
+          4: name: 'entity.type.tooltip.custom.ck2'
+          5: name: 'punctuation.definition.tooltip.assignment.ck2'
+          6: name: 'punctuation.definition.tooltip.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            (?:(?:hidden|conditional|custom)_)tooltip
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-          0: name: 'entity.type.tooltip.ck2'
-          1: name: 'keyword.control.tooltip.ck2'
-          2: name: 'punctuation.definition.tooltip.assignment.ck2'
-          3: name: 'punctuation.definition.tooltip.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            (?:
+              (?:
+                (hidden)
+                |(conditional)
+                |(custom)
+              )_
+            )tooltip
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.tooltip.end.bracket.curly'
+        end: '(?xi)
+            (\\})
+          '
         patterns: [
-          {
-            match: '(?xi)\\b(text)\\s*(=)\\s*(?=\\w+)'
-            captures:
-              1: name: 'variable.language.condition.text.ck2'
-          }
+          { include: '#text_condition' }
           { include: '#trigger_clause' }
           { include: '#effect_clause' }
-          { include: '#lineComment' }
         ]
       }
     ]
   condition_tooltips:
     patterns: [
       {
-        contentName: 'meta.effect.tooltip.ck2'
+        contentName: 'meta.condition.tooltip.ck2'
+        beginCaptures:
+          1: name: 'keyword.control.tooltip.ck2'
+          2: name: 'entity.type.tooltip.hidden.ck2'
+          3: name: 'entity.type.tooltip.conditional.ck2'
+          4: name: 'entity.type.tooltip.custom.ck2'
+          5: name: 'punctuation.definition.tooltip.assignment.ck2'
+          6: name: 'punctuation.definition.tooltip.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
-            (?:(?:hidden|conditional|custom)_)tooltip
-          )\\s*
-          (=)\\s*
-          (\\{)
-          \\B'
-        beginCaptures:
-          0: name: 'entity.type.tooltip.ck2'
-          1: name: 'keyword.control.tooltip.ck2'
-          2: name: 'punctuation.definition.tooltip.assignment.ck2'
-          3: name: 'punctuation.definition.tooltip.begin.bracket.curly.ck2'
-        end: '\\B(\\})\\B'
+            (?:
+              (?:
+                (hidden)
+                |(conditional)
+                |(custom)
+              )_
+            )tooltip
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.definition.tooltip.end.bracket.curly'
+        end: '(?xi)
+            (\\})
+          '
         patterns: [
-          {
-            match: '(?xi)\\b(text)\\s*(=)\\s*(?=\\w+)'
-            captures:
-              1: name: 'variable.language.condition.text.ck2'
-          }
+          { include: '#text_condition' }
           { include: '#trigger_clause' }
           { include: '#condition_clause' }
-          { include: '#lineComment' }
         ]
       }
     ]
   effects:
     patterns: [
       {
-        name: 'meta.effect.chronicle.ck2'
-        contentName: 'markup.underline.ck2'
-        begin: '(?xi)
-          \\b
-          (chronicle)\\s*(=)\\s*(\\{)
-          \\B'
+        name: 'meta.effect.chronicle.block.ck2'
+        contentName: 'markup.underline.chronicle.content.ck2'
         beginCaptures:
           1: name: 'support.function.effect.chronicle.ck2'
-          2: name: 'punctuation.section.clause.assignment.ck2'
+          2: name: 'punctuation.section.clause.assignment.equals.ck2'
           3: name: 'punctuation.section.clause.begin.bracket.curly.ck2'
-        end: '\\B(\\})'
+        begin: '(?xi)
+          \\b
+            (chronicle)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
         endCaptures:
           1: name: 'punctuation.section.clause.end.bracket.curly.ck2'
+        end: '(?xi)
+            (\\})
+          '
         patterns: [
           {
-            include: '$self'
-          }
-          {
-            include: '#strings'
-          }
-          {
+            captures:
+              1: name: 'variable.language.condition.chronicle.ck2'
+              2: name: 'entity.type.entry.ck2'
+              3: name: 'entity.type.portrait.ck2'
+              4: name: 'entity.type.picture.ck2'
             match:'(?xi)
               \\b
-              (entry|portrait|picture)
+                (
+                  (entry)
+                  |(portrait)
+                  |(picture)
+                )
               \\b'
-            captures:
-              1: name: 'support.variable.condition.chronicle'
           }
+          { include: '#global_includes' }
         ]
       }
       {
+        name: 'support.function.effect.army.ck2'
         match: '(?xi)
           \\b
-          (morale|troop)
+          (
+            morale
+            |troop
+          )
           \\b'
-        name: 'support.function.effect.army.ck2'
       }
       {
         match: '(?xi)
