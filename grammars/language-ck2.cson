@@ -3396,7 +3396,6 @@ repository:
           (=)\\s*
           (\\{)
           \\B'
-        beginCaptures:
           0: name: 'entity.type.tooltip.ck2'
           1: name: 'keyword.control.tooltip.ck2'
           2: name: 'punctuation.definition.tooltip.assignment.ck2'
