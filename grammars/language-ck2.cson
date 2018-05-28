@@ -3515,7 +3515,8 @@ repository:
                   |(portrait)
                   |(picture)
                 )
-              \\b'
+              \\b
+              '
           }
           { include: '#global_includes' }
         ]
@@ -3528,32 +3529,111 @@ repository:
             morale
             |troop
           )
-          \\b'
+          \\b
+          '
       }
       {
-        match: '(?xi)
-          \\b
-          (
-          ((unsafe_)?destroy|add|transfer)_artifact
-|set(_artifact)?_original_owner|transfer_artifact
-          )
-          \\b'
         name: 'support.function.effect.artifacts.ck2'
+        match: '(?xi)
+          \\b
+          (
+            (?:
+              (?:unsafe_)?destroy
+              |add
+              |transfer
+            )_artifact
+            |set(?:_artifact)?_original_owner
+          )
+          \\b
+          '
       }
       {
         match: '(?xi)
           \\b
           (
-          banish|decadence|fertility|force_host|imprison|move_character|remove_nickname
-|diplomatic_immunity|add_random_education_trait|(set|clear)_focus
-|give_(minor_title|nickname)|reverse_(banish|imprison)
-|(scaled_)?(prestige|piety)|set_(graphical_culture|name)
-|(set|remove)_special_character_title|occupy_minors_of_occupied_settlements
-|change_(diplomacy|intrigue|learning|martial|stewardship)
-|create_(character|random_(diplomat|intriguer|priest|soldier|steward))
+            banish
+            |decadence
+            |fertility
+            |force_host
+            |imprison
+            |move_character
+            |remove_nickname
+            |diplomatic_immunity
+            |add_random_education_trait
+            |(?:
+              set
+              |clear
+            )_focus
+            |give_(?:
+              minor_title
+              |nickname
+            )
+            |reverse_(?:
+              banish
+              |imprison
+            )
+            |(?:scaled_)?(?:
+              prestige
+              |piety
+            )
+            |set_(?:
+              graphical_culture
+              |name
+            )
+            |(?:
+              set
+              |remove
+            )_special_character_title
+            |occupy_minors_of_occupied_settlements
+            |change_(?:
+              diplomacy
+              |intrigue
+              |learning
+              |martial
+              |stewardship
+            )
           )
-          \\b'
+          \\b
+          '
         name: 'support.function.effect.characters.ck2'
+      }
+      {
+        contentName: 'meta.create_character.block.ck2'
+        beginCaptures:
+          1: name: 'support.function.effect.characters.ck2'
+          2: name: 'entity.type.effect.create_character.ck2'
+          3: name: 'entity.type.effect.create_diplomat.ck2'
+          4: name: 'entity.type.effect.create_intriguer.ck2'
+          5: name: 'entity.type.effect.create_priest.ck2'
+          6: name: 'entity.type.effect.create_soldier.ck2'
+          7: name: 'entity.type.effect.create_steward.ck2'
+          8: name: 'punctuation.definition.create_character.assignment.equals.ck2'
+          9: name: 'punctuation.definition.create_character.begin.bracket.curly.ck2'
+        begin: '(?xi)
+          \\b
+          (
+            (create_character)
+            |create_random_(?:
+              (diplomat)
+              |(intriguer)
+              |(priest)
+              |(soldier)
+              |(steward)
+            )
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
+        endCaptures:
+          1: name: 'punctuation.definition.create_character.end.bracket.curly.ck2'
+        end: '(?xi)
+            (\\})
+          '
+        patterns: [
+          { include: '#global_includes' }
+        ]
       }
       {
         match: '(?xi)
