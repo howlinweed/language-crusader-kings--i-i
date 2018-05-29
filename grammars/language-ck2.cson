@@ -3556,6 +3556,17 @@ repository:
         ]
       }
     ]
+  chance_condition:
+    patterns: [
+      {
+        name: 'variable.language.condition.chance.ck2'
+        match: '(?xi)
+          \\b
+            chance
+          \\b
+          '
+      }
+    ]
   effects:
     patterns: [
       {
