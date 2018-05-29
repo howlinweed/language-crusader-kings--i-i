@@ -6,148 +6,119 @@ fileTypes: [ # An array of file extensions.
 ]
 limitLineLength: false
 patterns: [
-  { include: '#global_includes' }
-  { include: '#events' }
-  { include: '#on_actions' }
   # { include: '#clause' }
-  { # Used for mactching scopes as dynamic flags
-      match: '(?xi)
-        \\b
-        (\\w+)
-        (@)(ROOT|FROM(FROM){,3}|PREV(PREV){,3}|ROOT_((FROM){1,3}|(PREV){1,3})|THIS)
-        \\b'
-      captures:
-        1: name: 'storage.type.dynamic_flag.ck2'
-        2: name: 'punctuation.definition.assignment.dynamic_flag.ck2'
-        3: name: 'support.variable.condition.scope.ck2'
-  }
   {
-    match: '(?xi)
-      \\b
-      (event_target)(:)(\\w+)
-      \\b'
-    captures:
-      1: name: 'storage.type.event_target.ck2'
-      2: name: 'punctuation.definition.assignment.event_target.ck2'
-  }
-  {
-    contentName: 'meta.scripted_effect.ck2'
-    begin: '(?xi)
-      \\b
-      (\\w+_effect)\\s*
-      (=)\\s*
-      (\\{)
-      \\B'
+    contentName: 'meta.scripted_effect.block..ck2'
     beginCaptures:
       0: name: 'entity.name.scripted_effect.ck2'
       1: name: 'keyword.control.scripted_effect.ck2'
-      2: name: 'punctuation.definition.scripted_effect.assignment.ck2'
+      2: name: 'punctuation.definition.scripted_effect.assignment.equals.ck2'
       3: name: 'punctuation.definition.scripted_effect.begin.bracket.curly.ck2'
-    end: '\\B(\\})\\B'
+    begin: '(?xi)
+      \\b
+        ([[:alpha:]][[:alnum:]_]+_effect)
+      \\s*
+        (=)
+      \\s*
+        (\\{)
+      '
     endCaptures:
       1: name: 'punctuation.definition.scripted_effect.end.bracket.curly'
+    end: '(?xi)
+        (\\})
+      '
     patterns: [
       { include: '#effect_clause' }
     ]
   }
   {
-    contentName: 'meta.scripted_trigger.ck2'
-    begin: '(?xi)
-      \\b
-      (\\w+_trigger)\\s*
-      (=)\\s*
-      (\\{)
-      \\B'
+    contentName: 'meta.scripted_trigger.block.ck2'
     beginCaptures:
       0: name: 'entity.name.scripted_trigger.ck2'
       1: name: 'keyword.control.scripted_trigger.ck2'
-      2: name: 'punctuation.definition.scripted_trigger.assignment.ck2'
+      2: name: 'punctuation.definition.scripted_trigger.assignment.equals.ck2'
       3: name: 'punctuation.definition.scripted_trigger.begin.bracket.curly.ck2'
-    end: '\\B(\\})\\B'
+    begin: '(?xi)
+      \\b
+        ([[:alpha:]][[:alnum:]_]+_trigger)
+      \\s*
+        (=)
+      \\s*
+        (\\{)
+      '
     endCaptures:
       1: name: 'punctuation.definition.scripted_trigger.end.bracket.curly'
+    end: '(?xi)
+        (\\})
+      '
     patterns: [
       { include: '#condition_clause' }
     ]
   }
   {
     contentName: 'meta.decisions.block.ck2'
+    beginCaptures:
+      1: name: 'keyword.control.decisions.ck2'
+      2: name: 'entity.type.plot.decisions.ck2'
+      3: name: 'entity.type.targetted.decisions.ck2'
+      4: name: 'entity.type.settlement.decisions.ck2'
+      5: name: 'entity.type.title.decisions.ck2'
+      6: name: 'punctuation.definition.decisions.assignment.equals.ck2'
+      7: name: 'punctuation.definition.decisions.begin.bracket.curly.ck2'
     begin: '(?xi)
       \\b
-        (
-          (
-            (plot)
-            |(targetted)
-            |(settlement)
-            |(title)
-          )
-        _)
-        ?(
-          decisions
-        )
+      (
+        (?:
+          (plot)
+          |(targetted)
+          |(settlement)
+          |(title)
+        )?decisions
+      )
       \\s*
-        (
-          =
-        )
+        (=)
       \\s*
-        (
-          \\{
-        )
-      \\s*
+        (\\{)
       '
-    beginCaptures:
-      0: name: 'meta.decision.ck2'
-      1: name: 'entity.name.decisions.ck2'
-      2: name: 'storage.modifier.decisions.ck2'
-      3: name: 'entity.type.plot.decisions.ck2'
-      4: name: 'entity.type.targetted.decisions.ck2'
-      5: name: 'entity.type.settlement.decisions.ck2'
-      6: name: 'entity.type.title.decisions.ck2'
-      7: name: 'storage.type.decisions.ck2'
-      8: name: 'keyword.operator.assignment.ck2'
-      9: name: 'punctuation.definition.decisions.begin.bracket.curly.ck2'
-    end: '\\B(\\})\\B'
     endCaptures:
       1: name: 'punctuation.definition.decisions.end.bracket.curly.ck2'
+    end: '(?xi)
+        (\\})
+      '
     patterns: [
-      { include: '#lineComment' }
       {
-        contentName: 'meta.decision.definition.block.ck2'
+        contentName: 'meta.decision.block.ck2'
         beginCaptures:
-          0: name: 'meta.decision.definition.ck2'
-          1: name: 'storage.name.decision.definition.ck2'
-          2: name: 'keyword.operator.assignment.ck2'
+          0: name: 'meta.decision.ck2'
+          1: name: 'storage.name.definition.ck2'
+          2: name: 'punctuation.definition.decision.assignment.equals.ck2'
           3: name: 'punctuation.definition.decision.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
-            (
-              [[:word:]]+
-            )
+            ([[:alpha:]][[:word:]]+)
           \\s*
-            (
-              =
-            )
+            (=)
           \\s*
-            (
-              \\{
-            )
+            (\\{)
           '
         endCaptures:
           0: name: 'punctuation.definition.decision.end.bracket.curly.ck2'
-        end: '\\}'
+        end: '(?xi)
+            \\}
+          '
         patterns: [
-          { include: '#lineComment' }
           {
             captures:
-              0: name: 'meta.decision.flag.ck2'
               1: name: 'keyword.control.decision.flag.high_prio.ck2'
               2: name: 'keyword.control.decision.flag.filter.ck2'
               3: name: 'keyword.control.decision.flag.ai_t_filter.ck2'
               4: name: 'keyword.control.decision.flag.third_p_filter.ck2'
               5: name: 'keyword.control.decision.flag.ai_p_filter.ck2'
               6: name: 'keyword.control.decision.flag.third_party.ck2'
-              7: name: 'keyword.operator.assignment.ck2'
-              8: name: 'variable.language.decision.flag.ck2'
+              7: name: 'keyword.control.decision.flag.only_playable.ck2'
+              8: name: 'keyword.control.decision.flag.ai_only.ck2'
+              9: name: 'keyword.control.decision.flag.show_t.ck2'
+              10: name: 'keyword.control.decision.flag.ai_check_interval.ck2'
             match: '(?xi)
               \\b
               (?:
@@ -157,49 +128,38 @@ patterns: [
                 |(third_party_filter)
                 |(ai_third_party_filter)
                 |(third_party)
-              )
-              \\s*
-              (=)
-              \\s*
-              ([[:word:]]*)
-              '
-          }
-          {
-            captures:
-              0: name: 'meta.decision.flag.ck2'
-              1: name: 'keyword.control.decision.flag.only_playable.ck2'
-              2: name: 'keyword.control.decision.flag.ai_only.ck2'
-              3: name: 'keyword.control.decision.flag.show_t.ck2'
-              4: name: 'keyword.operator.assignment.ck2'
-              5: name: 'constant.language.bool.ck2'
-            match: '(?xi)
-              \\b
-              (?:
-                (only_playable)
+                |(only_playable)
                 |(ai)
                 |(show_third_party_potential)
+                |(ai_check_interval)
               )
-              \\s*
-              (=)
-              \\s*
-              (yes|no)
+              (?=\\s*=\\s*[[:alpha:]])
               '
           }
           {
             captures:
-              0: name: 'meta.decision.flag.ck2'
-              1: name: 'keyword.control.decision.flag.ai_check_interval.ck2'
-              2: name: 'keyword.operator.assignment.ck2'
-              3: name: 'constant.numeric.int.ck2'
+              1: name: 'keyword.control.decision.filter.self.ck2'
             match: '(?xi)
               \\b
               (
-                ai_check_interval
+                self
+                |spouse
+                |(?:home_)?court(?:_including_me)?
+                |liege
+                |vassals
+                |(?:sub_)?realm(?:_including_me)?
+                |dynasty(?:_including_me)?
+                |close_relatives
+                |rivals
+                |friends
+                |rel_head(?:_including_me)?
+                |society(?:_including_me)?
+                |vassal_wars
+                |independent_rulers
+                |all(?:_including_me)?
               )
-              \\s*
-              (=)
-              \\s*
-              (\\d*)
+              (?!\\s*=)
+              \\b
               '
           }
           {
@@ -212,70 +172,63 @@ patterns: [
               5: name: 'entity.name.decision.condition_block.revoke_allowed.ck2'
               6: name: 'entity.name.decision.condition_block.ai_will_do.ck2'
               7: name: 'entity.name.decision.condition_block.third_party_allow.ck2'
-              8: name: 'keyword.operator.assignment.ck2'
+              8: name: 'punctuation.definition.decision.condition_block.assignment.equals.ck2'
               9: name: 'punctuation.definition.decision.condition_block.begin.bracket.curly.ck2'
             begin: '(?xi)
               \\b
-                (
-                  (from_potential)
-                  |(potential)
-                  |(revoke_allowed)
-                  |(ai_will_do)
-                  |(third_party_allow)
-                  |(allow)
-                )
+              (
+                (from_potential)
+                |(potential)
+                |(revoke_allowed)
+                |(ai_will_do)
+                |(third_party_allow)
+                |(allow)
+              )
               \\s*
-                (
-                  =
-                )
+                (=)
               \\s*
-                (
-                  \\{
-                )
-              \\s*
+                (\\{)
               '
             endCaptures:
               0: name: 'punctuation.definition.decision.condition_block.end.bracket.curly.ck2'
-            end: '\\}'
+            end: '(?xi)
+                \\}
+              '
             patterns: [
-              { include: '#lineComment' }
               { include: '#condition_clause' }
             ]
           }
           {
             contentName: 'meta.decision.effect_block.ck2'
             beginCaptures:
-              1: name: 'function.support.decision.definition.ck2'
-              2: name: 'entity.name.decision.effect.ck2'
-              3: name: 'keyword.operator.assignment.ck2'
-              4: name: 'punctuation.definition.decision.effect_block.begin.bracket.curly.ck2'
+              1: name: 'function.support.decision.effect_block.ck2'
+              2: name: 'punctuation.definition.decision.effect_block.assignment.equals.ck2'
+              3: name: 'punctuation.definition.decision.effect_block.begin.bracket.curly.ck2'
             begin: '(?xi)
               \\b
-                (
-                  effect
-                )
+                (effect)
               \\s*
-                (
-                  =
-                )
+                (=)
               \\s*
-                (
-                  \\{
-                )
-              \\s*
+                (\\{)
               '
             endCaptures:
               0: name: 'punctuation.definition.decision.effect_block.end.bracket.curly.ck2'
-            end: '\\}'
+            end: '(?xi)
+                \\}
+              '
             patterns: [
-              { include: '#lineComment' }
               { include: '#effect_clause' }
             ]
           }
+          { include: '#global_includes' }
         ]
       }
     ]
   }
+  { include: '#global_includes' }
+  { include: '#events' }
+  { include: '#on_actions' }
 ]
 repository:
   global_includes:
@@ -283,6 +236,66 @@ repository:
       { include: '#lineComment' }
       { include: '#numbers' }
       { include: '#quoted_strings' }
+      {
+        captures:
+          1: name: 'storage.type.event_target.ck2'
+          2: name: 'punctuation.definition.event_target.assignment.colon:ck2'
+        match: '(?xi)
+          \\b
+            (event_target)
+            (:)
+            (?=\\w+)
+          '
+      }
+      {
+        captures:
+          1: name: 'support.function.scope.event_target.ck2'
+        match: '(?xi)
+          (?<=:)
+            ([[:alpha:]][[:alnum:]_]+)
+          \\b
+          '
+      }
+      {
+        captures:
+          1: name: 'support.function.scope.event_target.ck2'
+        match: '(?xi)
+          \\b
+            (target_[[:alnum:]_]+)
+          \\b
+          (?!\\s*=)
+          '
+      }
+      # Switch to this if we don't want force use of "target_" prefix
+      # {
+      #   captures:
+      #     1: name: 'support.function.scope.event_target.ck2'
+      #   match: '(?xi)
+      #     (?<=(?:as|et)\\s=\\s)
+      #       ([[:alpha:]][[:alnum:]_]+)
+      #     \\b
+      #     '
+      # }
+      { # Used for mactching scopes as dynamic flags
+          captures:
+            1: name: 'storage.type.dynamic_flag.ck2'
+            2: name: 'punctuation.definition.dynamic_flag.assignment.at.ck2'
+            3: name: 'support.variable.condition.scope.ck2'
+          match: '(?xi)
+            \\b
+              (\\w+)
+              (@)
+            (
+              ROOT
+              |FROM(FROM){,3}
+              |PREV(PREV){,3}
+              |ROOT_((FROM){1,3}
+              |(PREV){1,3})
+              |THIS
+            )
+            \\b
+            '
+      }
       {
         captures:
           1: name: 'keyword.control.namespace.ck2'
@@ -294,7 +307,7 @@ repository:
           \\s*
             (=)
           \\s*
-            ([[:word:]]+)
+            ([[:alpha:]][[:word:]]+)
           \\b
           '
       }
@@ -303,12 +316,7 @@ repository:
           1: name: 'constant.character.namespace.ck2'
           2: name: 'punctuation.definition.namespace.period.ck2'
         match: '(?xi)
-          (?<=
-            id
-            \\s
-            =
-            \\s
-          )
+          (?<=id\\s=\\s)
             ([[:word:]]+)
             (.)
             (?=\\d+)
@@ -318,9 +326,7 @@ repository:
       {
         name: 'keyword.operator.assignment.equals.ck2'
         match: '(?xi)
-          (?:\\s*)
             =
-          (?:\\s*)
           '
       }
       {
@@ -406,19 +412,15 @@ repository:
             (=)
           \\s*
             (\\{)
-          \\B
           '
         endCaptures:
           1: name: 'punctuation.definition.if.end.bracket.curly.ck2'
         end: '(?xi)
-          \\B
             (\\})
-          \\B
           '
         patterns: [
           { include: '#limit_clause' }
           { include: '#effect_clause' }
-          { include: '#global_includes' }
         ]
       }
       {
@@ -434,14 +436,11 @@ repository:
             (=)
           \\s*
             (\\{)
-          \\B
           '
         endCaptures:
           1: name: 'punctuation.definition.else.end.bracket.curly.ck2'
         end: '(?xi)
-          \\B
             (\\})
-          \\B
           '
         patterns: [
           { include: '#effect_clause' }
@@ -461,14 +460,11 @@ repository:
             (=)
           \\s*
             (\\{)
-          \\B
           '
         endCaptures:
           1: name: 'punctuation.definition.trigger_switch.end.bracket.curly.ck2'
         end: '
-          \\B
             (\\})
-          \\B
           '
         patterns: [
           {
@@ -492,30 +488,26 @@ repository:
             ]
           }
           {
-            contentName: 'meta.block.control.trigger_switch.branch.ck2'
+            contentName: 'meta.control.trigger_switch.branch.block.ck2'
             beginCaptures:
-              1: name: 'variable.parameter.on_trigger.branch.ck2'
+              1: name: 'keyword.control.on_trigger.branch.ck2'
               2: name: 'punctuation.definition.on_trigger.branch.assignment.equals.ck2'
               3: name: 'punctuation.definition.on_trigger.branch.begin.bracket.curly.ck2'
             begin: '(?xi)
               \\b
-                ([[:alnum:]_]+)
+                ([[:alpha:]][[:word:]]+)
               \\s*
                 (=)
               \\s*
                 (\\{)
-              \\B
               '
             endCaptures:
               1: name: 'punctuation.definition.on_trigger.branch.end.bracket.curly.ck2'
             end: '(?xi)
-              \\B
                 (\\})
-              \\B
               '
             patterns: [
               { include: '#effect_clause' }
-              { include: '#global_includes' }
             ]
           }
           { include: '#global_includes' }
@@ -534,19 +526,15 @@ repository:
             (=)
           \\s*
             (\\{)
-          \\B
           '
         endCaptures:
           1: name: 'punctuation.definition.while.end.bracket.curly.ck2'
         end: '(?xi)
-          \\B
             (\\})
-          \\B
           '
         patterns: [
           { include: '#limit_clause' }
           { include: '#effect_clause' }
-          { include: '#global_includes' }
         ]
       }
     ]
@@ -713,14 +701,11 @@ repository:
             (=)
           \\s*
             (\\{)
-          \\B
           '
         endCaptures:
           1: name: 'punctuation.definition.event.end.bracket.curly'
         end: '(?xi)
-          \\B
             (\\})
-          \\B
           '
         patterns: [
           {
@@ -3333,7 +3318,7 @@ repository:
       }
       {
         captures:
-          1: name: 'storage.type.scripted_trigger.ck2'
+          1: name: 'variable.language.scripted_trigger.ck2'
         match: '(?xi)
           \\b
           (
@@ -3487,8 +3472,9 @@ repository:
           2: name: 'entity.type.tooltip.hidden.ck2'
           3: name: 'entity.type.tooltip.conditional.ck2'
           4: name: 'entity.type.tooltip.custom.ck2'
-          5: name: 'punctuation.definition.tooltip.assignment.ck2'
-          6: name: 'punctuation.definition.tooltip.begin.bracket.curly.ck2'
+          5: name: 'entity.type.tooltip.ck2'
+          6: name: 'punctuation.definition.tooltip.assignment.ck2'
+          7: name: 'punctuation.definition.tooltip.begin.bracket.curly.ck2'
         begin: '(?xi)
           \\b
           (
@@ -3497,8 +3483,9 @@ repository:
                 (hidden)
                 |(conditional)
                 |(custom)
-              )_
-            )tooltip
+              )?_tooltip
+              |(tooltip)
+            )
           )
           \\s*
             (=)
