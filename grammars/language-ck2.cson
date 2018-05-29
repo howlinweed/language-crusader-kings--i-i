@@ -3347,6 +3347,81 @@ repository:
           )
           '
       }
+      {
+        contentName: 'meta.attributes.block.ck2'
+        beginCaptures:
+          0: name: 'entity.type.attributes.ck2'
+          1: name: 'support.function.effect.attributes.ck2'
+          2: name: 'punctuation.definition.attributes.assignment.equals.ck2'
+          3: name: 'punctuation.definition.attributes.begin.bracket.curly.ck2'
+        begin: '(?xi)
+          \\b
+            (attributes)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
+        endCaptures:
+          1: name: 'punctuation.definition.attributes.end.bracket.curly'
+        end: '(?xi)
+            (\\})
+          '
+        patterns: [
+          # {
+          #   captures:
+          #     1: name: 'variable.language.condition.diplomacy.ck2'
+          #     2: name: 'variable.language.condition.martial.ck2'
+          #     3: name: 'variable.language.condition.stewardship.ck2'
+          #     4: name: 'variable.language.condition.intrigue.ck2'
+          #     5: name: 'variable.language.condition.learning.ck2'
+          #   match: '(?xi)
+          #     \\b
+          #     (?:
+          #       (diplomacy)
+          #       |(martial)
+          #       |(stewardship)
+          #       |(intrigue)
+          #       |(learning)
+          #
+          #     )
+          #     \\b
+          #     '
+          # }
+          { include: '#condition_clause' }
+          { include: '#global_includes' }
+        ]
+      }
+      {
+        captures:
+          1: name: 'variable.language.condition.new_char.dna.ck2'
+          2: name: 'variable.language.condition.new_char.employer.ck2'
+          3: name: 'variable.language.condition.new_char.female.ck2'
+          4: name: 'variable.language.condition.new_char.random_traits.ck2'
+          5: name: 'variable.language.condition.new_char.genetic_father.ck2'
+          6: name: 'variable.language.condition.new_char.genetic_mother.ck2'
+          7: name: 'variable.language.condition.new_char.historical.ck2'
+          8: name: 'variable.language.condition.new_char.immortal_age.ck2'
+          9: name: 'variable.language.condition.new_char.name.ck2'
+          10: name: 'variable.language.condition.new_char.flag.ck2'
+        match: '(?xi)
+          \\b
+            (?:
+              (dna)
+              |(employer)
+              |(female)
+              |(random_traits)
+              |(genetic_father)
+              |(genetic_mother)
+              |(historical)
+              |(immortal_age)
+              |(name)
+              |(flag)
+            )
+          \\b
+          (?!\\s*=\\s*\\{)
+          '
+      }
     ]
   # clause:
   #   patterns: [
