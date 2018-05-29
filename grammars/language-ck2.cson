@@ -2037,6 +2037,7 @@ repository:
           1: name: 'punctuation.definition.clause.assignment.equals.ck2'
           2: name: 'punctuation.definition.clause.begin.bracket.curly.ck2'
         begin: '(?xi)
+          (?<=\\w)
           \\s*
             (=)
           \\s*
@@ -2162,6 +2163,7 @@ repository:
               |SUZERAIN|TITLE_TO_GET_RID_OF|TOP_LIEGE|TRADE_POST_OWNER
             )
             \\b
+            (?=\\s*=\\s*\\{)
             '
       }
       {
