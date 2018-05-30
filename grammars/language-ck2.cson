@@ -342,6 +342,28 @@ repository:
       { include: '#quoted_strings' }
       {
         captures:
+          1: name: "support.function.title.scope.ck2"
+        match:'(?xi)
+          \\b
+          (
+            (?:b|c(?!_\\d+\\b)|d|k|e)_[[:word:]]+
+          )
+          \\b
+          '
+      }
+      {
+        captures:
+          1: name: "support.function.character.scope.ck2"
+        match:'(?xi)
+          \\b
+          (
+            c_\\d+
+          )
+          \\b
+          '
+      }
+      {
+        captures:
           1: name: 'storage.type.event_target.ck2'
           2: name: 'punctuation.definition.event_target.assignment.colon:ck2'
         match: '(?xi)
