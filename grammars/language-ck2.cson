@@ -978,6 +978,19 @@ repository:
         include: '#loc_keys'
       }
     ]
+  escape_characters:
+    patterns: [
+      {
+        captures:
+          1: name: 'constant.character.escape.ck2'
+          2: name: 'punctuation.definition.escape.slash.back.ck2'
+        match: '(?xi)
+          (
+            (\\\\).
+          )
+          '
+      }
+    ]
   quoted_strings:
     patterns: [
       {
@@ -989,8 +1002,9 @@ repository:
           0: name: 'punctuation.definition.string.end.double.quote.ck2'
         end: '"'
         patterns: [
-          { include: '#loc_keys' }
           { include: '#lineComment' }
+          { include: '#loc_keys' }
+          { include: '#escape_characters' }
         ]
       }
       {
