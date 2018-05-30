@@ -226,6 +226,108 @@ patterns: [
       }
     ]
   }
+  {
+    contentName: 'meta.history.character.block.ck2'
+    beginCaptures:
+      1: name: 'keyword.control.history.character.id.ck2'
+      2: name: 'punctuation.definition.decision.history.character.assignment.equals.ck2'
+      3: name: 'punctuation.definition.decision.history.character.begin.bracket.curly.ck2'
+    begin: '(?xi)
+      \\b
+        (\\d+)
+      \\s*
+        (=)
+      \\s*
+        (\\{)
+      '
+    endCaptures:
+      0: name: 'punctuation.definition.decision.history.character.end.bracket.curly.ck2'
+    end: '(?xi)
+        \\}
+      '
+    patterns: [
+      {
+        contentName: 'meta.history.effect.block.ck2'
+        beginCaptures:
+          1: name: 'keyword.control.history.effect.ck2'
+          2: name: 'punctuation.definition.history.effect.assignment.equals.ck2'
+          3: name: 'punctuation.definition.history.effect.begin.bracket.curly.ck2'
+        begin: '(?xi)
+          \\b
+            (effect)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
+        endCaptures:
+          0: name: 'punctuation.definition.history.effect.end.bracket.curly.ck2'
+        end: '(?xi)
+            \\}
+          '
+        patterns: [
+          { include: '#new_char_conditions' }
+          { include: '#effect_clause' }
+        ]
+      }
+      {
+        contentName: 'meta.history.date.block.ck2'
+        beginCaptures:
+          1: name: 'keyword.control.history.date.ck2'
+          2: name: 'punctuation.definition.history.date.assignment.equals.ck2'
+          3: name: 'punctuation.definition.history.date.begin.bracket.curly.ck2'
+        begin: '(?xi)
+          \\b
+          (
+            \\d{1,4}
+            \\.
+            \\d{1,2}
+            \\.
+            \\d{1,2}
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
+        endCaptures:
+          0: name: 'punctuation.definition.history.date.end.bracket.curly.ck2'
+        end: '(?xi)
+            \\}
+          '
+        patterns: [
+          {
+            contentName: 'meta.history.effect.block.ck2'
+            beginCaptures:
+              1: name: 'keyword.control.history.effect.ck2'
+              2: name: 'punctuation.definition.history.effect.assignment.equals.ck2'
+              3: name: 'punctuation.definition.history.effect.begin.bracket.curly.ck2'
+            begin: '(?xi)
+              \\b
+                (effect)
+              \\s*
+                (=)
+              \\s*
+                (\\{)
+              '
+            endCaptures:
+              0: name: 'punctuation.definition.history.effect.end.bracket.curly.ck2'
+            end: '(?xi)
+                \\}
+              '
+            patterns: [
+              { include: '#new_char_conditions' }
+              { include: '#effect_clause' }
+            ]
+          }
+          { include: '#new_char_conditions' }
+          { include: '#effect_clause' }
+        ]
+      }
+      { include: '#new_char_conditions' }
+      { include: '#effect_clause' }
+    ]
+  }
   { include: '#global_includes' }
   { include: '#events' }
   { include: '#on_actions' }
