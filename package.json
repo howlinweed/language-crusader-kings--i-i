@@ -1,7 +1,7 @@
 {
   "name": "language-crusader-kings--i-i",
   "main": "./lib/language-crusader-kings--i-i",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A grammar package for the Crusader Kings II scripting language.",
   "keywords": [
     "CK2",
@@ -10,12 +10,21 @@
     "Modding",
     "Gaming"
   ],
-  "repository": "https://github.com/howlinweed/language-crusader-kings--i-i",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/howlinweed/language-crusader-kings--i-i"
+  },
   "license": "MIT",
-  "bugs": "https://github.com/howlinweed/language-crusader-kings--i-i/issues",
+  "bugs": {
+    "url": "https://github.com/howlinweed/language-crusader-kings--i-i/issues"
+  },
   "engines": {
-    "atom": ">=1.0.0 <2.0.0"
+    "atom": "*",
+    "node": "*"
   },
   "dependencies": {
+  },
+  "devDependencies": {
+    "coffeelint": "^2.1.0"
   }
 }
