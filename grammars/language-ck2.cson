@@ -538,8 +538,76 @@ repository:
         ]
       }
     ]
+  new_char_conditions:
+    patterns: [
+      {
+        captures:
+          1: name: 'variable.language.condition.new_char.dna.ck2'
+          2: name: 'variable.language.condition.new_char.employer.ck2'
+          3: name: 'variable.language.condition.new_char.female.ck2'
+          4: name: 'variable.language.condition.new_char.random_traits.ck2'
+          5: name: 'variable.language.condition.new_char.genetic_father.ck2'
+          6: name: 'variable.language.condition.new_char.genetic_mother.ck2'
+          7: name: 'variable.language.condition.new_char.historical.ck2'
+          8: name: 'variable.language.condition.new_char.immortal_age.ck2'
+          9: name: 'variable.language.condition.new_char.name.ck2'
+          10: name: 'variable.language.condition.new_char.flag.ck2'
+          11: name: 'variable.language.condition.new_char.father.ck2'
+          12: name: 'variable.language.condition.new_char.real_father.ck2'
+          13: name: 'variable.language.condition.new_char.mother.ck2'
+          14: name: 'variable.language.condition.new_char.properties.ck2'
+          15: name: 'variable.language.condition.new_char.diplomacy.ck2'
+          16: name: 'variable.language.condition.new_char.martial.ck2'
+          17: name: 'variable.language.condition.new_char.stewardship.ck2'
+          18: name: 'variable.language.condition.new_char.intrigue.ck2'
+          19: name: 'variable.language.condition.new_char.learning.ck2'
+          20: name: 'variable.language.condition.new_char.occluded.ck2'
+          21: name: 'variable.language.condition.new_char.birth.ck2'
+        match: '(?xi)
+          \\b
+            (?:
+              (dna)
+              |(employer)
+              |(female)
+              |((?:disallow_)?random_traits)
+              |(genetic_father)
+              |(genetic_mother)
+              |(historical)
+              |(immortal_age)
+              |(name)
+              |(flag)
+              |(father)
+              |(real_father)
+              |(mother)
+              |(properties)
+              |(diplomacy)
+              |(martial)
+              |(stewardship)
+              |(intrigue)
+              |(learning)
+              |(occluded)
+              |(birth)
+
+            )
+          \\b
+          (?!\\s*=\\s*\\{)
+          '
+      }
+    ]
   numbers:
     patterns: [
+      {
+        name: 'constant.numeric.date.ck2'
+        match: '(?xi)
+          \\b
+            \\d{1,4}
+            \\.
+            \\d{1,2}
+            \\.
+            \\d{1,2}
+          \\b
+          '
+      }
       {
         captures:
           0: name: 'constant.numeric.float.ck2'
@@ -561,6 +629,7 @@ repository:
             \\.
             \\d{1,3}
           \\b
+          (?!\\.)
           '
       }
       {
@@ -2041,6 +2110,7 @@ repository:
       { include: '#scopes' }
       { include: '#conditions' }
       { include: '#condition_tooltips' }
+      { include: '#new_char_conditions' }
     ]
   effect_clause: #includes all the repositories that go inside clauses that perform actions: immediate, option, after, effect, etc.
     patterns: [
@@ -3376,36 +3446,6 @@ repository:
           { include: '#condition_clause' }
           { include: '#global_includes' }
         ]
-      }
-      {
-        captures:
-          1: name: 'variable.language.condition.new_char.dna.ck2'
-          2: name: 'variable.language.condition.new_char.employer.ck2'
-          3: name: 'variable.language.condition.new_char.female.ck2'
-          4: name: 'variable.language.condition.new_char.random_traits.ck2'
-          5: name: 'variable.language.condition.new_char.genetic_father.ck2'
-          6: name: 'variable.language.condition.new_char.genetic_mother.ck2'
-          7: name: 'variable.language.condition.new_char.historical.ck2'
-          8: name: 'variable.language.condition.new_char.immortal_age.ck2'
-          9: name: 'variable.language.condition.new_char.name.ck2'
-          10: name: 'variable.language.condition.new_char.flag.ck2'
-        match: '(?xi)
-          \\b
-            (?:
-              (dna)
-              |(employer)
-              |(female)
-              |(random_traits)
-              |(genetic_father)
-              |(genetic_mother)
-              |(historical)
-              |(immortal_age)
-              |(name)
-              |(flag)
-            )
-          \\b
-          (?!\\s*=\\s*\\{)
-          '
       }
     ]
   # clause:
