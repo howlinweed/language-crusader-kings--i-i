@@ -267,6 +267,7 @@ patterns: [
           '
         patterns: [
           { include: '#new_char_conditions' }
+          { include: '#condition_clause' }
           { include: '#effect_clause' }
         ]
       }
@@ -325,6 +326,7 @@ patterns: [
         ]
       }
       { include: '#new_char_conditions' }
+      { include: '#condition_clause' }
       { include: '#effect_clause' }
     ]
   }
@@ -2187,6 +2189,10 @@ repository:
           { include: '#global_includes' }
         ]
       }
+      { include: '#scopes' }
+      { include: '#conditions' }
+      { include: '#condition_tooltips' }
+      { include: '#new_char_conditions' }
       {
         contentName: 'meta.condition.block.ck2'
         beginCaptures:
@@ -2206,16 +2212,17 @@ repository:
           '
         patterns: [
           { include: '#condition_clause' }
+          { include: '#effect_clause' }
         ]
       }
       { include: '#global_includes' }
-      { include: '#scopes' }
-      { include: '#conditions' }
-      { include: '#condition_tooltips' }
-      { include: '#new_char_conditions' }
     ]
   effect_clause: #includes all the repositories that go inside clauses that perform actions: immediate, option, after, effect, etc.
     patterns: [
+      { include: '#scopes' }
+      { include: '#control_flow' }
+      { include: '#effect_tooltips' }
+      { include: '#effects' }
       {
         contentName: 'meta.effect.block.ck2'
         beginCaptures:
@@ -2234,14 +2241,11 @@ repository:
           '
         patterns: [
           { include: '#effect_clause' }
+          { include: '#condition_clause' }
           { include: '#limit_clause' }
         ]
       }
       { include: '#global_includes' }
-      { include: '#scopes' }
-      { include: '#effects' }
-      { include: '#control_flow' }
-      { include: '#effect_tooltips' }
     ]
   scopes:
     patterns: [
