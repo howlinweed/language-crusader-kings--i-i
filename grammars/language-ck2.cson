@@ -331,11 +331,19 @@ patterns: [
     ]
   }
   {
-    contentName: 'meta.history.province.block.ck2'
+    name: 'keyword.control.name.ck2'
+    match:'(?xi)
+      \\b
+      (name)
+      \\b
+      (?!\\s*=\\s*\\{)'
+  }
+  {
+    contentName: 'meta.history.date.block.ck2'
     beginCaptures:
-      1: name: 'keyword.control.province.date.ck2'
-      2: name: 'punctuation.definition.province.date.assignment.equals.ck2'
-      3: name: 'punctuation.definition.province.date.begin.bracket.curly.ck2'
+      1: name: 'keyword.control.history.date.ck2'
+      2: name: 'punctuation.definition.history.date.assignment.equals.ck2'
+      3: name: 'punctuation.definition.history.date.begin.bracket.curly.ck2'
     begin: '(?xi)
       \\b
       (
@@ -351,12 +359,71 @@ patterns: [
         (\\{)
       '
     endCaptures:
-      0: name: 'punctuation.definition.province.date.end.bracket.curly.ck2'
+      0: name: 'punctuation.definition.history.date.end.bracket.curly.ck2'
     end: '(?xi)
         \\}
       '
     patterns: [
+      {
+        captures:
+          1: name: "support.function.war_history.deffender.add.ck2"
+          2: name: "support.function.war_history.deffender.rem.ck2"
+          3: name: "support.function.war_history.attacker.add.ck2"
+          4: name: "support.function.war_history.attacker.rem.ck2"
+        match:'(?xi)
+          \\b
+          (?:
+            (add_defender)
+            |(rem_defender)
+            |(add_attacker)
+            |(rem_attacker)
+          )
+          \\b
+          '
+      }
       { include: '#effect_clause' }
+    ]
+  }
+  {
+    contentName: 'meta.history.cb.block.ck2'
+    beginCaptures:
+      1: name: 'keyword.control.history.cb.ck2'
+      2: name: 'punctuation.definition.history.cb.assignment.equals.ck2'
+      3: name: 'punctuation.definition.history.cb.begin.bracket.curly.ck2'
+    begin: '(?xi)
+      \\b
+        (casus_belli)
+      \\s*
+        (=)
+      \\s*
+        (\\{)
+      '
+    endCaptures:
+      0: name: 'punctuation.definition.history.cb.end.bracket.curly.ck2'
+    end: '(?xi)
+        \\}
+      '
+    patterns: [
+      {
+        captures:
+          1: name: "variable.language.condition.cb.cb.ck2"
+          2: name: "variable.language.condition.cb.actor.ck2"
+          3: name: "variable.language.condition.cb.recipient.ck2"
+          4: name: "variable.language.condition.cb.landed_title.ck2"
+          5: name: "variable.language.condition.cb.date.ck2"
+        match:'(?xi)
+          \\b
+          (?:
+            (casus_belli)
+            |(actor)
+            |(recipient)
+            |(landed_title)
+            |(date)
+          )
+          \\b
+          '
+      }
+      { include: '#global_includes' }
     ]
   }
   {
