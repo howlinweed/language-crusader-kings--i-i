@@ -332,7 +332,7 @@ patterns: [
   }
   {
     name: 'keyword.control.name.ck2'
-    match:'(?xi)
+    match: '(?xi)
       \\b
       (name)
       \\b
@@ -370,7 +370,7 @@ patterns: [
           2: name: "support.function.war_history.deffender.rem.ck2"
           3: name: "support.function.war_history.attacker.add.ck2"
           4: name: "support.function.war_history.attacker.rem.ck2"
-        match:'(?xi)
+        match: '(?xi)
           \\b
           (?:
             (add_defender)
@@ -411,7 +411,7 @@ patterns: [
           3: name: "variable.language.condition.cb.recipient.ck2"
           4: name: "variable.language.condition.cb.landed_title.ck2"
           5: name: "variable.language.condition.cb.date.ck2"
-        match:'(?xi)
+        match: '(?xi)
           \\b
           (?:
             (casus_belli)
@@ -497,7 +497,7 @@ patterns: [
               1: name: 'variable.language.condition.military.ck2'
               2: name: 'variable.language.condition.economy.ck2'
               3: name: 'variable.language.condition.culture.ck2'
-            match:'(?xi)
+            match: '(?xi)
             \\b
             (
               (military)
@@ -526,7 +526,7 @@ repository:
       {
         captures:
           1: name: "support.function.title.scope.ck2"
-        match:'(?xi)
+        match: '(?xi)
           \\b
           (
             (?:b|c(?!_\\d+\\b)|d|k|e)_[[:word:]]+
@@ -537,7 +537,7 @@ repository:
       {
         captures:
           1: name: "support.function.character.scope.ck2"
-        match:'(?xi)
+        match: '(?xi)
           \\b
           (
             c_\\d+
