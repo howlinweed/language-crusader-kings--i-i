@@ -334,9 +334,10 @@ patterns: [
     name: 'keyword.control.name.ck2'
     match: '(?xi)
       \\b
-      (name)
+        (name)
       \\b
-      (?!\\s*=\\s*\\{)'
+      (?!\\s*=\\s*\\{)
+      '
   }
   {
     contentName: 'meta.history.date.block.ck2'
