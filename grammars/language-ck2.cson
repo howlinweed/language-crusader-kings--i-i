@@ -226,6 +226,293 @@ patterns: [
       }
     ]
   }
+  {
+    contentName: 'meta.history.character.block.ck2'
+    beginCaptures:
+      1: name: 'keyword.control.history.character.id.ck2'
+      2: name: 'punctuation.definition.decision.history.character.assignment.equals.ck2'
+      3: name: 'punctuation.definition.decision.history.character.begin.bracket.curly.ck2'
+    begin: '(?xi)
+      \\b
+        (\\d+)
+      \\s*
+        (=)
+      \\s*
+        (\\{)
+      '
+    endCaptures:
+      0: name: 'punctuation.definition.decision.history.character.end.bracket.curly.ck2'
+    end: '(?xi)
+        \\}
+      '
+    patterns: [
+      {
+        contentName: 'meta.history.effect.block.ck2'
+        beginCaptures:
+          1: name: 'keyword.control.history.effect.ck2'
+          2: name: 'punctuation.definition.history.effect.assignment.equals.ck2'
+          3: name: 'punctuation.definition.history.effect.begin.bracket.curly.ck2'
+        begin: '(?xi)
+          \\b
+            (effect)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
+        endCaptures:
+          0: name: 'punctuation.definition.history.effect.end.bracket.curly.ck2'
+        end: '(?xi)
+            \\}
+          '
+        patterns: [
+          { include: '#new_char_conditions' }
+          { include: '#condition_clause' }
+          { include: '#effect_clause' }
+        ]
+      }
+      {
+        contentName: 'meta.history.date.block.ck2'
+        beginCaptures:
+          1: name: 'keyword.control.history.date.ck2'
+          2: name: 'punctuation.definition.history.date.assignment.equals.ck2'
+          3: name: 'punctuation.definition.history.date.begin.bracket.curly.ck2'
+        begin: '(?xi)
+          \\b
+          (
+            \\d{1,4}
+            \\.
+            \\d{1,2}
+            \\.
+            \\d{1,2}
+          )
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
+        endCaptures:
+          0: name: 'punctuation.definition.history.date.end.bracket.curly.ck2'
+        end: '(?xi)
+            \\}
+          '
+        patterns: [
+          {
+            contentName: 'meta.history.effect.block.ck2'
+            beginCaptures:
+              1: name: 'keyword.control.history.effect.ck2'
+              2: name: 'punctuation.definition.history.effect.assignment.equals.ck2'
+              3: name: 'punctuation.definition.history.effect.begin.bracket.curly.ck2'
+            begin: '(?xi)
+              \\b
+                (effect)
+              \\s*
+                (=)
+              \\s*
+                (\\{)
+              '
+            endCaptures:
+              0: name: 'punctuation.definition.history.effect.end.bracket.curly.ck2'
+            end: '(?xi)
+                \\}
+              '
+            patterns: [
+              { include: '#new_char_conditions' }
+              { include: '#effect_clause' }
+            ]
+          }
+          { include: '#new_char_conditions' }
+          { include: '#effect_clause' }
+        ]
+      }
+      { include: '#new_char_conditions' }
+      { include: '#condition_clause' }
+      { include: '#effect_clause' }
+    ]
+  }
+  {
+    name: 'keyword.control.name.ck2'
+    match:'(?xi)
+      \\b
+      (name)
+      \\b
+      (?!\\s*=\\s*\\{)'
+  }
+  {
+    contentName: 'meta.history.date.block.ck2'
+    beginCaptures:
+      1: name: 'keyword.control.history.date.ck2'
+      2: name: 'punctuation.definition.history.date.assignment.equals.ck2'
+      3: name: 'punctuation.definition.history.date.begin.bracket.curly.ck2'
+    begin: '(?xi)
+      \\b
+      (
+        \\d{1,4}
+        \\.
+        \\d{1,2}
+        \\.
+        \\d{1,2}
+      )
+      \\s*
+        (=)
+      \\s*
+        (\\{)
+      '
+    endCaptures:
+      0: name: 'punctuation.definition.history.date.end.bracket.curly.ck2'
+    end: '(?xi)
+        \\}
+      '
+    patterns: [
+      {
+        captures:
+          1: name: "support.function.war_history.deffender.add.ck2"
+          2: name: "support.function.war_history.deffender.rem.ck2"
+          3: name: "support.function.war_history.attacker.add.ck2"
+          4: name: "support.function.war_history.attacker.rem.ck2"
+        match:'(?xi)
+          \\b
+          (?:
+            (add_defender)
+            |(rem_defender)
+            |(add_attacker)
+            |(rem_attacker)
+          )
+          \\b
+          '
+      }
+      { include: '#effect_clause' }
+    ]
+  }
+  {
+    contentName: 'meta.history.cb.block.ck2'
+    beginCaptures:
+      1: name: 'keyword.control.history.cb.ck2'
+      2: name: 'punctuation.definition.history.cb.assignment.equals.ck2'
+      3: name: 'punctuation.definition.history.cb.begin.bracket.curly.ck2'
+    begin: '(?xi)
+      \\b
+        (casus_belli)
+      \\s*
+        (=)
+      \\s*
+        (\\{)
+      '
+    endCaptures:
+      0: name: 'punctuation.definition.history.cb.end.bracket.curly.ck2'
+    end: '(?xi)
+        \\}
+      '
+    patterns: [
+      {
+        captures:
+          1: name: "variable.language.condition.cb.cb.ck2"
+          2: name: "variable.language.condition.cb.actor.ck2"
+          3: name: "variable.language.condition.cb.recipient.ck2"
+          4: name: "variable.language.condition.cb.landed_title.ck2"
+          5: name: "variable.language.condition.cb.date.ck2"
+        match:'(?xi)
+          \\b
+          (?:
+            (casus_belli)
+            |(actor)
+            |(recipient)
+            |(landed_title)
+            |(date)
+          )
+          \\b
+          '
+      }
+      { include: '#global_includes' }
+    ]
+  }
+  {
+    contentName: 'meta.history.technology.block.ck2'
+    beginCaptures:
+      0: name: 'entity.name.history.technology.ck2'
+      1: name: 'keyword.control.history.technology.ck2'
+      2: name: 'punctuation.definition.history.technology.assignment.equals.ck2'
+      3: name: 'punctuation.definition.history.technology.begin.bracket.curly.ck2'
+    begin: '(?xi)
+      \\b
+        (technology)
+      \\s*
+        (=)
+      \\s*
+        (\\{)
+      '
+    endCaptures:
+      1: name: 'punctuation.definition.history.technology.end.bracket.curly'
+    end: '(?xi)
+        (\\})
+      '
+    patterns: [
+      {
+        contentName: 'meta.technology.title.block.ck2'
+        beginCaptures:
+          0: name: 'entity.name.technology.title.ck2'
+          1: name: 'keyword.control.technology.title.ck2'
+          2: name: 'punctuation.definition.technology.title.assignment.equals.ck2'
+          3: name: 'punctuation.definition.technology.title.begin.bracket.curly.ck2'
+        begin: '(?xi)
+          \\b
+            (titles)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
+        endCaptures:
+          1: name: 'punctuation.definition.technology.title.end.bracket.curly'
+        end: '(?xi)
+            (\\})
+          '
+        patterns: [
+          { include: '#global_includes' }
+        ]
+      }
+      {
+        contentName: 'meta.technology.date.block.ck2'
+        beginCaptures:
+          0: name: 'entity.name.technology.date.ck2'
+          1: name: 'keyword.control.technology.date.ck2'
+          2: name: 'punctuation.definition.technology.date.assignment.equals.ck2'
+          3: name: 'punctuation.definition.technology.date.begin.bracket.curly.ck2'
+        begin: '(?xi)
+          \\b
+            (\\d+)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
+        endCaptures:
+          1: name: 'punctuation.definition.technology.date.end.bracket.curly'
+        end: '(?xi)
+            (\\})
+          '
+        patterns: [
+          {
+            captures:
+              1: name: 'variable.language.condition.military.ck2'
+              2: name: 'variable.language.condition.economy.ck2'
+              3: name: 'variable.language.condition.culture.ck2'
+            match:'(?xi)
+            \\b
+            (
+              (military)
+              |(economy)
+              |(culture)
+            )
+            \\b'
+          }
+          { include: '#condition_clause' }
+          { include: '#global_includes' }
+        ]
+      }
+      { include: '#global_includes' }
+    ]
+  }
   { include: '#global_includes' }
   { include: '#events' }
   { include: '#on_actions' }
@@ -236,6 +523,28 @@ repository:
       { include: '#lineComment' }
       { include: '#numbers' }
       { include: '#quoted_strings' }
+      {
+        captures:
+          1: name: "support.function.title.scope.ck2"
+        match:'(?xi)
+          \\b
+          (
+            (?:b|c(?!_\\d+\\b)|d|k|e)_[[:word:]]+
+          )
+          \\b
+          '
+      }
+      {
+        captures:
+          1: name: "support.function.character.scope.ck2"
+        match:'(?xi)
+          \\b
+          (
+            c_\\d+
+          )
+          \\b
+          '
+      }
       {
         captures:
           1: name: 'storage.type.event_target.ck2'
@@ -538,8 +847,76 @@ repository:
         ]
       }
     ]
+  new_char_conditions:
+    patterns: [
+      {
+        captures:
+          1: name: 'variable.language.condition.new_char.dna.ck2'
+          2: name: 'variable.language.condition.new_char.employer.ck2'
+          3: name: 'variable.language.condition.new_char.female.ck2'
+          4: name: 'variable.language.condition.new_char.random_traits.ck2'
+          5: name: 'variable.language.condition.new_char.genetic_father.ck2'
+          6: name: 'variable.language.condition.new_char.genetic_mother.ck2'
+          7: name: 'variable.language.condition.new_char.historical.ck2'
+          8: name: 'variable.language.condition.new_char.immortal_age.ck2'
+          9: name: 'variable.language.condition.new_char.name.ck2'
+          10: name: 'variable.language.condition.new_char.flag.ck2'
+          11: name: 'variable.language.condition.new_char.father.ck2'
+          12: name: 'variable.language.condition.new_char.real_father.ck2'
+          13: name: 'variable.language.condition.new_char.mother.ck2'
+          14: name: 'variable.language.condition.new_char.properties.ck2'
+          15: name: 'variable.language.condition.new_char.diplomacy.ck2'
+          16: name: 'variable.language.condition.new_char.martial.ck2'
+          17: name: 'variable.language.condition.new_char.stewardship.ck2'
+          18: name: 'variable.language.condition.new_char.intrigue.ck2'
+          19: name: 'variable.language.condition.new_char.learning.ck2'
+          20: name: 'variable.language.condition.new_char.occluded.ck2'
+          21: name: 'variable.language.condition.new_char.birth.ck2'
+        match: '(?xi)
+          \\b
+            (?:
+              (dna)
+              |(employer)
+              |(female)
+              |((?:disallow_)?random_traits)
+              |(genetic_father)
+              |(genetic_mother)
+              |(historical)
+              |(immortal_age)
+              |(name)
+              |(flag)
+              |(father)
+              |(real_father)
+              |(mother)
+              |(properties)
+              |(diplomacy)
+              |(martial)
+              |(stewardship)
+              |(intrigue)
+              |(learning)
+              |(occluded)
+              |(birth)
+
+            )
+          \\b
+          (?!\\s*=\\s*\\{)
+          '
+      }
+    ]
   numbers:
     patterns: [
+      {
+        name: 'constant.numeric.date.ck2'
+        match: '(?xi)
+          \\b
+            \\d{1,4}
+            \\.
+            \\d{1,2}
+            \\.
+            \\d{1,2}
+          \\b
+          '
+      }
       {
         captures:
           0: name: 'constant.numeric.float.ck2'
@@ -561,6 +938,7 @@ repository:
             \\.
             \\d{1,3}
           \\b
+          (?!\\.)
           '
       }
       {
@@ -2016,6 +2394,10 @@ repository:
           { include: '#global_includes' }
         ]
       }
+      { include: '#scopes' }
+      { include: '#conditions' }
+      { include: '#condition_tooltips' }
+      { include: '#new_char_conditions' }
       {
         contentName: 'meta.condition.block.ck2'
         beginCaptures:
@@ -2035,15 +2417,17 @@ repository:
           '
         patterns: [
           { include: '#condition_clause' }
+          { include: '#effect_clause' }
         ]
       }
       { include: '#global_includes' }
-      { include: '#scopes' }
-      { include: '#conditions' }
-      { include: '#condition_tooltips' }
     ]
   effect_clause: #includes all the repositories that go inside clauses that perform actions: immediate, option, after, effect, etc.
     patterns: [
+      { include: '#scopes' }
+      { include: '#control_flow' }
+      { include: '#effect_tooltips' }
+      { include: '#effects' }
       {
         contentName: 'meta.effect.block.ck2'
         beginCaptures:
@@ -2062,14 +2446,11 @@ repository:
           '
         patterns: [
           { include: '#effect_clause' }
+          { include: '#condition_clause' }
           { include: '#limit_clause' }
         ]
       }
       { include: '#global_includes' }
-      { include: '#scopes' }
-      { include: '#effects' }
-      { include: '#control_flow' }
-      { include: '#effect_tooltips' }
     ]
   scopes:
     patterns: [
@@ -2269,6 +2650,15 @@ repository:
     ]
   conditions:
     patterns: [
+      {
+        captures:
+          1: name: 'keyword.control.event.id.ck2'
+        match: '(?xi)
+          \\b
+          (id)
+          \\b
+          (?=\\s*=\\s*(?:\\w|\\d))'
+      }
       { # Used for mactching scopes as conditions
         captures:
           1: name: 'constant.language.condition.scope.ck2'
@@ -3376,36 +3766,6 @@ repository:
           { include: '#condition_clause' }
           { include: '#global_includes' }
         ]
-      }
-      {
-        captures:
-          1: name: 'variable.language.condition.new_char.dna.ck2'
-          2: name: 'variable.language.condition.new_char.employer.ck2'
-          3: name: 'variable.language.condition.new_char.female.ck2'
-          4: name: 'variable.language.condition.new_char.random_traits.ck2'
-          5: name: 'variable.language.condition.new_char.genetic_father.ck2'
-          6: name: 'variable.language.condition.new_char.genetic_mother.ck2'
-          7: name: 'variable.language.condition.new_char.historical.ck2'
-          8: name: 'variable.language.condition.new_char.immortal_age.ck2'
-          9: name: 'variable.language.condition.new_char.name.ck2'
-          10: name: 'variable.language.condition.new_char.flag.ck2'
-        match: '(?xi)
-          \\b
-            (?:
-              (dna)
-              |(employer)
-              |(female)
-              |(random_traits)
-              |(genetic_father)
-              |(genetic_mother)
-              |(historical)
-              |(immortal_age)
-              |(name)
-              |(flag)
-            )
-          \\b
-          (?!\\s*=\\s*\\{)
-          '
       }
     ]
   # clause:
