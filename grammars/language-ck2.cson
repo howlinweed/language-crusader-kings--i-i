@@ -330,6 +330,35 @@ patterns: [
       { include: '#effect_clause' }
     ]
   }
+  {
+    contentName: 'meta.history.province.block.ck2'
+    beginCaptures:
+      1: name: 'keyword.control.province.date.ck2'
+      2: name: 'punctuation.definition.province.date.assignment.equals.ck2'
+      3: name: 'punctuation.definition.province.date.begin.bracket.curly.ck2'
+    begin: '(?xi)
+      \\b
+      (
+        \\d{1,4}
+        \\.
+        \\d{1,2}
+        \\.
+        \\d{1,2}
+      )
+      \\s*
+        (=)
+      \\s*
+        (\\{)
+      '
+    endCaptures:
+      0: name: 'punctuation.definition.province.date.end.bracket.curly.ck2'
+    end: '(?xi)
+        \\}
+      '
+    patterns: [
+      { include: '#effect_clause' }
+    ]
+  }
   { include: '#global_includes' }
   { include: '#events' }
   { include: '#on_actions' }
