@@ -359,6 +359,93 @@ patterns: [
       { include: '#effect_clause' }
     ]
   }
+  {
+    contentName: 'meta.history.technology.block.ck2'
+    beginCaptures:
+      0: name: 'entity.name.history.technology.ck2'
+      1: name: 'keyword.control.history.technology.ck2'
+      2: name: 'punctuation.definition.history.technology.assignment.equals.ck2'
+      3: name: 'punctuation.definition.history.technology.begin.bracket.curly.ck2'
+    begin: '(?xi)
+      \\b
+        (technology)
+      \\s*
+        (=)
+      \\s*
+        (\\{)
+      '
+    endCaptures:
+      1: name: 'punctuation.definition.history.technology.end.bracket.curly'
+    end: '(?xi)
+        (\\})
+      '
+    patterns: [
+      {
+        contentName: 'meta.technology.title.block.ck2'
+        beginCaptures:
+          0: name: 'entity.name.technology.title.ck2'
+          1: name: 'keyword.control.technology.title.ck2'
+          2: name: 'punctuation.definition.technology.title.assignment.equals.ck2'
+          3: name: 'punctuation.definition.technology.title.begin.bracket.curly.ck2'
+        begin: '(?xi)
+          \\b
+            (titles)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
+        endCaptures:
+          1: name: 'punctuation.definition.technology.title.end.bracket.curly'
+        end: '(?xi)
+            (\\})
+          '
+        patterns: [
+          { include: '#global_includes' }
+        ]
+      }
+      {
+        contentName: 'meta.technology.date.block.ck2'
+        beginCaptures:
+          0: name: 'entity.name.technology.date.ck2'
+          1: name: 'keyword.control.technology.date.ck2'
+          2: name: 'punctuation.definition.technology.date.assignment.equals.ck2'
+          3: name: 'punctuation.definition.technology.date.begin.bracket.curly.ck2'
+        begin: '(?xi)
+          \\b
+            (\\d+)
+          \\s*
+            (=)
+          \\s*
+            (\\{)
+          '
+        endCaptures:
+          1: name: 'punctuation.definition.technology.date.end.bracket.curly'
+        end: '(?xi)
+            (\\})
+          '
+        patterns: [
+          {
+            captures:
+              1: name: 'variable.language.condition.military.ck2'
+              2: name: 'variable.language.condition.economy.ck2'
+              3: name: 'variable.language.condition.culture.ck2'
+            match:'(?xi)
+            \\b
+            (
+              (military)
+              |(economy)
+              |(culture)
+            )
+            \\b'
+          }
+          { include: '#condition_clause' }
+          { include: '#global_includes' }
+        ]
+      }
+      { include: '#global_includes' }
+    ]
+  }
   { include: '#global_includes' }
   { include: '#events' }
   { include: '#on_actions' }
