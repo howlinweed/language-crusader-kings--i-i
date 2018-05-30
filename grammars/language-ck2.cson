@@ -2445,6 +2445,15 @@ repository:
     ]
   conditions:
     patterns: [
+      {
+        captures:
+          1: name: 'keyword.control.event.id.ck2'
+        match: '(?xi)
+          \\b
+          (id)
+          \\b
+          (?=\\s*=\\s*(?:\\w|\\d))'
+      }
       { # Used for mactching scopes as conditions
         captures:
           1: name: 'constant.language.condition.scope.ck2'
