@@ -1003,8 +1003,8 @@ repository:
         end: '"'
         patterns: [
           { include: '#lineComment' }
-          { include: '#loc_keys' }
           { include: '#escape_characters' }
+          { include: '#loc_keys' }
         ]
       }
       {
@@ -1016,8 +1016,9 @@ repository:
           0: name: 'punctuation.definition.string.end.single.quote.ck2'
         end: '\''
         patterns: [
-          { include: '#loc_keys' }
           { include: '#lineComment' }
+          { include: '#escape_characters' }
+          { include: '#loc_keys' }
         ]
       }
     ]
