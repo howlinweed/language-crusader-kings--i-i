@@ -583,12 +583,12 @@ repository:
         # TODO: figure out why the following regex seems to be failing when
         # trying to match unquoted str with trailing comments
         # match:'(?x)\\B=\\s*([A-Z_])+\\b(?=\\s*(:#|$))'
-        match:'\\b([A-Z0-9_]+([A-Z_.0-9])*)\\b'
+        match: '\\b([A-Z0-9_]+([A-Z_.0-9])*)\\b'
         captures:
           1: name: 'string.unquoted.loc_key.ck2'
       }
       {
-        match:'(?x)
+        match: '(?x)
         \\b
         (GFX_[A-Za-z_]+)
         \\b'
@@ -2034,7 +2034,7 @@ repository:
             (\\})
           '
         patterns: [
-          {include: '#condition_clause' }
+          { include: '#condition_clause' }
         ]
       }
       { include: '#global_includes' }
@@ -3583,7 +3583,7 @@ repository:
               2: name: 'entity.type.entry.ck2'
               3: name: 'entity.type.portrait.ck2'
               4: name: 'entity.type.picture.ck2'
-            match:'(?xi)
+            match: '(?xi)
               \\b
                 (
                   (entry)
