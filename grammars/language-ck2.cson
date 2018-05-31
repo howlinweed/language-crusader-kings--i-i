@@ -2722,6 +2722,22 @@ repository:
             )
             '
       }
+      { # Used for matching province scope changes
+          captures:
+            1: name: 'support.function.scope.province.ck2'
+          match: '(?xi)
+            \\b
+            (
+              \\d+
+            )
+            (?=
+              \\s*
+              =
+              \\s*
+              \\{
+            )
+            '
+      }
     ]
   conditions:
     patterns: [
