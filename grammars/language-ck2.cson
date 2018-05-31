@@ -1177,6 +1177,7 @@ repository:
                 |is_(?:friendly|hostile|triggered_only)
                 |triggered_from_code|hide_(?:from|window|new)|show(?:_root|_from{1,3})
                 |sound
+                |title
                 |notification
               )
               \\b'
