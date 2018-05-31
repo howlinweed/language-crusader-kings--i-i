@@ -69,10 +69,10 @@ patterns: [
       \\b
       (
         (?:
-          (plot)
-          |(targetted)
+          (plot_)
+          |(targetted_)
           |(settlement)
-          |(title)
+          |(title_)
         )?decisions
       )
       \\s*
@@ -334,9 +334,10 @@ patterns: [
     name: 'keyword.control.name.ck2'
     match: '(?xi)
       \\b
-      (name)
+        (name)
       \\b
-      (?!\\s*=\\s*\\{)'
+      (?!\\s*=\\s*\\{)
+      '
   }
   {
     contentName: 'meta.history.date.block.ck2'
@@ -523,6 +524,8 @@ repository:
       { include: '#lineComment' }
       { include: '#numbers' }
       { include: '#quoted_strings' }
+      { include: '#unquoted_strings' }
+      { include: '#loc_keys' }
       {
         captures:
           1: name: "support.function.title.scope.ck2"
@@ -649,7 +652,7 @@ repository:
       {
         captures:
           1: name: 'constant.language.bool.true.yes.ck2'
-          2: name: 'constant.language.bool.false.no.ck2'
+          2: name: 'constant.language.bool.false.no.ck2' # TODO: consider making this a deprecated value
           3: name: 'constant.language.bool.true.always.ck2'
           4: name: 'constant.language.bool.false.none.ck2'
         match: '(?xi)
@@ -685,12 +688,80 @@ repository:
           '
       }
     ]
-  # TODO: Add matches for Audax Validator to comment pattenrs
-  lineComment:
+  oldComment:
     patterns: [
       {
         name: 'comment.line.number-sign.ck2'
         match: '#.*$'
+      }
+    ]
+  lineComment:
+    patterns: [
+      {
+        name: 'comment.line.number-sign.ck2'
+        contentName: 'meta.comment.line.number-sign.ck2'
+        beginCaptures:
+          0: name: 'punctuation.definition.comment.number-sign.ck2'
+        begin: '(?=#)'
+        end: '$'
+        patterns: [
+          {
+            name: 'storage.type.class.todo.ck2'
+            match: '(?xi)
+              \\b
+                (TODO)
+              \\b
+              '
+          }
+          {
+            captures:
+              1: name: 'keyword.control.directive.validator.number-sign.ck2'
+              2: name: 'keyword.control.directive.validator.ck2'
+              3: name: 'string.quoted.double.validator.target.ck2'
+              4: name: 'punctuation.definition.validator.target.begin.double.quote.ck2'
+              5: name: 'punctuation.definition.validator.target.bang.ck2'
+              6: name: 'punctuation.definition.validator.target.dot.ck2'
+              7: name: 'punctuation.definition.validator.target.end.double.quote.ck'
+              8: name: 'variable.parameter.validator.ignore.ck2'
+              9: name: 'variable.parameter.validator.metaData.ck2'
+              10: name: 'invalid.illegal.stray_char.ck2'
+            match: '(?xi)
+              \\G
+                (\\#)
+              \\s
+                (Audax\\sValidator)
+              \\s
+              (?:
+                (
+                  (")
+                  (?:
+                    (!)
+                    |(\\.)
+                  )
+                  (")
+                )
+                \\s
+                  (
+                    Ignore_(?:
+                      ALL
+                      |NEXT
+                      |\\d{4}
+                    )
+                  )
+                  |(EnableCommentMetadata)
+              )
+              \\b
+              [ \\t]*
+              ([^#\\n\\c\\f]+)?
+              '
+          }
+          {
+            name: 'punctuation.definition.comment.number-sign.ck2'
+            match: '(?xi)
+                (\\#)
+              '
+          }
+        ]
       }
     ]
   control_flow:
@@ -804,7 +875,7 @@ repository:
               3: name: 'punctuation.definition.on_trigger.branch.begin.bracket.curly.ck2'
             begin: '(?xi)
               \\b
-                ([[:alpha:]][[:word:]]+)
+                ([[:word:]]+)
               \\s*
                 (=)
               \\s*
@@ -952,29 +1023,41 @@ repository:
     ]
   strings:
     patterns: [
-      { include: '#unquoted_strings' }
       { include: '#quoted_strings' }
     ]
   unquoted_strings:
     patterns: [
       {
-        # TODO: figure out why the following regex seems to be failing when
-        # trying to match unquoted str with trailing comments
-        # match:'(?x)\\B=\\s*([A-Z_])+\\b(?=\\s*(:#|$))'
-        match: '\\b([A-Z0-9_]+([A-Z_.0-9])*)\\b'
         captures:
-          1: name: 'string.unquoted.loc_key.ck2'
+          1: name: 'string.unquoted.event_text.ck2'
+        match: '(?x)
+          \\b
+            (EVT[[:word:].]+)
+          \\b
+          '
       }
       {
-        match: '(?x)
-        \\b
-        (GFX_[A-Za-z_]+)
-        \\b'
         captures:
           1: name: 'string.unquoted.gfx_key.ck2'
+        match: '(?x)
+          \\b
+            (GFX_[[:word:].]+)
+          \\b
+          '
       }
+      { include: '#loc_keys' }
+    ]
+  escape_characters:
+    patterns: [
       {
-        include: '#loc_keys'
+        captures:
+          1: name: 'constant.character.escape.ck2'
+          2: name: 'punctuation.definition.escape.slash.back.ck2'
+        match: '(?xi)
+          (
+            (\\\\).
+          )
+          '
       }
     ]
   quoted_strings:
@@ -988,8 +1071,9 @@ repository:
           0: name: 'punctuation.definition.string.end.double.quote.ck2'
         end: '"'
         patterns: [
-          { include: '#loc_keys' }
           { include: '#lineComment' }
+          { include: '#escape_characters' }
+          { include: '#loc_keys' }
         ]
       }
       {
@@ -1001,8 +1085,9 @@ repository:
           0: name: 'punctuation.definition.string.end.single.quote.ck2'
         end: '\''
         patterns: [
-          { include: '#loc_keys' }
           { include: '#lineComment' }
+          { include: '#escape_characters' }
+          { include: '#loc_keys' }
         ]
       }
     ]
@@ -1013,9 +1098,8 @@ repository:
         beginCaptures:
           1: name: 'punctuation.definition.loc_key.begin.bracket.square.ck2'
         begin: '(?xi)
-          \\B
             (\\[)
-          (?=\\s*[[:alnum:]])
+          \\b
           '
         endCaptures:
           1: name: 'punctuation.definition.loc_key.end.bracket.square.ck2'
@@ -1024,6 +1108,7 @@ repository:
             (\\])
           '
         patterns: [
+          { include: '#lineComment' }
           {
             name: 'invalid.illegal.stray_period.ck2'
             match: '(?xi)
@@ -1031,7 +1116,8 @@ repository:
               (?<!\\w)
                 \\.
                 |\\.
-              (?!\\w))
+              (?!\\w)
+              )
               '
           }
           {
@@ -1098,6 +1184,7 @@ repository:
                 |is_(?:friendly|hostile|triggered_only)
                 |triggered_from_code|hide_(?:from|window|new)|show(?:_root|_from{1,3})
                 |sound
+                |title
                 |notification
               )
               \\b'
@@ -1226,7 +1313,7 @@ repository:
                   '
               }
               { include: '#trigger_clause' }
-              { include: '#unquoted_strings' }
+
               { include: '#global_includes' }
             ]
           }
@@ -1282,7 +1369,6 @@ repository:
               '
             patterns: [
               { include: '#effect_clause' }
-              { include: '#unquoted_strings' }
               { include: '#global_includes' }
             ]
           }
@@ -1374,13 +1460,11 @@ repository:
                     '
                   }
                   { include: '#trigger_clause' }
-                  { include: '#unquoted_strings' }
                   { include: '#global_includes' }
                 ]
               }
               { include: '#effect_clause' }
               { include: '#trigger_clause' }
-              { include: '#unquoted_strings' }
               { include: '#ai_chance' }
               { include: '#global_includes' }
             ]
@@ -1407,7 +1491,6 @@ repository:
               '
             patterns: [
               { include: '#effect_clause' }
-              { include: '#unquoted_strings' }
               { include: '#global_includes' }
             ]
           }
@@ -2638,6 +2721,22 @@ repository:
               |FROM(?:FROM){,3}
               |PREV(?:PREV){,3}
               |THIS
+            )
+            (?=
+              \\s*
+              =
+              \\s*
+              \\{
+            )
+            '
+      }
+      { # Used for matching province scope changes
+          captures:
+            1: name: 'support.function.scope.province.ck2'
+          match: '(?xi)
+            \\b
+            (
+              \\d+
             )
             (?=
               \\s*
