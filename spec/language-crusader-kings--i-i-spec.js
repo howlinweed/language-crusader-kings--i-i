@@ -26,10 +26,10 @@ describe("CK2 grammar", function() {
     expect(tokens[0]).toEqual({value: " ", scopes:[root]});
   });
 
-  it("tokenizes comments", () => {
-    let tokens = grammar.tokenizeLine("#comment").tokens;
-    expect(tokens[0]).toEqual({value: "#comment", scopes:[root, "comment.line.number-sign.ck2"]});
-  });
+  // it("tokenizes comments", () => {
+  //   let tokens = grammar.tokenizeLine("#comment").tokens;
+  //   expect(tokens[0]).toEqual({value: "#comment", scopes:[root, "comment.line.number-sign.ck2"]});
+  // });
 
   it("tokenizes the always keyword", () => {
     let tokens = grammar.tokenizeLine("always").tokens;
