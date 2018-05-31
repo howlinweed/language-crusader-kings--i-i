@@ -651,7 +651,7 @@ repository:
       {
         captures:
           1: name: 'constant.language.bool.true.yes.ck2'
-          2: name: 'constant.language.bool.false.no.ck2'
+          2: name: 'constant.language.bool.false.no.ck2' # TODO: consider making this a deprecated value
           3: name: 'constant.language.bool.true.always.ck2'
           4: name: 'constant.language.bool.false.none.ck2'
         match: '(?xi)
@@ -687,12 +687,74 @@ repository:
           '
       }
     ]
-  # TODO: Add matches for Audax Validator to comment pattenrs
-  lineComment:
+  oldComment:
     patterns: [
       {
         name: 'comment.line.number-sign.ck2'
         match: '#.*$'
+      }
+    ]
+  lineComment:
+    patterns: [
+      {
+        name: 'comment.line.number-sign.ck2'
+        contentName: 'meta.comment.line.number-sign.ck2'
+        beginCaptures:
+          0: name: 'punctuation.definition.comment.number-sign.ck2'
+        begin: '(?=#)'
+        end: '$'
+        patterns: [
+          {
+            name: 'storage.type.class.todo.ck2'
+            match: '(?xi)
+              \\b
+                (TODO)
+              \\b
+              '
+          }
+          {
+            captures:
+              1: name: 'keyword.control.directive.validator.number-sign.ck2'
+              2: name: 'keyword.control.directive.validator.ck2'
+              3: name: 'string.quoted.double.validator.target.ck2'
+              4: name: 'punctuation.definition.validator.target.begin.double.quote.ck2'
+              5: name: 'punctuation.definition.validator.target.bang.ck2'
+              6: name: 'punctuation.definition.validator.target.dot.ck2'
+              7: name: 'punctuation.definition.validator.target.end.double.quote.ck'
+              8: name: 'variable.parameter.validator.ignore.ck2'
+              9: name: 'variable.parameter.validator.metaData.ck2'
+              10: name: 'invalid.illegal.stray_char.ck2'
+            match: '(?xi)
+              \\G
+                (\\#)
+              \\s
+                (Audax\\sValidator)
+              \\s
+              (?:
+                (
+                  (")
+                  (?:
+                    (!)
+                    |(\\.)
+                  )
+                  (")
+                )
+                \\s
+                  (Ignore_[\\w]+)
+                  |(EnableCommentMetadata)
+              )
+              \\b
+              \\s+
+                ([^#\\n]+)?
+              '
+          }
+          {
+            name: 'punctuation.definition.comment.number-sign.ck2'
+            match: '(?xi)
+                (\\#)
+              '
+          }
+        ]
       }
     ]
   control_flow:
