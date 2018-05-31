@@ -524,6 +524,7 @@ repository:
       { include: '#lineComment' }
       { include: '#numbers' }
       { include: '#quoted_strings' }
+      { include: '#unquoted_strings' }
       { include: '#loc_keys' }
       {
         captures:
@@ -1016,30 +1017,28 @@ repository:
     ]
   strings:
     patterns: [
-      { include: '#unquoted_strings' }
       { include: '#quoted_strings' }
     ]
   unquoted_strings:
     patterns: [
+      # {
+      #   # TODO: figure out why the following regex seems to be failing when
+      #   # trying to match unquoted str with trailing comments
+      #   # match:'(?x)\\B=\\s*([A-Z_])+\\b(?=\\s*(:#|$))'
+      #   match: '\\b([A-Z0-9_]+([A-Z_.0-9])*)\\b'
+      #   captures:
+      #     1: name: 'string.unquoted.loc_key.ck2'
+      # }
       {
-        # TODO: figure out why the following regex seems to be failing when
-        # trying to match unquoted str with trailing comments
-        # match:'(?x)\\B=\\s*([A-Z_])+\\b(?=\\s*(:#|$))'
-        match: '\\b([A-Z0-9_]+([A-Z_.0-9])*)\\b'
-        captures:
-          1: name: 'string.unquoted.loc_key.ck2'
-      }
-      {
-        match: '(?x)
-        \\b
-        (GFX_[A-Za-z_]+)
-        \\b'
         captures:
           1: name: 'string.unquoted.gfx_key.ck2'
+        match: '(?x)
+          \\b
+            (GFX_[[:word:]]+)
+          \\b
+          '
       }
-      {
-        include: '#loc_keys'
-      }
+      { include: '#loc_keys' }
     ]
   escape_characters:
     patterns: [
@@ -1306,7 +1305,7 @@ repository:
                   '
               }
               { include: '#trigger_clause' }
-              { include: '#unquoted_strings' }
+
               { include: '#global_includes' }
             ]
           }
@@ -1362,7 +1361,6 @@ repository:
               '
             patterns: [
               { include: '#effect_clause' }
-              { include: '#unquoted_strings' }
               { include: '#global_includes' }
             ]
           }
@@ -1454,13 +1452,11 @@ repository:
                     '
                   }
                   { include: '#trigger_clause' }
-                  { include: '#unquoted_strings' }
                   { include: '#global_includes' }
                 ]
               }
               { include: '#effect_clause' }
               { include: '#trigger_clause' }
-              { include: '#unquoted_strings' }
               { include: '#ai_chance' }
               { include: '#global_includes' }
             ]
@@ -1487,7 +1483,6 @@ repository:
               '
             patterns: [
               { include: '#effect_clause' }
-              { include: '#unquoted_strings' }
               { include: '#global_includes' }
             ]
           }
