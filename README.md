@@ -1,6 +1,6 @@
 # Crusader Kings II modding language support in Atom
-[![Build Status](https://travis-ci.org/howlinweed/language-crusader-kings--i-i.svg?branch=master)](https://travis-ci.org/howlinweed/language-crusader-kings--i-i)[![Build status](https://ci.appveyor.com/api/projects/status/nc7sj58r6ogpumki/branch/master?svg=true)](https://ci.appveyor.com/project/howlinweed/language-crusader-kings-i-i/branch/master)
-Adds syntax highlighting to [Crusader Kings II](https://www.paradoxplaza.com/crusader-kings-ii/CKCK02GSK-MASTER.html) config files in [Atom](https://atom.io).
+[![Build Status](https://travis-ci.org/howlinweed/language-crusader-kings--i-i.svg?branch=master)](https://travis-ci.org/howlinweed/language-crusader-kings--i-i)
+Adds syntax highlighting to [Crusader Kings II](https://www.paradoxplaza.com/crusader-kings-ii/CKCK02GSK-MASTER.html) config files in [Atom](https://atom.io).[![Build status](https://ci.appveyor.com/api/projects/status/nc7sj58r6ogpumki/branch/master?svg=true)](https://ci.appveyor.com/project/howlinweed/language-crusader-kings-i-i/branch/master)
 
 ## Highlighting support for the following
 
