@@ -524,6 +524,7 @@ repository:
       { include: '#lineComment' }
       { include: '#numbers' }
       { include: '#quoted_strings' }
+      { include: '#loc_keys' }
       {
         captures:
           1: name: "support.function.title.scope.ck2"
@@ -1029,9 +1030,8 @@ repository:
         beginCaptures:
           1: name: 'punctuation.definition.loc_key.begin.bracket.square.ck2'
         begin: '(?xi)
-          \\B
             (\\[)
-          (?=\\s*[[:alnum:]])
+          \\b
           '
         endCaptures:
           1: name: 'punctuation.definition.loc_key.end.bracket.square.ck2'
@@ -1040,6 +1040,7 @@ repository:
             (\\])
           '
         patterns: [
+          { include: '#lineComment' }
           {
             name: 'invalid.illegal.stray_period.ck2'
             match: '(?xi)
@@ -1047,7 +1048,8 @@ repository:
               (?<!\\w)
                 \\.
                 |\\.
-              (?!\\w))
+              (?!\\w)
+              )
               '
           }
           {
