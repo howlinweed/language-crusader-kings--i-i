@@ -69,10 +69,10 @@ patterns: [
       \\b
       (
         (?:
-          (plot)
-          |(targetted)
+          (plot_)
+          |(targetted_)
           |(settlement)
-          |(title)
+          |(title_)
         )?decisions
       )
       \\s*
