@@ -741,12 +741,18 @@ repository:
                   (")
                 )
                 \\s
-                  (Ignore_[\\w]+)
+                  (
+                    Ignore_(?:
+                      ALL
+                      |NEXT
+                      |\\d{4}
+                    )
+                  )
                   |(EnableCommentMetadata)
               )
               \\b
-              \\s+
-                ([^#\\n]+)?
+              [ \\t]*
+              ([^#\\n\\c\\f]+)?
               '
           }
           {
@@ -869,7 +875,7 @@ repository:
               3: name: 'punctuation.definition.on_trigger.branch.begin.bracket.curly.ck2'
             begin: '(?xi)
               \\b
-                ([[:alpha:]][[:word:]]+)
+                ([[:word:]]+)
               \\s*
                 (=)
               \\s*
@@ -1021,20 +1027,21 @@ repository:
     ]
   unquoted_strings:
     patterns: [
-      # {
-      #   # TODO: figure out why the following regex seems to be failing when
-      #   # trying to match unquoted str with trailing comments
-      #   # match:'(?x)\\B=\\s*([A-Z_])+\\b(?=\\s*(:#|$))'
-      #   match: '\\b([A-Z0-9_]+([A-Z_.0-9])*)\\b'
-      #   captures:
-      #     1: name: 'string.unquoted.loc_key.ck2'
-      # }
+      {
+        captures:
+          1: name: 'string.unquoted.event_text.ck2'
+        match: '(?x)
+          \\b
+            (EVT[[:word:].]+)
+          \\b
+          '
+      }
       {
         captures:
           1: name: 'string.unquoted.gfx_key.ck2'
         match: '(?x)
           \\b
-            (GFX_[[:word:]]+)
+            (GFX_[[:word:].]+)
           \\b
           '
       }
