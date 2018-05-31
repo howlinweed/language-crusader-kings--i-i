@@ -677,14 +677,37 @@ repository:
         match: '(?xi)
           (?:\\s*)
           (?:
-            (!=)
-            |(\\<=)
-            |(\\>=)
-            |(\\==)
+            (\\!\\=)
+            |(\\<\\=)
+            |(\\>\\=)
+            |(\\=\\=)
             |(\\<)
             |(\\>)
           )
           (?:\\s*)
+          '
+      }
+      { # Used for mactching scopes as conditions
+        captures:
+          1: name: 'constant.language.condition.scope.ck2'
+        match: '(?xi)
+          (?<!@)
+          \\b
+          (
+            ROOT(?:
+              _(?:FROM){1,3}
+            )?
+            |FROM(?:FROM){,3}
+            |PREV(?:PREV){,3}
+            |THIS
+          )
+          \\b
+          (?!
+            \\s*
+            =
+            \\s*
+            \\{
+          )
           '
       }
     ]
@@ -2447,6 +2470,15 @@ repository:
   condition_clause: #includes all the repositories that go inside triggers and limits
     patterns: [
       {
+        captures:
+          1: name: 'keyword.control.show_only_failed.ck2'
+        match: '(?xi)
+          \\b
+            (show_only_failed_conditions)
+          \\b
+          '
+      }
+      {
         contentName: 'meta.logic.block.ck2'
         beginCaptures:
           1: name: 'constant.language.logical.ck2'
@@ -2751,35 +2783,53 @@ repository:
     patterns: [
       {
         captures:
+          1: name: 'variable.language.condition.clause_conditions.ck2'
+        match: '(?xi)
+          \\b
+          (
+            who
+            |attribute
+            |value
+            |amount
+            |target
+            |casus_belli
+            |thirdparty_title
+            |only_check_triggers
+            |which
+            |faction
+            |thirdparty
+            |modifier
+            |power
+            |first_type
+            |first_count_vassals
+            |second_type
+            |society
+            |rank
+            |than
+            |as_if_liege
+            |first
+            |second
+            |percentage
+            |size
+            |strong
+            |indirectly_owned
+            |type
+            |enemy
+            |law
+            |min
+            |max
+          )
+          (?!.+\\{)
+          '
+      }
+      {
+        captures:
           1: name: 'keyword.control.event.id.ck2'
         match: '(?xi)
           \\b
           (id)
           \\b
           (?=\\s*=\\s*(?:\\w|\\d))'
-      }
-      { # Used for mactching scopes as conditions
-        captures:
-          1: name: 'constant.language.condition.scope.ck2'
-        match: '(?xi)
-          (?<!@)
-          \\b
-          (
-            ROOT(?:
-              _(?:FROM){1,3}
-            )?
-            |FROM(?:FROM){,3}
-            |PREV(?:PREV){,3}
-            |THIS
-          )
-          \\b
-          (?!
-            \\s*
-            =
-            \\s*
-            \\{
-          )
-          '
       }
       {
         name: 'variable.language.condition.artifacts.ck2'
@@ -4360,6 +4410,7 @@ repository:
             )?faction
           )
           \\b
+          (?=\\s*=\\s*\\{)
           '
       }
       {
