@@ -729,11 +729,56 @@ repository:
         end: '$'
         patterns: [
           {
-            name: 'storage.type.class.todo.ck2'
-            match: '(?xi)
+            name: 'storage.type.class.codetag'
+            captures:
+              1: name: 'punctuation.definition.codetag.at-sign'
+              2: name: 'entity.name.codetag.$2'
+              3: name: 'entity.type.codetag.todo'
+              4: name: 'entity.type.codetag.fixme'
+              5: name: 'entity.type.codetag.bug'
+              6: name: 'entity.type.codetag.nobug'
+              7: name: 'entity.type.codetag.req'
+              8: name: 'entity.type.codetag.rfe'
+              9: name: 'entity.type.codetag.idea'
+              10: name: 'entity.type.codetag.see'
+              11: name: 'entity.type.codetag.todoc'
+              12: name: 'entity.type.codetag.cred'
+              13: name: 'entity.type.codetag.stat'
+              14: name: 'entity.type.codetag.rvd'
+              15: name: 'entity.type.codetag.note'
+              16: name: 'entity.type.codetag.hack'
+              17: name: 'entity.type.codetag.cav'
+              18: name: 'entity.type.codetag.alert'
+              19: name: 'entity.type.codetag.question'
+            match: '(?x)
+              (@)?
               \\b
-                (TODO)
+                (
+                  (TODO|MILESTONE|MLSTN|DONE|YAGNI|TBD|TOBEDONE)
+                  |(FIXME|XXX|DEBUG|BROKEN|REFACTOR|REFACT|RFCTR
+                    |OOPS|SMELL|NEEDSWORK|INSPECT)
+                  |(BUG(?:FIX)?)
+                  |(
+                    NOBUG
+                    |(?:(?:(?:(?:W|D)O|CA)NT)|N(?:O|EVER)|UN)
+                      FIX(?:(?<=UNFIX)ABLE)?
+                  )
+                  |(REQ(?:UIREMENT)|STORY)
+                  |(RFE|FEETCH|NYI|FR|FTR(?:Q)?)
+                  |(IDEA)
+                  |(SEE|REF(?:ERENCE)?)
+                  |(TODOC|DOCDO|(?:NEEDS|DO)DOC|EXPLAIN|DOCUMENT)
+                  |(CRED(?:IT)?|THANKS)
+                  |(STAT(?:US)?)
+                  |(RVD|REVIEW(?:ED)?)
+                  |(NOTE|HELP)
+                  |(HACK|CLEVER|MAGIC)
+                  |(CAV(?:T|EAT)?|WARNING|CAUTION)
+                  |(ALERT)
+                  |(QUEST(?:ION)?|QSTN|WTF)
+                )
               \\b
+              [[:word:][:punct:] \\t]*
               '
           }
           {
