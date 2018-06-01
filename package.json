@@ -1,7 +1,7 @@
 {
   "name": "language-crusader-kings--i-i",
   "main": "./lib/language-crusader-kings--i-i",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "A grammar package for the Crusader Kings II scripting language.",
   "keywords": [
     "CK2",
