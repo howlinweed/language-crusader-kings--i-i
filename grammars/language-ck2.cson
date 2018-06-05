@@ -23,7 +23,7 @@ patterns: [
         (\\{)
       '
     endCaptures:
-      1: name: 'punctuation.definition.scripted_effect.end.bracket.curly'
+      1: name: 'punctuation.definition.scripted_effect.end.bracket.curly.ck2'
     end: '(?xi)
         (\\})
       '
@@ -47,7 +47,7 @@ patterns: [
         (\\{)
       '
     endCaptures:
-      1: name: 'punctuation.definition.scripted_trigger.end.bracket.curly'
+      1: name: 'punctuation.definition.scripted_trigger.end.bracket.curly.ck2'
     end: '(?xi)
         (\\})
       '
@@ -443,7 +443,7 @@ patterns: [
         (\\{)
       '
     endCaptures:
-      1: name: 'punctuation.definition.history.technology.end.bracket.curly'
+      1: name: 'punctuation.definition.history.technology.end.bracket.curly.ck2'
     end: '(?xi)
         (\\})
       '
@@ -464,7 +464,7 @@ patterns: [
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.technology.title.end.bracket.curly'
+          1: name: 'punctuation.definition.technology.title.end.bracket.curly.ck2'
         end: '(?xi)
             (\\})
           '
@@ -488,7 +488,7 @@ patterns: [
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.technology.date.end.bracket.curly'
+          1: name: 'punctuation.definition.technology.date.end.bracket.curly.ck2'
         end: '(?xi)
             (\\})
           '
@@ -1235,7 +1235,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.event.end.bracket.curly'
+          1: name: 'punctuation.definition.event.end.bracket.curly.ck2'
         end: '(?xi)
             (\\})
           '
@@ -1345,7 +1345,7 @@ repository:
                 (\\{)
               '
             endCaptures:
-              1: name: 'punctuation.definition.desc.end.bracket.curly'
+              1: name: 'punctuation.definition.desc.end.bracket.curly.ck2'
             end: '(?xi)
                 (\\})
               '
@@ -1405,7 +1405,7 @@ repository:
                 (\\{)
               '
             endCaptures:
-              1: name: 'punctuation.definition.event.timing.end.bracket.curly'
+              1: name: 'punctuation.definition.event.timing.end.bracket.curly.ck2'
             end: '(?xi)
                 (\\})
               '
@@ -1431,7 +1431,7 @@ repository:
                 (\\{)
               '
             endCaptures:
-              1: name: 'punctuation.definition.immediate.end.bracket.curly'
+              1: name: 'punctuation.definition.immediate.end.bracket.curly.ck2'
             end: '(?xi)
               (\\})
               '
@@ -1456,7 +1456,7 @@ repository:
                 (\\{)
               '
             endCaptures:
-              1: name: 'punctuation.definition.option.end.bracket.curly'
+              1: name: 'punctuation.definition.option.end.bracket.curly.ck2'
             end: '(?xi)
                 (\\})
               '
@@ -1507,7 +1507,7 @@ repository:
                     (\\{)
                   '
                 endCaptures:
-                  1: name: 'punctuation.definition.name.end.bracket.curly'
+                  1: name: 'punctuation.definition.name.end.bracket.curly.ck2'
                 end: '(?xi)
                     (\\})
                   '
@@ -1553,7 +1553,7 @@ repository:
                 (\\{)
               '
             endCaptures:
-              1: name: 'punctuation.definition.after.end.bracket.curly'
+              1: name: 'punctuation.definition.after.end.bracket.curly.ck2'
             end: '(?xi)
                 (\\})
               '
@@ -1587,7 +1587,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.ai_chance.end.bracket.curly'
+          1: name: 'punctuation.definition.ai_chance.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -1644,7 +1644,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
             (\\})
           '
@@ -1677,7 +1677,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -1715,7 +1715,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -1742,7 +1742,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -1772,7 +1772,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -1805,7 +1805,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -1843,7 +1843,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -1876,7 +1876,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
         (\\})
         '
@@ -1917,7 +1917,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -1956,7 +1956,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -1985,7 +1985,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -2077,7 +2077,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -2179,7 +2179,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -2208,7 +2208,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -2260,7 +2260,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -2297,7 +2297,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -2326,7 +2326,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -2352,7 +2352,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -2387,7 +2387,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -2418,7 +2418,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.on_action_events.end.bracket.curly'
+          1: name: 'punctuation.definition.on_action_events.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -2446,7 +2446,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.trigger.end.bracket.curly'
+          1: name: 'punctuation.definition.trigger.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -2474,7 +2474,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.limit.end.bracket.curly'
+          1: name: 'punctuation.definition.limit.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -2502,7 +2502,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.modifier.end.bracket.curly'
+          1: name: 'punctuation.definition.modifier.end.bracket.curly.ck2'
         end: '(?xi)
           (\\})
         '
@@ -2591,11 +2591,9 @@ repository:
       {
         contentName: 'meta.effect.block.ck2'
         beginCaptures:
-          1: name: 'punctuation.definition.clause.assignment.equals.ck2'
-          2: name: 'punctuation.definition.clause.begin.bracket.curly.ck2'
+          1: name: 'punctuation.definition.clause.begin.bracket.curly.ck2'
         begin: '(?xi)
-          \\s*
-            (=)
+          (?<=)
           \\s*
             (\\{)
           '
@@ -2616,211 +2614,307 @@ repository:
     patterns: [
       {
           captures:
-            1: name: 'support.function.scope.title.ck2'
+            0: name: 'support.class.scope.${0:/downcase}.ck2'
+            1: name: 'entity.type.scope.title.ck2'
+            2: name: 'entity.type.scope.character.ck2'
+            3: name: 'entity.type.scope.province.ck2'
+            4: name: 'entity.type.scope.offmap_power.ck2'
+            5: name: 'entity.type.scope.war.ck2'
+            6: name: 'entity.type.scope.siege.ck2'
+            7: name: 'entity.type.scope.unit.ck2'
+            8: name: 'entity.type.scope.religion.ck2'
+            9: name: 'entity.type.scope.culture.ck2'
+            10: name: 'entity.type.scope.society.ck2'
+            11: name: 'entity.type.scope.artifact.ck2'
+            12: name: 'entity.type.scope.stack.ck2'
+            13: name: 'entity.type.scope.province.ck2'
           match: '(?xi)
             \\b
-            (
-              ANY_CLAIM|ANY_DE_JURE_VASSAL_TITLE|ANY_DEMESNE_TITLE
-              |ANY_DIRECT_DE_JURE_VASSAL_TITLE|ANY_HEIR_TITLE|ANY_LANDED_TITLE
-              |ANY_MERCENARY_BAND|ANY_POTENTIAL_TRIBAL_COUNTY|ANY_PRETENDER_TITLE
-              |ANY_PROVINCE_HOLDING|ANY_QUEST_TARGET|ANY_REALM_TITLE|ANY_TITLE
-              |BLOOD_BROTHER|CAPITAL_HOLDING|CLAN_TITLE|COUNTY|CROWNLAW_TITLE
-              |CRUSADE_TARGET|DEFACTO_LIEGE_TITLE|DEJURE_LIEGE_TITLE|DUCHY|EMPIRE
-              |FAMILY_PALACE|GOVERNOR_TITLE|INVASION_TARGET|KINGDOM|NEW_TITLE
-              |PLOT_TARGET_TITLE|PRIMARY_TITLE|QUEST_TARGET|RANDOM_CLAIM
-              |RANDOM_DEMESNE_TITLE|RANDOM_DIRECT_DE_JURE_VASSAL_TITLE
-              |RANDOM_LANDED_TITLE|RANDOM_POTENTIAL_TRIBAL_COUNTY
-              |RANDOM_PROVINCE_HOLDING|RANDOM_QUEST_TARGET|RANDOM_REALM_TITLE|REALM
-              |SUCC_LAW_TITLE|SUPPORTED_CLAIMANT_TITLE|THIRDPARTY_TITLE_SCOPE
-            )
-            \\b
-            '
-      }
-      {
-          captures:
-            1: name: 'support.function.scope.character.ck2'
-          match: '(?xi)
-            \\b
-            (
-              ANY_ALLIED_CHARACTER|ANY_ATTACKER|ANY_BACKED_CHARACTER|ANY_CHARACTER
-              |ANY_CHILD|ANY_CHILD_EVEN_IF_DEAD|ANY_CLAIMANT|ANY_CLOSE_RELATIVE
-              |ANY_COURTIER|ANY_COURTIER_OR_VASSAL|ANY_CURRENT_ENEMY|ANY_DE_JURE_VASSAL
-              |ANY_DEFENDER|ANY_DYNASTY_MEMBER|ANY_DYNASTY_MEMBER_EVEN_IF_DEAD
-              |ANY_ENEMY_PLOTTER|ANY_FACTION_BACKER|ANY_FAVOR_HOLDER|ANY_FAVOR_OWER
-              |ANY_FRIEND|ANY_HOST_COURTIER|ANY_INDEPENDENT_RULER|ANY_KNOWN_ENEMY_PLOTTER
-              |ANY_KNOWN_PLOTTER|ANY_LIEGE|ANY_LOVER|ANY_NEIGHBOR_INDEPENDENT_RULER
-              |ANY_NON_AGGRESSION_PACT_CHARACTER|ANY_OPINION_MODIFIER_TARGET
-              |ANY_PLAYABLE_RULER|ANY_PLAYER|ANY_PLOT_BACKER|ANY_PLOTTER
-              |ANY_PREVIOUS_HOLDER|ANY_PROVINCE_CHARACTER|ANY_PROVINCE_LORD|ANY_PUPIL
-              |ANY_QUESTER|ANY_QUESTER_TARGETING_THIS|ANY_QUESTER_TARGETTING_THIS
-              |ANY_QUEST_TARGET|ANY_REALM_CHARACTER|ANY_REALM_LORD|ANY_RIVAL|ANY_SIBLING
-              |ANY_SIBLING_EVEN_IF_DEAD|ANY_SOCIETY_MEMBER|ANY_SPOUSE
-              |ANY_SPOUSE_EVEN_IF_DEAD|ANY_CONSORT|ANY_SUZERAIN|ANY_TRIBUTARY
-              |ANY_UNIQUE_DYNASTY_VASSAL|ANY_UNKNOWN_ENEMY_PLOTTER|ANY_VASSAL
-              |ANY_VOTER|ANY_WARD|ARTIFACT_OWNER|ATTACKER|BAND_CREATOR
-              |BEST_CRUSADE_CLAIMANT|BIGGEST_REALM_SIZE_RELATIVE|CENTER_FLANK_LEADER
-              |LEFT_FLANK_LEADER|RIGHT_FLANK_LEADER|CONTROLLER|CURRENT_HEIR|DEFENDER
-              |DYNASTY_HEAD|EDUCATOR|EMPLOYER|ENEMY|FATHER|FATHER_EVEN_IF_DEAD
-              |FATHER_OF_UNBORN|GUARDIAN|GOVERNOR|HEIR_UNDER_SENIORITY_LAW
-              |HEIR_UNDER_PRIMOGENITURE_LAW|HIGHEST_RANKED_RELATIVE|HOLDER_SCOPE
-              |HOSPITAL_OWNER|HOST|JOB_CHANCELLOR|JOB_MARSHAL|JOB_TREASURER
-              |JOB_SPYMASTER|JOB_SPIRITUAL|KILLER|LEADER|LIEGE|LIEGE_BEFORE_WAR|LOVER
-              |MERCENARY_EMPLOYER|MOST_PARTICIPATING_ATTACKER|MOST_PARTICIPATING_CRUSADER
-              |MOST_PARTICIPATING_DEFENDER|MOST_POPULAR_VASSAL
-              |MOST_PRESTIGIOUS_CLAN_VASSAL|MOTHER|MOTHER_EVEN_IF_DEAD|NEW_CHARACTER
-              |OFFMAP_PREV_RULER|OFFMAP_RULER|ORIGINAL_ARTIFACT_OWNER|ORIGINAL_OWNER|OWNER
-              |PARENT_RELIGION_HEAD|PLAYER_HEIR|PLOT_TARGET_CHAR|PREFERRED_WAR_TARGET
-              |QUEST_TARGET|RANDOM_ALLIED_CHARACTER|RANDOM_BACKED_CHARACTER
-              |RANDOM_CHARACTER|RANDOM_CHILD|RANDOM_CHILD_EVEN_IF_DEAD
-              |RANDOM_CLOSE_RELATIVE|RANDOM_COURTIER|RANDOM_CURRENT_ENEMY
-              |RANDOM_DYNASTY_MEMBER|RANDOM_DYNASTY_MEMBER_EVEN_IF_DEAD
-              |RANDOM_ENEMY_PLOTTER|RANDOM_FRIEND|RANDOM_HOST_COURTIER
-              |RANDOM_INDEPENDENT_RULER|RANDOM_KNOWN_ENEMY_PLOTTER|RANDOM_LOVER
-              |RANDOM_NEIGHBOR_INDEPENDENT_RULER|RANDOM_NON_AGGRESSION_PACT_CHARACTER
-              |RANDOM_OPINION_MODIFIER_TARGET|RANDOM_PLAYABLE_RULER|RANDOM_PLAYER
-              |RANDOM_PROVINCE_CHARACTER|RANDOM_PROVINCE_LORD|RANDOM_PUPIL|RANDOM_QUESTER
-              |RANDOM_QUESTER_TARGETTING_THIS|RANDOM_QUEST_TARGET|RANDOM_REALM_CHARACTER
-              |RANDOM_REALM_LORD|RANDOM_RIVAL|RANDOM_SIBLING|RANDOM_SIBLING_EVEN_IF_DEAD
-              |RANDOM_SOCIETY_MEMBER|RANDOM_SPOUSE|RANDOM_SPOUSE_EVEN_IF_DEAD
-              |RANDOM_CONSORT|RANDOM_TRIBUTARY|RANDOM_UNKNOWN_ENEMY_PLOTTER|RANDOM_VASSAL
-              |RANDOM_VOTER|RANDOM_WARD|REAL_FATHER|REAL_FATHER_EVEN_IF_DEAD
-              |REINCARNATION_SCOPE|REGENT|RELIGION_HEAD|RIGHTFUL_RELIGIOUS_HEAD_SCOPE
-              |RULER|SPOUSE|SPOUSE_EVEN_IF_DEAD|STRONGEST_CLAN_VASSAL|SUPPORTED_CLAIMANT
-              |SUZERAIN|TITLE_TO_GET_RID_OF|TOP_LIEGE|TRADE_POST_OWNER
-            )
-            \\b
-            (?=\\s*=\\s*\\{)
-            '
-      }
-      {
-          captures:
-            1: name: 'support.function.scope.province.ck2'
-          match: '(?xi)
-            \\b
-            (
-              ANY_DEMESNE_PROVINCE|ANY_NEIGHBOR_PROVINCE|ANY_PROVINCE|ANY_FORT
-              |ANY_HOSPITAL|ANY_QUEST_TARGET|ANY_REALM_PROVINCE|ANY_TRADE_POST
-              |ANY_TRADE_ROUTE_PROVINCE|CAPITAL_SCOPE|LOCATION|PLOT_TARGET_PROVINCE
-              |QUEST_TARGET|RANDOM_DEMESNE_PROVINCE|RANDOM_NEIGHBOR_PROVINCE
-              |RANDOM_PROVINCE|RANDOM_QUEST_TARGET|RANDOM_REALM_PROVINCE
-              |RANDOM_TRADE_POST|SEA_ZONE
-            )
-            \\b'
-      }
-      {
-          captures:
-            1: name: 'support.function.scope.offmap_power.ck2'
-          match: '(?xi)
-            \\b
+            (?:
               (
-                OFFMAP_\\d+
+                ANY_(?:
+                  (?:
+                    (?:
+                      REALM
+                      |PRETENDER
+                      |LANDED
+                      |HEIR
+                      |DEMESNE
+                      |(?:DIRECT_)?DE_JURE_VASSAL
+                    )_
+                  )?TITLE
+                  |CLAIM
+                  |PROVINCE_HOLDING
+                  |QUEST_TARGET
+                  |MERCENARY_BAND
+                  |POTENTIAL_TRIBAL_COUNTY
+                )
+                |BLOOD_BROTHER
+                |CAPITAL_HOLDING
+                |COUNTY
+                |DUCHY
+                |EMPIRE
+                |FAMILY_PALACE
+                |(?:
+                  CRUSADE
+                  |INVASION
+                  |QUEST
+                )_TARGET
+                |KINGDOM
+                |RANDOM_CLAIM
+                |RANDOM_(?:
+                  (?:
+                    DEMESNE
+                    |LANDED
+                    |REALM
+                    |DIRECT_DE_JURE_VASSAL
+                  )_TITLE
+                  |CLAIM
+                  |POTENTIAL_TRIBAL_COUNTY
+                  |PROVINCE_HOLDING
+                  |QUEST_TARGET
+                )
+                |REALM
+                |CLAN_TITLE
+                |CROWNLAW_TITLE
+                |(?:
+                  DE(?:
+                    JURE
+                    |FACTO
+                  )_LIEGE
+                  |CLAN
+                  |CROWNLAW
+                  |GOVERNOR
+                  |NEW
+                  |PLOT_TARGET
+                  |PRIMARY
+                  |SUCC_LAW
+                  |SUPPORTED_CLAIMANT
+                )_TITLE
+                |THIRDPARTY_TITLE_SCOPE
               )
-            \\b
-            '
-      }
-      {
-          captures:
-            1: name: 'support.function.scope.war.ck2'
-          match: '(?xi)
-            \\b
-              (ANY_WAR)
-            \\b
-            '
-      }
-      {
-          captures:
-            1: name: 'support.function.scope.siege.ck2'
-          match: '(?xi)
-            \\b
-              (SIEGE)
-            \\b
-            '
-      }
-      {
-          captures:
-            1: name: 'support.function.scope.unit.ck2'
-          match: '(?xi)
-            \\b
-            (
-              ANY_ARMY|ANY_CONTROLLED_UNIT|ANY_FLEET|ANY_UNIT|RANDOM_ARMY
-              |RANDOM_CONTROLLED_UNIT|RANDOM_FLEET|RANDOM_UNIT
+              |(
+                ANY_(?:
+                  (?:
+                    (?:
+                      ALLIED
+                      |BACKED
+                      |NON_AGGRESSION_PACT
+                    )_
+                  )?CHARACTER
+                  |ATTACKER
+                  |CHILD(?:_EVEN_IF_DEAD)?
+                  |CLAIMANT
+                  |CLOSE_RELATIVE
+                  |COURTIER(?:_OR_VASSAL)?
+                  |CURRENT_ENEMY
+                  |DE_JURE_VASSAL
+                  |DEFENDER
+                  |DYNASTY_MEMBER(?:_EVEN_IF_DEAD)?
+                  |FACTION_BACKER
+                  |FAVOR_(?:
+                    HOLDER
+                    |OWNER
+                  )
+                  |FRIEND
+                  |HOST_COURTIER
+                  |(?:UN)?KNOWN(?:_ENEMY)?_PLOTTER
+                  |LIEGE
+                  |LOVER
+                  |(?:
+                    (?:NEIGHBOR_)?INDEPENDENT
+                    |PLAYABLE
+                  )_RULER
+                  |OPINION_MODIFIER_TARGET
+                  |PLAYER
+                  |PLOT(?:
+                    _BACKER
+                    |TER
+                  )
+                  |PREVIOUS_HOLDER
+                  |(?:
+                    PROVINCE
+                    |REALM
+                  )_
+                  (?:
+                    CHARACTER
+                    |LORD
+                  )
+                  |PUPIL
+                  |QUEST(?:
+                    ER(?:_TARGET(?:T)?ING_THIS)?
+                    |_TARGET
+                  )
+                  |RIVAL
+                  |SIBLING(?:_EVEN_IF_DEAD)?
+                  |SOCIETY_MEMBER
+                  |SPOUSE(?:_EVEN_IF_DEAD)?
+                  |CONSORT
+                  |SUZERAIN
+                  |TRIBUTARY
+                  |(?:UNIQUE_DYNASTY_)?VASSAL
+                  |VOTER
+                  |WARD
+                )
+                |RANDOM_(?:
+                  CHILD(?:_EVEN_IF_DEAD)?
+                  |CLOSE_RELATIVE
+                  |COURTIER
+                  |CURRENT_ENEMY
+                  |DYNASTY_MEMBER(?:_EVEN_IF_DEAD)?
+                  |FRIEND
+                  |HOST_COURTIER
+                  |(?:(?:UN)?KNOWN_)?ENEMY_PLOTTER
+                  |LOVER
+                  |(?:
+                    (?:NEIGHBOR_)?INDEPENDENT
+                    |PLAYABLE
+                  )_RULER
+                  |(?:
+                    (?:
+                      NON_AGGRESSION_PACT
+                      |ALLIED
+                      |BACKED
+                    )_
+                  )?CHARACTER
+                  |OPINION_MODIFIER_TARGET
+                  |PLAYER
+                  |PUPIL
+                  |QUEST(?:
+                    ER(?:_TARGETTING_THIS)?
+                    |_TARGET
+                  )
+                  |(?:
+                    REALM
+                    |PROVINCE
+                  )_
+                  (?:
+                    CHARACTER
+                    |LORD
+                  )
+                  |RIVAL
+                  |SIBLING(?:_EVEN_IF_DEAD)?
+                  |SOCIETY_MEMBER
+                  |SPOUSE(?:_EVEN_IF_DEAD)?
+                  |CONSORT
+                  |TRIBUTARY
+                  |VASSAL
+                  |VOTER
+                  |WARD
+                )
+                |(?:
+                  CENTER
+                  |LEFT
+                  |RIGHT
+                )_FLANK_LEADER
+                |(?:
+                  (?:PARENT_)?RELIGION
+                  |DYNASTY
+                )_HEAD
+                |(?:REAL_)?FATHER(?:_EVEN_IF_DEAD)?
+                |HEIR_UNDER_(?:
+                  PRIMOGENITURE
+                  |SENIORITY
+                )_LAW
+                |LIEGE(?:_BEFORE_WAR)?
+                |MOST_(?:
+                  PARTICIPATING_(?:
+                    ATTACKER
+                    |CRUSADER
+                    |DEFENDER
+                  )
+                  |(?:
+                    PRESTIGIOUS_CLAN
+                    |POPULAR
+                  )_VASSAL
+                )
+                |MOTHER(?:_EVEN_IF_DEAD)?
+                |OFFMAP(?:_PREV)?_RULER
+                |(?:
+                  (?:
+                    TRADE_POST
+                    |HOSPITAL
+                    |ORIGINAL
+                    |(?:ORIGINAL_)?ARTIFACT
+                  )_
+                )?OWNER
+                |(?:
+                  QUEST
+                  |PREFERRED_WAR
+                )_TARGET
+                |SPOUSE(?:_EVEN_IF_DEAD)?
+                |JOB_(?:
+                  CHANCELLOR
+                  |MARSHAL
+                  |TREASURER
+                  |SPYMASTER
+                  |SPIRITUAL
+                )
+                |ATTACKER
+                |BAND_CREATOR
+                |BEST_CRUSADE_CLAIMANT
+                |BIGGEST_REALM_SIZE_RELATIVE
+                |CONTROLLER
+                |CURRENT_HEIR
+                |DEFENDER
+                |EDUCATOR
+                |EMPLOYER
+                |ENEMY
+                |FATHER_OF_UNBORN
+                |GOVERNOR
+                |GUARDIAN
+                |HIGHEST_RANKED_RELATIVE
+                |HOLDER_SCOPE
+                |HOST
+                |KILLER
+                |LEADER
+                |LOVER
+                |MERCENARY_EMPLOYER
+                |NEW_CHARACTER
+                |PLAYER_HEIR
+                |PLOT_TARGET_CHAR
+                |REGENT
+                |REINCARNATION_SCOPE
+                |RIGHTFUL_RELIGIOUS_HEAD_SCOPE
+                |RULER
+                |STRONGEST_CLAN_VASSAL
+                |SUPPORTED_CLAIMANT
+                |SUZERAIN
+                |TITLE_TO_GET_RID_OF
+                |TOP_LIEGE
+              )
+              |(
+                ANY_(?:FORT|HOSPITAL|(?:(?:NEIGHBOR|REALM|DEMESNE)_)?PROVINCE
+                  |QUEST_TARGET|TRADE_(?:ROUTE_PROVINCE|POST))
+                |RANDOM_(?:(?:(?:NEIGHBOR|DEMESNE|REALM)_)?PROVINCE
+                  |QUEST_TARGET|TRADE_POST)
+                |CAPITAL_SCOPE|LOCATION|PLOT_TARGET_PROVINCE
+                |QUEST_TARGET|SEA_ZONE
+              )
+              |(OFFMAP_\\d+)
+              |(ANY_WAR)
+              |(SIEGE)
+              |(
+                (?:RANDOM|ANY)_(?:ARMY|CONTROLLED_UNIT|FLEET|UNIT)
+              )
+              |(
+                (?:SECRET_|TRUE_)?RELIGION_SCOPE
+              )
+              |(CULTURE_SCOPE)
+              |(SECRET_RELIGIOUS_CULT)
+              |(
+                (?:RANDOM|NEW|ANY)_ARTIFACT
+              )
+              |(
+                ROOT
+                |FROM(?:FROM){,3}
+                |PREV(?:PREV){,3}
+                |THIS
+              )
+              |(\\d+)
             )
             \\b
-            '
-      }
-      {
-          captures:
-            1: name: 'support.function.scope.religion.ck2'
-          match: '(?xi)
-            \\b
-            (
-              RELIGION_SCOPE|SECRET_RELIGION_SCOPE|TRUE_RELIGION_SCOPE
-            )
-            \\b
-            '
-      }
-      {
-          captures:
-            1: name: 'support.function.scope.culture.ck2'
-          match: '(?xi)
-            \\b
-              (CULTURE_SCOPE)
-            \\b
-            '
-      }
-      {
-          captures:
-            1: name: 'support.function.scope.society.ck2'
-          match: '(?xi)
-            \\b
-              (SECRET_RELIGIOUS_CULT)
-            \\b
-            '
-      }
-      {
-          captures:
-            1: name: 'support.function.scope.artifact.ck2'
-          match: '(?xi)
-            \\b
-            (
-              ANY_ARTIFACT|RANDOM_ARTIFACT|NEW_ARTIFACT
-            )
-            \\b
-            '
-      }
-      { # Used for matching scope changes
-          captures:
-            1: name: 'support.function.scope.stack.ck2'
-          match: '(?xi)
-            \\b
-            (
-              ROOT
-              |FROM(?:FROM){,3}
-              |PREV(?:PREV){,3}
-              |THIS
-            )
-            (?=
-              \\s*
-              =
-              \\s*
-              \\{
-            )
-            '
-      }
-      { # Used for matching province scope changes
-          captures:
-            1: name: 'support.function.scope.province.ck2'
-          match: '(?xi)
-            \\b
-            (
-              \\d+
-            )
-            (?=
-              \\s*
-              =
-              \\s*
-              \\{
-            )
+            # (?=\\s*=\\s*\\{)
             '
       }
     ]
@@ -2864,6 +2958,7 @@ repository:
             |min
             |max
           )
+          \\b
           (?!.+\\{)
           '
       }
@@ -3932,7 +4027,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.attributes.end.bracket.curly'
+          1: name: 'punctuation.definition.attributes.end.bracket.curly.ck2'
         end: '(?xi)
             (\\})
           '
@@ -4047,7 +4142,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.tooltip.end.bracket.curly'
+          1: name: 'punctuation.definition.tooltip.end.bracket.curly.ck2'
         end: '(?xi)
             (\\})
           '
@@ -4086,7 +4181,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.tooltip.end.bracket.curly'
+          1: name: 'punctuation.definition.tooltip.end.bracket.curly.ck2'
         end: '(?xi)
             (\\})
           '
@@ -4354,7 +4449,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.random.end.bracket.curly'
+          1: name: 'punctuation.definition.random.end.bracket.curly.ck2'
         end: '(?xi)
             (\\})
           '
@@ -4380,7 +4475,7 @@ repository:
             (\\{)
           '
         endCaptures:
-          1: name: 'punctuation.definition.random_list.end.bracket.curly'
+          1: name: 'punctuation.definition.random_list.end.bracket.curly.ck2'
         end: '(?xi)
             (\\})
           '
@@ -4401,7 +4496,7 @@ repository:
                 (\\{)
               '
             endCaptures:
-              1: name: 'punctuation.definition.weight_value.end.bracket.curly'
+              1: name: 'punctuation.definition.weight_value.end.bracket.curly.ck2'
             end: '(?xi)
                 (\\})
               '

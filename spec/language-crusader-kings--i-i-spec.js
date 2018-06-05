@@ -97,4 +97,25 @@ describe("CK2 grammar", function() {
     expect(tokens[0]).toEqual({value: "always", scopes: [root, "constant.language.bool.true.always.ck2"]});
   });
 
+  it("tokenizes nested scopes", () => {
+    let tokenLines = grammar.tokenizeLines("character_event={\ntrigger={\nfather={\nis_alive=yes\n}\n}\n}");
+    expect(tokenLines[0][0]).toEqual({value: "character", scopes:[root, "keyword.control.event.definition.ck2", "entity.type.event.character.ck2"]});
+    expect(tokenLines[0][1]).toEqual({value: "_event", scopes:[root, "keyword.control.event.definition.ck2"]});
+    expect(tokenLines[0][2]).toEqual({value: "=", scopes:[root, "punctuation.definition.event.assignment.ck2"]});
+    expect(tokenLines[0][3]).toEqual({value: "{", scopes:[root, "punctuation.definition.event.begin.bracket.curly.ck2"]});
+    expect(tokenLines[1][0]).toEqual({value: "trigger", scopes:[root, "meta.event.block.ck2", "entity.type.trigger.ck2", "keyword.control.trigger.ck2"]});
+    expect(tokenLines[1][1]).toEqual({value: "=", scopes:[root, "meta.event.block.ck2", "entity.type.trigger.ck2", "punctuation.definition.trigger.assignment.equals.ck2"]});
+    expect(tokenLines[1][2]).toEqual({value: "{", scopes:[root, "meta.event.block.ck2", "entity.type.trigger.ck2", "punctuation.definition.trigger.begin.bracket.curly.ck2"]});
+    expect(tokenLines[2][0]).toEqual({value: "father", scopes:[root, "meta.event.block.ck2", "meta.trigger.block.ck2", "support.class.scope.father.ck2", "entity.type.scope.character.ck2"]});
+    expect(tokenLines[2][1]).toEqual({value: "=", scopes:[root, "meta.event.block.ck2", "meta.trigger.block.ck2", "punctuation.definition.clause.assignment.equals.ck2"]});
+    expect(tokenLines[2][2]).toEqual({value: "{", scopes:[root, "meta.event.block.ck2", "meta.trigger.block.ck2", "punctuation.definition.clause.begin.bracket.curly.ck2"]});
+    expect(tokenLines[3][0]).toEqual({value: "is_alive", scopes:[root, "meta.event.block.ck2", "meta.trigger.block.ck2", "meta.condition.block.ck2", "variable.language.condition.health.ck2"]});
+    expect(tokenLines[3][1]).toEqual({value: "=", scopes:[root, "meta.event.block.ck2", "meta.trigger.block.ck2", "meta.condition.block.ck2", "keyword.operator.assignment.equals.ck2"]});
+    expect(tokenLines[3][2]).toEqual({value: "yes", scopes:[root, "meta.event.block.ck2", "meta.trigger.block.ck2", "meta.condition.block.ck2", "constant.language.bool.true.yes.ck2"]});
+    expect(tokenLines[4][0]).toEqual({value: "}", scopes:[root, "meta.event.block.ck2", "meta.trigger.block.ck2", "punctuation.definition.clause.end.bracket.curly.ck2"]});
+    expect(tokenLines[5][0]).toEqual({value: "}", scopes:[root, "meta.event.block.ck2", "punctuation.definition.trigger.end.bracket.curly.ck2"]});
+    expect(tokenLines[6][0]).toEqual({value: "}", scopes:[root, "punctuation.definition.event.end.bracket.curly.ck2"]});
+
+  });
+
 });
