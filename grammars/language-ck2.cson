@@ -2958,6 +2958,7 @@ repository:
             |min
             |max
           )
+          \\b
           (?!.+\\{)
           '
       }
