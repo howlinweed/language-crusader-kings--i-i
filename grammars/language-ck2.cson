@@ -2972,454 +2972,381 @@ repository:
           (?=\\s*=\\s*(?:\\w|\\d))'
       }
       {
-        name: 'variable.language.condition.artifacts.ck2'
+        captures:
+          # 0: name: 'variable.language.condition.ck2'
+          # 1: name: 'entity.name.condition.${1:/downcase}.ck2'
+          2: name: 'variable.language.condition.artifacts.${1:/downcase}.ck2'
+          3: name: 'variable.language.condition.buildings.${1:/downcase}.ck2'
+          4: name: 'variable.language.condition.factors.${1:/downcase}.ck2'
+          5: name: 'variable.language.condition.characters.${1:/downcase}.ck2'
+          6: name: 'variable.language.condition.claims.${1:/downcase}.ck2'
+          7: name: 'variable.language.condition.clans.${1:/downcase}.ck2'
+          8: name: 'variable.language.condition.control.${1:/downcase}.ck2'
+          9: name: 'variable.language.condition.council.${1:/downcase}.ck2'
+          10: name: 'variable.language.condition.culture.${1:/downcase}.ck2'
+          11: name: 'variable.language.condition.factions.${1:/downcase}.ck2'
+          12: name: 'variable.language.condition.family.${1:/downcase}.ck2'
+          13: name: 'variable.language.condition.government.${1:/downcase}.ck2'
+          14: name: 'variable.language.condition.guardianship.${1:/downcase}.ck2'
+          15: name: 'variable.language.condition.health.${1:/downcase}.ck2'
+          16: name: 'variable.language.condition.holdings.${1:/downcase}.ck2'
+          17: name: 'variable.language.condition.jobs.${1:/downcase}.ck2'
+          18: name: 'variable.language.condition.marriage.${1:/downcase}.ck2'
+          19: name: 'variable.language.condition.modifiers.${1:/downcase}.ck2'
+          20: name: 'variable.language.condition.money.${1:/downcase}.ck2'
+          21: name: 'variable.language.condition.objectives.${1:/downcase}.ck2'
+          22: name: 'variable.language.condition.opinion.${1:/downcase}.ck2'
+          23: name: 'variable.language.condition.provinces.${1:/downcase}.ck2'
+          24: name: 'variable.language.condition.realm.${1:/downcase}.ck2'
+          25: name: 'variable.language.condition.relations.${1:/downcase}.ck2'
+          26: name: 'variable.language.condition.religion.${1:/downcase}.ck2'
+          28: name: 'variable.language.condition.rulers.${1:/downcase}.ck2'
+          29: name: 'variable.language.condition.societies.${1:/downcase}.ck2'
+          30: name: 'variable.language.condition.tier.${1:/downcase}.ck2'
+          31: name: 'variable.language.condition.titles.${1:/downcase}.ck2'
+          32: name: 'variable.language.condition.traits.${1:/downcase}.ck2'
+          33: name: 'variable.language.condition.units.${1:/downcase}.ck2'
+          34: name: 'variable.language.condition.vassalage.${1:/downcase}.ck2'
+          35: name: 'variable.language.condition.wars.${1:/downcase}.ck2'
         match: '(?xi)
           \\b
           (
-            artifact_(?:
-              age
-              |can_be_gifted_to
-              |type(_owned_by)?
-            )
-            |has_(
-              artifact(?:_flag)?
-              |known_creation_date
-            )
-            |is_(?:
-              indestructible
-              |artifact_(?:
-                active
-                |equipped
-              )
-              |same_type_as
-            )
-            |num_of_artifacts
-            |quality
-          )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.buildings.ck2'
-        match: '(?xi)
-          \\b
             (
+              artifact_(?:
+                age
+                |can_be_gifted_to
+                |type(?:_owned_by)?
+              )
+              |has_(?:
+                artifact(?:_flag)?
+                |known_creation_date
+              )
+              |is_(?:
+                indestructible
+                |artifact_(?:
+                  active
+                  |equipped
+                )
+                |same_type_as
+              )
+              |num_of_artifacts
+              |quality
+            )
+            |(
               hospital_has(?:_any)?_building
               |trade_post_has(?:_any)?_building
             )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.factors.ck2'
-        match: '(?xi)
-          \\b
-          (
-            factor
-            |days
-            |months
-            |years
-            |weeks
-          )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.characters.ck2'
-        match: '(?xi)
-          \\b
-          (
-            age(?:_diff)?
-            |ai(?:
-              _ambition
-              |_greed
-              |_honor
-              |_rationality
-              |_zeal
-            )?
-            |at_location
-            |attribute_diff
-            |can_hold_title
-            |character
-            |combat_rating(?:_diff)?
-            |(?:uses_)?decadence
-            |diploma(?:
-              cy
-              |tic_immunity
+            |(
+              factor
+              |days
+              |months
+              |years
+              |weeks
             )
-            |dynasty
-            |fertility
-            |graphical_culture
-            |has_(?:
-              (?:any_)?opinion_modifier
-              |any_quest
-              |(?:assigned_)?minor_title
-              |(?:living_)?children
-              |portrait_property
-            )
-            |imprisoned_days
-            |in_command
-            |intrigue
-            |could_be_parent_of
-            |is_(?:
-              (?:
-                ancestor
-                |grand(?:
-                  child
-                  |parent
-                )
-                |parent
-                |descendant
-                |cousin
-                |aunt_uncle
-                |nibling
-              )_of
-              |landed(?:_title_allowed)?
-              |heir
-              |lowborn
-              |older_than
-              |opposite_sex
-              |or_was_offmap_power_ruler
-              |pilgrim
-              |playable
-              |pregnant
-              |priest
-              |save_game
-              |seafarer
-              |abroad
-              |adult
-              |at_sea
-              |female
-              |dying
-            )
-            |(?:
-              day
-              |month
-              |year
-            )_of_birth
-            |learning
-            |martial
-            |monthly_(?:
-              piety
-              |prestige
-            )
-            |num_of_prisoners
-            |(?:
-              pays_tribute
-              |owes_favor
-            )_to
-            |pacifist
-            |piety
-            |prestige
-            |prisoner
-            |race
-            |rebel
-            |same_(?:
-              regnal_name|sex
-            )
-            |stewardship
-          )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.claims.ck2'
-        match: '(?xi)
-          \\b
-          (
-            claimed_by
-            |has_(?:
-              weak_
-              |strong_
-            )?claim
-            |(?:
-              num_of
-              |total
-            )_claims
-          )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.clans.ck2'
-        match: '(?xi)
-          \\b
-          (
-            clan
-            |has_(?:
-              blood_oath
-              |feud
-            )_with
-            |(?:
-              max
-              |unused
-            )_manpower
-            |num_of_feuds
-            |population(?:
-              _and_manpower
-              |_factor
-            )?
-            |reverse_clan_opinion
-            |risks_minor_clan_rising
-          )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.control.ck2'
-        match: '(?xi)
-          \\b
-          (
-            always
-            |(?:
-              artifact
-              |_age
-            )
-            |check_variable
-            |count
-            |difficulty
-            |ha(?:
-              d
-              |s
-            )_
-            (?:
-              artifact
-              |dynasty
-              |province
-              |title
+            |(
+              age(?:_diff)?
+              |ai(?:
+                _ambition
+                |_greed
+                |_honor
+                |_rationality
+                |_zeal
+              )?
+              |at_location
+              |attribute_diff
+              |can_hold_title
               |character
-              |global
-            )_flag
-            |has_(?:
-              dlc
-              |earmarked_regiments(?:_not_raiding)?
-              |game_(?:
-                rule
-                |started
+              |combat_rating(?:_diff)?
+              |(?:uses_)?decadence
+              |diploma(?:
+                cy
+                |tic_immunity
+              )
+              |dynasty
+              |fertility
+              |graphical_culture
+              |has_(?:
+                (?:any_)?opinion_modifier
+                |any_quest
+                |(?:assigned_)?minor_title
+                |(?:living_)?children
+                |portrait_property
+              )
+              |imprisoned_days
+              |in_command
+              |intrigue
+              |could_be_parent_of
+              |is_(?:
+                (?:
+                  ancestor
+                  |grand(?:
+                    child
+                    |parent
+                  )
+                  |parent
+                  |descendant
+                  |cousin
+                  |aunt_uncle
+                  |nibling
+                )_of
+                |landed(?:_title_allowed)?
+                |heir
+                |lowborn
+                |older_than
+                |opposite_sex
+                |or_was_offmap_power_ruler
+                |pilgrim
+                |playable
+                |pregnant
+                |priest
+                |save_game
+                |seafarer
+                |abroad
+                |adult
+                |at_sea
+                |female
+                |dying
+              )
+              |(?:
+                day
+                |month
+                |year
+              )_of_birth
+              |learning
+              |martial
+              |monthly_(?:
+                piety
+                |prestige
+              )
+              |num_of_prisoners
+              |(?:
+                pays_tribute
+                |owes_favor
+              )_to
+              |pacifist
+              |piety
+              |prestige
+              |prisoner
+              |race
+              |rebel
+              |same_(?:
+                regnal_name|sex
+              )
+              |stewardship
+            )
+            |(
+              claimed_by
+              |has_(?:
+                weak_
+                |strong_
+              )?claim
+              |(?:
+                num_of
+                |total
+              )_claims
+            )
+            |(
+              clan
+              |has_(?:
+                blood_oath
+                |feud
+              )_with
+              |(?:
+                max
+                |unused
+              )_manpower
+              |num_of_feuds
+              |population(?:
+                _and_manpower
+                |_factor
+              )?
+              |reverse_clan_opinion
+              |risks_minor_clan_rising
+            )
+            |(
+              always
+              |(?:
+                artifact
+                |_age
+              )
+              |check_variable
+              |count
+              |difficulty
+              |ha(?:
+                d
+                |s
+              )_
+              (?:
+                artifact
+                |dynasty
+                |province
+                |title
+                |character
+                |global
+              )_flag
+              |has_(?:
+                dlc
+                |earmarked_regiments(?:_not_raiding)?
+                |game_(?:
+                  rule
+                  |started
+                )
+              )
+              |is_(?:
+                ironman
+                |multiplayer_host_character
+                |variable_equal
+              )
+              |month
+              |multiplayer
+              |random
+              |real_month_of_year
+              |score
+              |start_date
+              |supported_checksum
+              |total_years_played
+              |year
+              |calc_true_if
+            )
+            |(
+              has_(?:
+                council
+                |position
+              )
+              |is_(?:
+                council_content
+                |voter
               )
             )
-            |is_(?:
-              ironman
-              |multiplayer_host_character
-              |variable_equal
+            |(
+              (?:
+                conquest
+                |has_horde
+              )_culture
+              |culture(?:_group)?
+              |num_culture_realm_provs
             )
-            |month
-            |multiplayer
-            |random
-            |real_month_of_year
-            |score
-            |start_date
-            |supported_checksum
-            |total_years_played
-            |year
-            |calc_true_if
-          )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.council.ck2'
-        match: '(?xi)
-          \\b
-          (
-            has_(?:
-              council
-              |position
-            )
-            |is_(?:
-              council_content
-              |voter
-            )
-          )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.culture.ck2'
-        match: '(?xi)
-          \\b
-          (
-            (?:
-              conquest
-              |has_horde
-            )_culture
-            |culture(?:_group)?
-            |num_culture_realm_provs
-          )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.factions.ck2'
-        match: '(?xi)
-          \\b
-          (
-            faction_(?:
-              exists
-              |power
-            )
-            |(?:
-              in
-              |leads
-            )_faction
-            |num_of_faction_backers
-          )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.family.ck2'
-        match: '(?xi)
-          \\b
-          (
-            dynast(?:
-              ic_prestige
-              |y_realm_power
-            )
-            |family
-            |father_of_unborn_known
-            |from_ruler_dynasty
-            |is_(?:
-              child_of
-              |close_relative
-              |father(?:_real_father)?
-              |mother
-              |reincarnated
-            )
-            |num_of_(?:
-              children
-              |dynasty_members
-            )
-            |sibling
-            |was_conceived_a_bastard
-          )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.government.ck2'
-        match: '(?xi)
-        \\b
-        (
-          government
-          |has_(?:
-            crown_law_title
-            |law
-          )
-          |is_(?:
-            allowed_holding_type
-            |feudal
-            |government_potential
-            |(?:merchant_)?republic
-            |nomadic
-            |patrician
-            |theocracy
-            |tribal
-          )
-          |num_of_government_vassals
-          |would_be_heir_under_law
-        )
-        \\b'
-      }
-      {
-        name: 'variable.language.condition.guardianship.ck2'
-        match: '(?xi)
-          \\b
-          (
-            (?:
-              has
-              |is
-              |same
-            )_guardian
-          )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.health.ck2'
-        match: '(?xi)
-          \\b
-          (
-            (?:base_)?health
-            |death_reason
-            |has_(?:
-              any_symptom
-              |disease
-              |epidemic
-            )
-            |immortal
-            |is_(?:
-              alive
-              |ill
-              |incapable
-            )
-            |num_of_symptoms
-            |symptom
-          )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.holdings.ck2.ck2'
-        match: '(?xi)
-          \\b
-          (
-            has_(?:
-              building
-              |settlement_construction
-            )
-            |holding_type
-            |num_of_buildings
-          )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.jobs.ck2.ck2'
-        match: '(?xi)
-          \\b
-          (
-            can_swap_job_title
-            |has_(?:
-              job_action|job_title
-            )
-            |is_(?:
-              councillor
-              |treasurer
-            )
-          )
-          \\b
-          '
-      }
-      {
-        name: 'variable.language.condition.marriage.ck2'
-        match: '(?xi)
-          \\b
-          (
-            can_marry
-            |has_lover
-            |is_(?:
-              betrothed
-              |consort
-              |(?:former_)?lover
-              |main_spouse
-              |marri(?:
-                age_adult
-                |ed(_matrilineally)?
+            |(
+              faction_(?:
+                exists
+                |power
               )
-              |valid_(?:
-                attraction
-                |romance_target
+              |(?:
+                in
+                |leads
+              )_faction
+              |num_of_faction_backers
+            )
+            |(
+              dynast(?:
+                ic_prestige
+                |y_realm_power
+              )
+              |family
+              |father_of_unborn_known
+              |from_ruler_dynasty
+              |is_(?:
+                child_of
+                |close_relative
+                |father(?:_real_father)?
+                |mother
+                |reincarnated
+              )
+              |num_of_(?:
+                children
+                |dynasty_members
+              )
+              |sibling
+              |was_conceived_a_bastard
+            )
+            |(
+              government
+              |has_(?:
+                crown_law_title
+                |law
+              )
+              |is_(?:
+                allowed_holding_type
+                |feudal
+                |government_potential
+                |(?:merchant_)?republic
+                |nomadic
+                |patrician
+                |theocracy
+                |tribal
+              )
+              |num_of_government_vassals
+              |would_be_heir_under_law
+            )
+            |(
+              (?:
+                has
+                |is
+                |same
+              )_guardian
+            )
+            |(
+              (?:base_)?health
+              |death_reason
+              |has_(?:
+                any_symptom
+                |disease
+                |epidemic
+              )
+              |immortal
+              |is_(?:
+                alive
+                |ill
+                |incapable
+              )
+              |num_of_symptoms
+              |symptom
+            )
+            |(
+              has_(?:
+                building
+                |settlement_construction
+              )
+              |holding_type
+              |num_of_buildings
+            )
+            |(
+              can_swap_job_title
+              |has_(?:
+                job_action|job_title
+              )
+              |is_(?:
+                councillor
+                |treasurer
               )
             )
-            |num_of_(?:
-              consorts
-              |lovers
-              |society_members
-              |spouses
+            |(
+              can_marry
+              |has_lover
+              |is_(?:
+                betrothed
+                |consort
+                |(?:former_)?lover
+                |main_spouse
+                |marri(?:
+                  age_adult
+                  |ed(_matrilineally)?
+                )
+                |valid_(?:
+                  attraction
+                  |romance_target
+                )
+              )
+              |num_of_(?:
+                consorts
+                |lovers
+                |society_members
+                |spouses
+              )
             )
           )
           \\b
+          (?=\\s*\\=)
           '
       }
       {
@@ -3463,46 +3390,48 @@ repository:
       {
         name: 'variable.language.condition.objectives.ck2'
         match: '(?xi)
-        \\b
-        (
-          has_(?:
-            ambition
-            |focus
-            |objective
-            |plot
+          \\b
+          (
+            has_(?:
+              ambition
+              |focus
+              |objective
+              |plot
+            )
+            |is_plot_(?:
+              active
+              |target_of
+            )
+            |num_of_plot_backers
+            |plot_(?:
+              is_known_by
+              |power(?:_contribution)?
+            )
           )
-          |is_plot_(?:
-            active
-            |target_of
-          )
-          |num_of_plot_backers
-          |plot_(?:
-            is_known_by
-            |power(?:_contribution)?
-          )
-        )
-        \\b'
+          \\b
+        '
       }
       {
         name: 'variable.language.condition.opinion.ck2'
         match: '(?xi)
-        \\b
-        (
-          likes_better_than
-          |(?:reverse_)?has_
+          \\b
           (
-            (?<!reverse_has_)non_aggression_pact_with
-            |opinion_modifier
+            likes_better_than
+            |(?:reverse_)?has_
+            (
+              (?<!reverse_has_)non_aggression_pact_with
+              |opinion_modifier
+            )
+            |(?:
+              (?:reverse_)?personal_
+              |clan_
+              |their_
+              |reverse_
+            )?opinion(?:(?<!_opinion)_levy_raised_days)?
+            |(?:(?:reverse_)?personal_)?opinion_diff
           )
-          |(?:
-            (?:reverse_)?personal_
-            |clan_
-            |their_
-            |reverse_
-          )?opinion(?:(?<!_opinion)_levy_raised_days)?
-          |(?:(?:reverse_)?personal_)?opinion_diff
-        )
-        \\b'
+          \\b
+        '
       }
       {
         name: 'variable.language.condition.provinces.ck2'
