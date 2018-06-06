@@ -732,7 +732,7 @@ repository:
             name: 'storage.type.class.codetag'
             captures:
               1: name: 'punctuation.definition.codetag.at-sign'
-              2: name: 'entity.name.codetag.$2'
+              2: name: 'entity.name.codetag.${2:/downcase}'
               3: name: 'entity.type.codetag.todo'
               4: name: 'entity.type.codetag.fixme'
               5: name: 'entity.type.codetag.bug'
