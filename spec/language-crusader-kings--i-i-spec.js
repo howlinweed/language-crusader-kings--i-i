@@ -44,14 +44,14 @@ describe("CK2 grammar", function() {
     let tokens = grammar.tokenizeLine("# TODO").tokens;
     expect(tokens[0]).toEqual({value: "#", scopes:[root, "comment.line.number-sign.ck2", "meta.comment.line.number-sign.ck2", "punctuation.definition.comment.number-sign.ck2"]});
     expect(tokens[1]).toEqual({value: " ", scopes:[root, 'comment.line.number-sign.ck2', "meta.comment.line.number-sign.ck2"]});
-    expect(tokens[2]).toEqual({value: "TODO", scopes:[root, "comment.line.number-sign.ck2", "meta.comment.line.number-sign.ck2", "storage.type.class.codetag", "entity.name.codetag.TODO", "entity.type.codetag.todo"]});
+    expect(tokens[2]).toEqual({value: "TODO", scopes:[root, "comment.line.number-sign.ck2", "meta.comment.line.number-sign.ck2", "storage.type.class.codetag", "entity.name.codetag.todo", "entity.type.codetag.todo"]});
   });
 
   it("tokenizes codetag synonyms in comments", () => {
     let tokens = grammar.tokenizeLine("# DONE").tokens;
     expect(tokens[0]).toEqual({value: "#", scopes:[root, "comment.line.number-sign.ck2", "meta.comment.line.number-sign.ck2", "punctuation.definition.comment.number-sign.ck2"]});
     expect(tokens[1]).toEqual({value: " ", scopes:[root, 'comment.line.number-sign.ck2', "meta.comment.line.number-sign.ck2"]});
-    expect(tokens[2]).toEqual({value: "DONE", scopes:[root, "comment.line.number-sign.ck2", "meta.comment.line.number-sign.ck2", "storage.type.class.codetag", "entity.name.codetag.DONE", "entity.type.codetag.todo"]});
+    expect(tokens[2]).toEqual({value: "DONE", scopes:[root, "comment.line.number-sign.ck2", "meta.comment.line.number-sign.ck2", "storage.type.class.codetag", "entity.name.codetag.done", "entity.type.codetag.todo"]});
   });
 
   it("tokenizes double quoted strings", () => {
